@@ -1,108 +1,53 @@
 import math
 
-from hal import (
-    SimulatorAdapter,
-    MockHardwareAdapter,
-)
-
+from hal import MockHardwareAdapter, SimulatorAdapter, VehicleHAL
 from vehicle_model import (
-    VehicleState,
+    KinematicBicycleModel,
     VehicleCommand,
     VehicleParams,
-    KinematicBicycleModel,
+    VehicleState,
 )
 
 
 def run_vehicle(
-        vehicle,
-        command,
-        dt=0.1,
-        steps=10
-):
-
+    vehicle: VehicleHAL,
+    command: VehicleCommand,
+    dt: float = 0.1,
+    steps: int = 10,
+) -> VehicleState:
     vehicle.apply_command(command)
-
+    state = vehicle.get_state()
     for _ in range(steps):
         state = vehicle.step(dt)
-
     return state
 
 
-# =========================
-# Vehicle Model
-# =========================
+def main() -> None:
+    params = VehicleParams(
+        wheel_base=2.8,
+        max_steer=math.radians(35),
+        max_accel=3.0,
+        max_decel=6.0,
+        max_speed=40.0,
+    )
+    model = KinematicBicycleModel(params)
+    initial_state = VehicleState(x=0.0, y=0.0, psi=0.0, v=10.0)
+    command = VehicleCommand(delta=math.radians(10), a=2.0)
 
-params = VehicleParams(
-    wheel_base=2.8,
-    max_steer=math.radians(35),
-    max_accel=3.0,
-    max_decel=6.0,
-    max_speed=40.0,
-    min_speed=0.0
-)
+    backends: list[tuple[str, VehicleHAL]] = [
+        ("SimulatorAdapter", SimulatorAdapter(model, initial_state)),
+        ("MockHardwareAdapter", MockHardwareAdapter(model, initial_state)),
+    ]
 
-model = KinematicBicycleModel(
-    params
-)
+    results = []
+    for name, backend in backends:
+        state = run_vehicle(backend, command)
+        results.append(state)
+        print(f"PASS: {name} -> {state}")
 
-
-# =========================
-# Initial State
-# =========================
-
-initial_state = VehicleState(
-    x=0.0,
-    y=0.0,
-    psi=0.0,
-    v=10.0
-)
+    assert results[0] == results[1]
+    print("ADAPTER SWITCH CONTRACT PASS")
 
 
-# =========================
-# Command
-# =========================
-
-command = VehicleCommand(
-    delta=math.radians(10),
-    a=2.0
-)
-
-
-# =========================
-# Two Backends
-# =========================
-
-sim_vehicle = SimulatorAdapter(
-    model=model,
-    initial_state=initial_state
-)
-
-hw_vehicle = MockHardwareAdapter(
-    model=model,
-    initial_state=initial_state
-)
-
-
-# =========================
-# Same Upper-Level Code
-# =========================
-
-sim_result = run_vehicle(
-    sim_vehicle,
-    command
-)
-
-hw_result = run_vehicle(
-    hw_vehicle,
-    command
-)
-
-
-print("Simulator:")
-print(sim_result)
-
-print("\nMock Hardware:")
-print(hw_result)
-
-print("\nMock CAN:")
-print(hw_vehicle.can_tx_log)
+if __name__ == "__main__":
+    main()

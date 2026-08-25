@@ -1,64 +1,69 @@
-# Architecture
+# W01/W02 architecture and contracts
 
-FalconPlan currently covers coordinate handling, a classical vehicle model,
-and a small hardware abstraction layer. Planning and control modules will be
-added in later stages.
+## Dependency rule
 
-## Dependency direction
-
-```text
-Coordinate System
-       |
-       v
-Vehicle Model
-       |
-       v
-HAL
-       |
-       v
-future Behavior / Planning / Control
-```
-
-The lower layers provide shared state and execution interfaces. Future modules
-should depend on those interfaces instead of selecting a simulator or hardware
-backend directly.
-
-## Coordinate System
-
-`coordinate_system` defines World, Body, and Frenet data types. It includes
-point transforms, a smooth reference line, and conversions between world and
-Frenet vehicle states.
-
-The coordinate layer does not make behavior or trajectory decisions.
-
-## Vehicle Model
-
-`vehicle_model` defines `VehicleState`, `VehicleCommand`, and `VehicleParams`.
-`KinematicBicycleModel` advances the state with Euler or RK4 integration and
-applies the configured steering, acceleration, braking, and speed limits.
-
-The model is shared by the current backends so their state transitions use the
-same equations.
-
-## Hardware abstraction layer
+Upper-level behavior, planning, and control code receives project-owned state
+types and a `VehicleHAL`. It must not import a simulator API or hardware driver.
+Backend-specific conversion remains inside an adapter.
 
 ```text
-VehicleHAL
-|-- SimulatorAdapter
-`-- MockHardwareAdapter
+coordinate_system + vehicle_model
+              |
+future behavior / planning / control
+              |
+          VehicleHAL
+          /        \
+ SimulatorAdapter  MockHardwareAdapter
 ```
 
-`VehicleHAL` defines the command, step, and state interface.
+`SimulatorAdapter` advances the shared kinematic model directly.
+`MockHardwareAdapter` first maps the same bounded `VehicleCommand` to mock
+actuator channels, records a CAN-like payload, then advances a local plant.
+This is a contract test double, not a claim of real vehicle integration.
 
-`SimulatorAdapter` connects that interface to the local vehicle model.
+## Coordinate conventions
 
-`MockHardwareAdapter` maps commands to mock steering, throttle, and brake
-signals, records a mock CAN frame, and advances a local plant model.
+- World: right-handed planar frame; x/y in m, yaw in rad, positive yaw is CCW.
+- Body: origin at the vehicle reference point; x forward and y left.
+- Frenet: s is reference-line arc length in m; d is left-positive normal
+  displacement in m; `d_prime` is dimensionless `dd/ds`.
+- Vehicle: `(x, y, psi)` is the rear-axle pose in World and `v` is longitudinal
+  speed in m/s. `delta` is road-wheel steering in rad, not steering-wheel angle.
 
-## Future modules
+World/Body transforms are rigid SE(2) point transforms. World/Frenet conversion
+projects to the continuous reference spline, uses
+`d'=(1-kappa*d)tan(psi-theta_r)`, and rejects the local Frenet singularity.
 
-Behavior, planning, and control will sit above the existing layers. They are
-roadmap items rather than current modules. Simulator-specific, ROS2, and HIL
-integration can be added as HAL backends without changing their public command
-and state boundary.
+## Vehicle model
 
+The W02 rear-axle kinematic bicycle equations are:
+
+```text
+x_dot   = v cos(psi)
+y_dot   = v sin(psi)
+psi_dot = v tan(delta) / wheel_base
+v_dot   = a
+```
+
+Both explicit Euler and classical RK4 are implemented. Commands are saturated
+before integration and the resulting speed is constrained to configured
+limits. This is intentionally a kinematic model; tire forces, slip, actuator
+delay, and a dynamic bicycle model belong to later scope.
+
+## HAL channel semantics
+
+`VehicleHAL.get_state()` returns the current project-owned `VehicleState`.
+`apply_command()` stores a `VehicleCommand`; `step(dt)` advances one positive
+duration and returns the new state.
+
+For the mock hardware backend:
+
+- steering is bounded road-wheel angle in rad;
+- throttle is normalized to `[0, 1]` for non-negative acceleration;
+- brake is normalized to `[0, 1]` for negative acceleration magnitude;
+- throttle and brake are mutually exclusive;
+- each accepted command appends one dictionary to `can_tx_log`.
+
+The dictionary is deliberately CAN-like rather than a real DBC/frame encoding.
+Real bus transport, timestamps, acknowledgements, watchdogs, and safety states
+are not claimed in W02.

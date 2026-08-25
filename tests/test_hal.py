@@ -11,7 +11,7 @@ from vehicle_model import (
 
 from hal import (
     VehicleHAL,
-    KinematicVehicleHAL,
+    SimulatorAdapter,
 )
 
 
@@ -49,7 +49,7 @@ def vehicle(
     initial_state
 ):
 
-    return KinematicVehicleHAL(
+    return SimulatorAdapter(
         model=model,
         initial_state=initial_state
     )
@@ -129,7 +129,7 @@ def test_hal_matches_direct_model(
         method="rk4"
     )
 
-    vehicle = KinematicVehicleHAL(
+    vehicle = SimulatorAdapter(
         model=model,
         initial_state=initial_state,
         integration_method="rk4"
@@ -208,7 +208,7 @@ def test_hal_supports_euler(
         initial_state
 ):
 
-    vehicle = KinematicVehicleHAL(
+    vehicle = SimulatorAdapter(
         model=model,
         initial_state=initial_state,
         integration_method="euler"

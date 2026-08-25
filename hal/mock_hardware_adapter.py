@@ -31,6 +31,8 @@ class MockHardwareAdapter(VehicleHAL):
         command: VehicleCommand
     ) -> None:
 
+        command = self.model.clamp_command(command)
+
         # steering actuator
         self.steering = command.delta
 
