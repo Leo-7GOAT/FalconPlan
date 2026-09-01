@@ -1,42 +1,66 @@
-# W01/W02 architecture and contracts
+# FalconPlan architecture and contracts
 
-## Dependency rule
-
-Upper-level behavior, planning, and control code receives project-owned state
-types and a `VehicleHAL`. It must not import a simulator API or hardware driver.
-Backend-specific conversion remains inside an adapter.
+## Layering
 
 ```text
-coordinate_system + vehicle_model
-              |
-future behavior / planning / control
-              |
-          VehicleHAL
-          /        \
- SimulatorAdapter  MockHardwareAdapter
+traffic / road state
+    -> prediction and risk metrics
+    -> behavior FSM + IDM + MOBIL
+    -> lane/speed/horizon objective
+    -> Frenet lattice generation
+    -> feasibility, World projection, collision, and cost filters
+    -> selected World-frame trajectory
+    -> future closed-loop tracking
+    -> VehicleHAL -> simulator or mock-hardware adapter
 ```
 
-`SimulatorAdapter` advances the shared kinematic model directly.
-`MockHardwareAdapter` first maps the same bounded `VehicleCommand` to mock
-actuator channels, records a CAN-like payload, then advances a local plant.
-This is a contract test double, not a claim of real vehicle integration.
+Algorithm code consumes project-owned state types. Backend conversion stays
+inside `VehicleHAL` adapters; planning code does not import a simulator or
+hardware transport.
 
 ## Coordinate conventions
 
 - World: right-handed planar frame; x/y in m, yaw in rad, positive yaw is CCW.
-- Body: origin at the vehicle reference point; x forward and y left.
-- Frenet: s is reference-line arc length in m; d is left-positive normal
-  displacement in m; `d_prime` is dimensionless `dd/ds`.
-- Vehicle: `(x, y, psi)` is the rear-axle pose in World and `v` is longitudinal
-  speed in m/s. `delta` is road-wheel steering in rad, not steering-wheel angle.
+- Body: origin at the rear-axle reference point; x forward and y left.
+- Frenet: s is reference-line arc length, d is left-positive displacement, and
+  `d_prime = dd/ds`.
+- Vehicle: `(x, y, psi)` is the rear-axle World pose and `v` is longitudinal
+  speed. `delta` is road-wheel steering, not steering-wheel angle.
 
-World/Body transforms are rigid SE(2) point transforms. World/Frenet conversion
-projects to the continuous reference spline, uses
-`d'=(1-kappa*d)tan(psi-theta_r)`, and rejects the local Frenet singularity.
+World/Body transforms are rigid SE(2) transforms. World/Frenet conversion
+projects to the continuous reference spline and rejects local singularities.
 
-## Vehicle model
+## Behavior contracts
 
-The W02 rear-axle kinematic bicycle equations are:
+`BehaviorPlanner` combines current and predicted TTC/THW risk, IDM
+longitudinal acceleration, MOBIL lane-change evaluation, and a hysteretic FSM.
+The result is a behavior-level decision; it is not itself a geometric or
+trajectory plan.
+
+## Frenet lattice contracts
+
+`FrenetLatticePlanner` receives initial Frenet derivatives, lane centers,
+terminal-speed samples, duration samples, a desired lateral/speed objective,
+and circular obstacles. It returns a selected `FrenetTrajectory`, a cost
+breakdown, and candidate counts from each filter stage.
+
+The pipeline is:
+
+1. sample lateral targets near configured lane centers;
+2. construct quintic lateral and quartic longitudinal trajectories;
+3. enforce Frenet speed, acceleration, and jerk limits;
+4. project each survivor to World `(x, y, yaw)` and estimate curvature;
+5. enforce World curvature limits;
+6. perform swept-segment collision checks using vehicle radius, obstacle radius,
+   and safety margin;
+7. rank the remaining candidates by weighted objective cost.
+
+If any hard-filter stage produces no candidates, the planner raises a clear
+`RuntimeError`; it does not return a colliding or infeasible fallback.
+
+## Vehicle model and HAL
+
+The rear-axle kinematic bicycle model is:
 
 ```text
 x_dot   = v cos(psi)
@@ -45,25 +69,17 @@ psi_dot = v tan(delta) / wheel_base
 v_dot   = a
 ```
 
-Both explicit Euler and classical RK4 are implemented. Commands are saturated
-before integration and the resulting speed is constrained to configured
-limits. This is intentionally a kinematic model; tire forces, slip, actuator
-delay, and a dynamic bicycle model belong to later scope.
+Euler and RK4 integration are available. Commands are saturated before
+integration. `SimulatorAdapter` advances the shared model directly;
+`MockHardwareAdapter` maps the same command to mutually exclusive normalized
+throttle/brake channels and a bounded CAN-like steering payload before
+advancing a local plant.
 
-## HAL channel semantics
+## Current limitations
 
-`VehicleHAL.get_state()` returns the current project-owned `VehicleState`.
-`apply_command()` stores a `VehicleCommand`; `step(dt)` advances one positive
-duration and returns the new state.
-
-For the mock hardware backend:
-
-- steering is bounded road-wheel angle in rad;
-- throttle is normalized to `[0, 1]` for non-negative acceleration;
-- brake is normalized to `[0, 1]` for negative acceleration magnitude;
-- throttle and brake are mutually exclusive;
-- each accepted command appends one dictionary to `can_tx_log`.
-
-The dictionary is deliberately CAN-like rather than a real DBC/frame encoding.
-Real bus transport, timestamps, acknowledgements, watchdogs, and safety states
-are not claimed in W02.
+- Static circular obstacles only in W04 planning; no time-indexed prediction or
+  online replanning loop.
+- Kinematic point/reference model; no tire-force, slip, delay, or dynamic
+  bicycle model.
+- No implemented closed-loop tracker for the selected trajectory.
+- No production CAN transport, watchdog, fault state, or safety case.
