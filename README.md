@@ -89,7 +89,7 @@ Fresh run on Python 3.10.11 / Windows using
 
 | Scenario | Generated | Frenet feasible | World feasible | Collision-free | Selected result |
 | --- | ---: | ---: | ---: | ---: | --- |
-| Normal left-lane objective | 72 | 52 | 52 | 52 | `d=3.5 m`, `v=25.0 m/s`, `T=3.5 s`, max `|kappa|=0.007797 1/m` |
+| Normal left-lane objective | 72 | 52 | 52 | 52 | `d=3.5 m`, `v=25.0 m/s`, `T=3.5 s`, max absolute curvature `0.007797 1/m` |
 | Obstacle on original best | 72 | 52 | 52 | 20 | collision-free fallback at `d=0.0 m`, `v=25.0 m/s`, `T=2.5 s` |
 
 The second scenario places a circular obstacle on the original best trajectory.
