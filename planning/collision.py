@@ -79,6 +79,24 @@ def point_to_segment_distance(
         py - closest_y,
     )
 
+    projection = (
+                         (px - x1) * dx
+                         + (py - y1) * dy
+                 ) / length_sq
+
+    projection = max(
+        0.0,
+        min(1.0, projection),
+    )
+
+    closest_x = x1 + projection * dx
+    closest_y = y1 + projection * dy
+
+    math.hypot(
+        px - closest_x,
+        py - closest_y,
+    )
+
 def trajectory_collides(
     trajectory,
     obstacles: list[CircularObstacle],

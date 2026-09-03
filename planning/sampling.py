@@ -34,3 +34,4 @@ def sample_lateral_targets(
     return sorted(
         set(targets)
     )
+

@@ -93,3 +93,13 @@ def filter_feasible_trajectories(
             constraints,
         )
     ]
+
+constraints = TrajectoryConstraints(
+    max_speed=30.0,
+
+    max_longitudinal_accel=3.0,
+    max_longitudinal_jerk=5.0,
+
+    max_lateral_accel=2.5,
+    max_lateral_jerk=8.0,
+)

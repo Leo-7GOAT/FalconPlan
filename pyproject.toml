@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "falconplan"
-version = "0.4.0"
-description = "Autonomous-driving behavior and Frenet lattice planning portfolio"
+version = "0.0.2"
+description = "W01-W02 vehicle modeling, coordinate, and HAL foundation"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 dependencies = [
     "numpy>=1.24",
     "scipy>=1.10",
@@ -18,13 +18,7 @@ dependencies = [
 dev = ["pytest>=7.4"]
 
 [tool.setuptools.packages.find]
-include = [
-    "behavior*",
-    "coordinate_system*",
-    "hal*",
-    "planning*",
-    "vehicle_model*",
-]
+include = ["coordinate_system*", "hal*", "vehicle_model*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

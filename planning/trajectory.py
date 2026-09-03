@@ -186,3 +186,4 @@ def generate_candidate_trajectories(
                 )
 
     return trajectories
+
