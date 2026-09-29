@@ -83,6 +83,25 @@ class ControlTrajectory:
             curvature=trajectory.curvature,
         )
 
+    @classmethod
+    def from_time_parameterized_trajectory(
+        cls,
+        trajectory,
+    ):
+
+        return cls(
+            x=trajectory.x,
+            y=trajectory.y,
+            yaw=trajectory.yaw,
+
+            speed=trajectory.speed,
+            acceleration=(
+                trajectory.acceleration
+            ),
+
+            curvature=trajectory.curvature,
+        )
+
     def __len__(self) -> int:
 
         return len(

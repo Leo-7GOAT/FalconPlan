@@ -5,7 +5,7 @@ behavior planning, collision-aware motion planning, closed-loop control, vehicle
 dynamics, and hardware abstraction in one reviewable Python codebase.**
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-388%20passing-2ea44f)
+![Tests](https://img.shields.io/badge/tests-454%20passing-2ea44f)
 ![Focus](https://img.shields.io/badge/focus-planning%20%7C%20control-orange)
 
 FalconPlan is a portfolio project for exploring the engineering boundaries
@@ -26,6 +26,7 @@ command delay, controller instability, and backend coupling.
 | Prediction and risk | Constant-velocity / constant-acceleration prediction, TTC, THW, horizon risk assessment | Explicit time-indexed predictions and risk levels |
 | Behavior planning | Hysteretic FSM, IDM longitudinal control, MOBIL lane-change evaluation | Safe, beneficial, and stable maneuver decisions |
 | Motion planning | Quintic lateral and quartic longitudinal polynomials, Frenet lattice sampling, weighted cost selection | Hard constraints remain separate from soft ranking |
+| ST speed planning | Dynamic-obstacle ST boundaries, grid occupancy, continuous edge collision checks, kinematic transition constraints, DP speed search | Converts coarse dynamic-obstacle avoidance into a time-indexed speed profile |
 | Safety filtering | Speed, acceleration, jerk, curvature, and swept-segment collision checks | Unsafe candidates are rejected before optimization |
 | Vehicle control | Longitudinal PID, Stanley and discrete-time LQR lateral control, trajectory tracking | Closed-loop tracking with measurable error |
 | Actuation and supervision | Steering angle/rate limits, command delay, saturation metrics, stability criteria, watchdog | Failure detection and bounded control outputs |
@@ -41,8 +42,10 @@ flowchart LR
     D --> E[Quintic / quartic<br/>trajectory generation]
     E --> F[Dynamic and curvature<br/>feasibility filters]
     F --> G[World projection and<br/>collision filtering]
-    G --> H[Cost ranking and<br/>selected trajectory]
-    H --> I[PID + Stanley / LQR<br/>trajectory tracker]
+    G --> H[Cost ranking and<br/>selected geometry]
+    H --> S[ST boundary + grid<br/>DP speed planning]
+    S --> T[Speed profile +<br/>time parameterization]
+    T --> I[PID + Stanley / LQR<br/>trajectory tracker]
     I --> J[Delay, saturation,<br/>actuator and watchdog]
     J --> K[VehicleHAL]
     K --> L[SimulatorAdapter]
@@ -63,7 +66,7 @@ scenario results, not generalized vehicle-performance claims.
 
 | Scenario | Result |
 | --- | --- |
-| Full regression suite | **388 tests passed** |
+| Full regression suite | **454 tests passed** |
 | Nominal lattice planning | 72 candidates generated; 52 passed Frenet and World constraints |
 | Obstacle on the preferred path | Collision filtering reduced the set to 20 candidates and selected a safe keep-lane fallback |
 | Curved-path closed-loop tracking | Stanley: **0.457 m** CTE RMSE; LQR: **0.337 m** CTE RMSE |
@@ -77,6 +80,7 @@ python -m demos.behavior_planner_demo
 python -m demos.lattice_planner_demo
 python -m demos.control_stack_demo
 python -m demos.control_stack_hal_demo
+python -m demos.w06_dp_speed_planner_demo
 ```
 
 Matplotlib demos open interactive figures when a GUI backend is available. For
@@ -141,8 +145,8 @@ against invalid or singular coordinate states.
 
 ```text
 behavior/           prediction, risk metrics, FSM, IDM, MOBIL, orchestration
-planning/           polynomial trajectories, lattice search, constraints,
-                    World projection, collision checks, and cost ranking
+planning/           polynomial/lattice geometry planning, ST boundaries and grid,
+                    DP speed search, speed profiles, time parameterization, collision checks
 control/            PID, Stanley, LQR, tracking, actuation, delay, watchdog
 coordinate_system/  World / Body / Frenet models and transformations
 vehicle_model/      vehicle state, command, parameters, bicycle dynamics
@@ -190,6 +194,7 @@ python -m pytest -q
 | `python -m demos.stanley_vs_lqr_delay_actuator_demo` | Controller response with delay and actuator limits |
 | `python -m demos.control_stack_demo` | Integrated longitudinal/lateral closed-loop tracking |
 | `python -m demos.control_stack_hal_demo` | Identical control logic across two HAL backends |
+| `python -m demos.w06_dp_speed_planner_demo` | Dynamic-obstacle ST graph, DP speed search, and acceleration profile |
 | `python -m demos.delay_stability_watchdog_demo` | Stability acceptance and watchdog behavior under delay |
 
 ## Test strategy
@@ -202,6 +207,8 @@ The suite covers more than nominal outputs:
   interpolation, vehicle integration, and LQR/Stanley behavior.
 - Planner regressions for constraint rejection, collision fallback, and cost
   selection.
+- ST planning regressions for boundary interpolation, grid occupancy, continuous
+  edge collision checks, kinematic transition feasibility, DP search, and speed-profile conversion.
 - Integration tests across planner output, trajectory tracking, vehicle model,
   actuator semantics, and both HAL adapters.
 - Failure-path tests for invalid inputs, saturation, delay, watchdog triggers,
@@ -211,7 +218,8 @@ The suite covers more than nominal outputs:
 
 FalconPlan is an educational and portfolio implementation, not production
 autonomous-driving software. It currently uses a kinematic bicycle model and
-known static circular obstacles in its lattice-planning demos. It does not claim
+known static circular obstacles in its lattice-planning demos plus constant-velocity
+predicted dynamic obstacles in its ST speed-planning demos. It does not claim
 CARLA/ROS2 integration, real CAN transport, perception, localization, online
 dynamic-obstacle replanning, high-fidelity tire dynamics, or road-vehicle safety
 certification.
