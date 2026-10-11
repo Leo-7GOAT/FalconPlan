@@ -1,0 +1,14 @@
+{
+  "status": "PASS_UNIT",
+  "seed": 42,
+  "samples": 1000,
+  "max_absolute_error": 1.4210854715202004e-14,
+  "python_microseconds": {
+    "p50": 13.866,
+    "p95": 25.35,
+    "p99": 40.85499999999999
+  },
+  "cpp_process_and_text_io_ms": 11.310109,
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "note": "C++ total includes process launch and text I/O; not a kernel speedup claim"
+}
