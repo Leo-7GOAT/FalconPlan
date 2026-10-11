@@ -1,0 +1,15 @@
+{
+  "source": "REAL_CARLA_RGB_CALLBACK",
+  "frames": 55,
+  "resolution": [
+    480,
+    270
+  ],
+  "target_display_fps": 5,
+  "first_run_time_s": 0.0999998226761818,
+  "last_run_time_s": 11.899999998509884,
+  "full_simulation_seconds": 12.0,
+  "playback": "Sensor timestamp intervals, no artificial motion/interpolation",
+  "capture_pacing": "Wait for GPU callback within four physics frames; affects wall timing only",
+  "gif_sha256": "4a0c42354f074fe3eace7ef13abeaec21397cc869f41ca73c1dccfbfbb32d0bf"
+}

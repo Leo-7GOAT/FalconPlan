@@ -1,0 +1,14 @@
+{
+  "source_sha256": {
+    "demos/carla_record_gallery.py": "c0fba394fd01d8837eda51f4bec15804d77dde4ee86686bec2019575b5ff26c1",
+    "demos/carla_regression.py": "a12cea0ecebaaca68f9ea5d661fe038e08c9c3cea3b4de7630899374882cf9f1",
+    "hal/carla_adapter.py": "ab1bf4f3097229549f90f7c7abe67dc36f076a69ea461e6c07da75f47d01c85d",
+    "hal/carla_sensors.py": "0844dbda92bc532b469cd56523a56f2b6aa9536780dbd348696df5672a1623ab",
+    "tests/test_carla_record_gallery.py": "8eac17f4094bc6225806074e190fd45cde3b0fde36c931b2a07ec330597b9c16"
+  },
+  "command": "FALCON_PLANNING_CPP_LIBRARY=/home/leo/falcon-release/libfalcon_c.so python3 -m demos.carla_record_gallery --cpp-lib /home/leo/falcon-release/libfalcon_c.so --output artifacts/readme_gallery_v1",
+  "recording_cli_exit_code": 1,
+  "exit_reason": "All six complete physical envelopes remain PARTIAL; camera and motion acceptance are separate",
+  "hardware_enabled": false,
+  "scope": "New actual camera reruns. Existing algorithm/Safety code is unchanged."
+}
