@@ -192,4 +192,3 @@ def main():
     finally:world.apply_settings(original)
     if any(r['status']!='PASS_REAL_SIM' for r in results):raise SystemExit(1)
 if __name__=='__main__':main()
-

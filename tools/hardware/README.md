@@ -91,3 +91,5 @@ python -m tools.hardware.profile --output artifacts/regression_profile.json -- p
 This records exit status, wall time, kernel-accounted child CPU time and sampled
 process-tree RSS. Summed RSS can repeat shared pages and sampling can miss short
 peaks. It describes the named command on the recorded host, not Raspberry Pi HIL.
+
+Staging creates a fully isolated virtual environment, upgrades its build tools, installs declared dependencies, checks dependency consistency, builds/tests the C++ core and runs the Python regression. CMake, a C++17 compiler and the documented GoogleTest/Eigen dependencies must be installed. Failed releases remain unselectable; logs and the prior selection are preserved. These checks do not launch a hardware process or validate a target Pi.

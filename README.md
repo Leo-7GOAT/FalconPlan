@@ -1,229 +1,101 @@
 # FalconPlan
 
-**A compact, test-driven autonomous-driving stack that connects prediction,
-behavior planning, collision-aware motion planning, closed-loop control, vehicle
-dynamics, and hardware abstraction in one reviewable Python codebase.**
+Vehicle planning and control engineering that connects classical algorithms, a numerically verified C++17 core, ROS 2 safety transport and **real CARLA 0.9.15 physics**. Current delivery: a verified software stage; physical deployment and Raspberry Pi HIL are **PENDING_HARDWARE**.
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-454%20passing-2ea44f)
-![Focus](https://img.shields.io/badge/focus-planning%20%7C%20control-orange)
-
-FalconPlan is a portfolio project for exploring the engineering boundaries
-between autonomous-driving algorithms. Rather than presenting isolated
-notebooks, it carries explicit state, frame, constraint, and actuator contracts
-through an end-to-end pipeline—from surrounding-vehicle prediction to the
-command applied to a vehicle model.
-
-The implementation is intentionally small enough to inspect in an interview,
-while still exposing the failure modes that matter in a real stack: unsafe lane
-changes, infeasible trajectories, obstacle collisions, actuator saturation,
-command delay, controller instability, and backend coupling.
-
-## What is implemented
-
-| Layer | Algorithms and components | Engineering focus |
-| --- | --- | --- |
-| Prediction and risk | Constant-velocity / constant-acceleration prediction, TTC, THW, horizon risk assessment | Explicit time-indexed predictions and risk levels |
-| Behavior planning | Hysteretic FSM, IDM longitudinal control, MOBIL lane-change evaluation | Safe, beneficial, and stable maneuver decisions |
-| Motion planning | Quintic lateral and quartic longitudinal polynomials, Frenet lattice sampling, weighted cost selection | Hard constraints remain separate from soft ranking |
-| ST speed planning | Dynamic-obstacle ST boundaries, grid occupancy, continuous edge collision checks, kinematic transition constraints, DP speed search | Converts coarse dynamic-obstacle avoidance into a time-indexed speed profile |
-| Safety filtering | Speed, acceleration, jerk, curvature, and swept-segment collision checks | Unsafe candidates are rejected before optimization |
-| Vehicle control | Longitudinal PID, Stanley and discrete-time LQR lateral control, trajectory tracking | Closed-loop tracking with measurable error |
-| Actuation and supervision | Steering angle/rate limits, command delay, saturation metrics, stability criteria, watchdog | Failure detection and bounded control outputs |
-| Vehicle and integration | Rear-axle kinematic bicycle model, Euler/RK4 integration, simulator and mock-hardware HAL adapters | Backend-neutral algorithm code and CAN-like command semantics |
-
-## End-to-end architecture
+中文导航：[基线](docs/BASELINE_AUDIT.md) · [仿真与性能](docs/SIMULATION_BENCHMARK.md) · [硬件准备](docs/HARDWARE_READINESS.md) · [验收报告](docs/FINAL_DELIVERY_REPORT.md) · [面试说明](docs/INTERVIEW_TECHNICAL_GUIDE.md)
 
 ```mermaid
 flowchart LR
-    A[Road reference<br/>ego and traffic state] --> B[CV / CA prediction<br/>TTC and THW risk]
-    B --> C[Behavior planner<br/>FSM + IDM + MOBIL]
-    C --> D[Frenet lattice<br/>lane, speed, horizon samples]
-    D --> E[Quintic / quartic<br/>trajectory generation]
-    E --> F[Dynamic and curvature<br/>feasibility filters]
-    F --> G[World projection and<br/>collision filtering]
-    G --> H[Cost ranking and<br/>selected geometry]
-    H --> S[ST boundary + grid<br/>DP speed planning]
-    S --> T[Speed profile +<br/>time parameterization]
-    T --> I[PID + Stanley / LQR<br/>trajectory tracker]
-    I --> J[Delay, saturation,<br/>actuator and watchdog]
-    J --> K[VehicleHAL]
-    K --> L[SimulatorAdapter]
-    K --> M[MockHardwareAdapter]
-    L --> N[Kinematic bicycle model]
-    M --> N
-    N -. closed-loop state feedback .-> I
+ A[Stamped actor state / GNSS / IMU] --> B[CV / CA + FSM / IDM / MOBIL]
+ B --> C[Frenet lattice + collision filtering]
+ C --> D[ST DP → corridor → OSQP QP]
+ D --> E[Time parameterization → longitudinal MPC]
+ E --> F[Stanley / LQR / PID]
+ F --> G[Latched software safety]
+ G --> H[VehicleHAL / ROS 2 Ackermann]
+ H --> I[REAL CARLA 0.9.15]
+ I --> A
 ```
 
-The key dependency rule is that planning and control consume domain-level
-states and commands; they do not depend on a particular simulator or hardware
-transport. This keeps algorithm behavior testable across both HAL backends.
+![Actual CARLA Town10HD RGB sensor](artifacts/carla/static_obstacle_seed7/screenshot.png)
 
-## Reproducible evidence
+[Real simulation GIF](artifacts/carla/static_obstacle_seed7/simulation.gif) · [Analytical dynamics comparison](artifacts/dynamics/comparison.png)
 
-The following results come from fresh runs on Python 3.11. They are deterministic
-scenario results, not generalized vehicle-performance claims.
+![Measured CARLA trajectory, speed, acceleration and runtime](artifacts/portfolio/carla_measured_benchmark.png)
 
-| Scenario | Result |
-| --- | --- |
-| Full regression suite | **454 tests passed** |
-| Nominal lattice planning | 72 candidates generated; 52 passed Frenet and World constraints |
-| Obstacle on the preferred path | Collision filtering reduced the set to 20 candidates and selected a safe keep-lane fallback |
-| Curved-path closed-loop tracking | Stanley: **0.457 m** CTE RMSE; LQR: **0.337 m** CTE RMSE |
-| HAL parity run | Simulator and mock-hardware adapters produced **zero final-state difference** over 251 commands |
+## Implementation and measured evidence
 
-Reproduce the core checks:
+| Layer | Implementation | Verified boundary |
+|---|---|---|
+| Prediction / behavior | CV/CA, TTC/THW, FSM, IDM, MOBIL | Actor-level truth; no perception claim |
+| Planning | Frenet lattice, quartic/quintic, segment collision, dynamic ST projection, DP, corridor, OSQP QP | Unit tests and online real-simulator orchestration |
+| Control | PID anti-windup, Stanley, LQR, receding longitudinal MPC | Solver limits and physical plant limits evaluated separately |
+| Dynamics | Kinematic RK4, friction-limited dynamic bicycle, delayed first-order actuators | Analytical model experiments separately labeled |
+| C++17 | State/command/path structures, PID, Stanley, RK4, nearest-path search, constant jerk, checked C ABI | 6 GoogleTests Release and ASan/UBSan; 1,000 parity samples and 10,000 in-process calls |
+| Safety | Timestamp expiry, geofence, speed/steering/rate limits, manual, latched software E-stop | Software / simulator stop only |
+| Real I/O | CARLA spawn/destroy, sync tick, ground-truth actors, control, collision/RGB/GNSS/IMU | Real 0.9.15 engine; estimator diagnostics separate from control |
+| ROS 2 | Humble Ackermann/Odometry, TF, safety services, CARLA bridge, rosbag | Real ROS transport; hardware pending |
+| Engineering | Packaging, CPU/RSS profiling, JSONL replay/fault injection, release staging/rollback, CI | CI definitions are not passing badges |
+
+| Checkpoint | Measured result |
+|---|---|
+| Python inherited baseline | 483 passed |
+| Software regression | Windows: **524 passed, 2 Linux-only skips**; WSL: **526 passed** in 6.82 s |
+| Python/C++ parity | Seed 42, 1,000 cases, max absolute difference **1.42e-14** |
+| DP → QP → MPC analytical demo | Position RMSE **0.0521 m**, speed RMSE **0.0297 m/s**, dense ST check passed |
+| CARLA initial PID suite | 7 scenarios × seeds 7/19, 12 s/run, zero collisions after axle-coordinate correction |
+| Online CARLA full-chain checkpoint | Following/static displacement **53.97/61.61 m**, CTE RMSE **0.000127/0.0802 m**, zero collisions; physical acceleration acceptance **PARTIAL** |
+| Updated manual-gear sensor runs | 4 × 20 s: motion/acceleration passed; actual max acceleration **2.89–2.92 m/s²**, GNSS/IMU position RMSE **0.073–0.104 m**; jerk **78–87 m/s³ remains PARTIAL** |
+| C++ in-process full-chain recovery | Following/static seed 7, 20 s each: motion and +3/−6 m/s² acceleration envelope pass, zero collisions; jerk **PARTIAL**, planner P95 **327/87 ms** |
+| Final seven-scene raw regression | 14 × 12 s: motion and ideal-sensor diagnostics pass, zero collisions; **14/14 overall PARTIAL**, with measured jerk and some acceleration limits exceeded |
+| Real ROS → Safety → CARLA | 802 samples; latency P50/P95/P99 **0.641/0.950/1.350 ms**, timer jitter σ **0.348 ms** |
+| Analytical actuator delay | CTE RMSE **0.5876 → 0.3301 m** after gain reduction; 20 m/s low-friction OOD case **FAIL** |
+
+The initial PID acceleration log was clipped and is excluded from physical acceleration claims. Updated runs record raw measurements and command intent separately. Normal final PID scenes exceed the +3 m/s² target; timeout emergency stops reach 23–27 m/s² deceleration and 316–508 m/s³ jerk. Online Python planning runs at 2 Hz; observed P95 can approach 0.5 s. This is synchronous simulator evidence, not a 20 Hz real-time full-stack certification. Latest versioned JSON reports retain tuning failures. The original 16-week acceptance matrix has **8 PASS / 8 PARTIAL (50% week-level PASS)**; this is not an estimate of completed engineering effort.
+
+## Setup and reproduction
+
+Python 3.10+; Windows Python 3.11 for algorithms, Ubuntu 22.04 / WSL Python 3.10 for matching CARLA API and ROS Humble.
 
 ```bash
+python -m pip install -e ".[dev,profiling]"
 python -m pytest -q
-python -m demos.behavior_planner_demo
-python -m demos.lattice_planner_demo
-python -m demos.control_stack_demo
-python -m demos.control_stack_hal_demo
-python -m demos.w06_dp_speed_planner_demo
+MPLBACKEND=Agg python -m demos.w07_dp_qp_speed_demo
+MPLBACKEND=Agg python -m demos.w07_longitudinal_mpc_demo
+python -m demos.dynamics_benchmark
 ```
 
-Matplotlib demos open interactive figures when a GUI backend is available. For
-headless execution, set `MPLBACKEND=Agg`.
-
-## Design highlights
-
-### 1. Decisions use predicted risk, not only the current snapshot
-
-The behavior layer evaluates current and horizon risk using TTC and THW, then
-combines IDM car-following with MOBIL lane-change safety and incentive checks.
-FSM hysteresis prevents a single transient frame from immediately triggering a
-maneuver.
-
-```text
-KEEP_LANE -> FOLLOW -> PREPARE_LANE_CHANGE -> LANE_CHANGE -> KEEP_LANE
-                     \-> EMERGENCY when risk requires it
-```
-
-### 2. Feasibility is a hard gate before cost optimization
-
-For each lane, speed, and duration target, FalconPlan constructs a continuous
-Frenet trajectory from boundary-conditioned polynomials. Candidates are checked
-for longitudinal/lateral dynamics, projected into the World frame, checked for
-curvature and swept-segment obstacle clearance, and only then ranked by cost.
-
-This ordering prevents a low-cost but unsafe trajectory from winning. In the
-included regression scenario, placing an obstacle on the original optimum
-causes that trajectory to be rejected and a collision-free fallback to be
-selected without weakening the safety constraints.
-
-### 3. Controllers are evaluated as a closed-loop system
-
-The control stack couples a speed PID with interchangeable Stanley and LQR
-lateral controllers. The trajectory tracker supplies time- and geometry-aware
-references, while the actuator model adds steering magnitude/rate limits and
-optional command delay. Tracking metrics and acceptance criteria measure CTE,
-heading error, steering demand, saturation, and completion instead of relying
-only on a visually plausible plot.
-
-### 4. Hardware abstraction is behavioral, not cosmetic
-
-`VehicleHAL` exposes the same upper-level command contract to a simulator
-adapter and a mock-hardware adapter. The latter maps acceleration to mutually
-exclusive normalized throttle/brake channels and records bounded CAN-like
-steering payloads. Backend-parity tests verify that switching adapters does not
-change the algorithm-facing state transition.
-
-### 5. Coordinate and vehicle contracts are explicit
-
-- **World:** `x` forward in the map, `y` left, yaw counter-clockwise.
-- **Body:** `x` forward, `y` left, origin at the vehicle reference point.
-- **Frenet:** `s` along the reference line, `d` positive left, with
-  `d_prime = dd/ds`.
-- **Units:** metres, seconds, m/s, m/s², radians, and rad/s.
-
-The reference-line implementation provides continuous World/Body/Frenet
-transforms, approximately arc-length parameterized interpolation, and guards
-against invalid or singular coordinate states.
-
-## Repository map
-
-```text
-behavior/           prediction, risk metrics, FSM, IDM, MOBIL, orchestration
-planning/           polynomial/lattice geometry planning, ST boundaries and grid,
-                    DP speed search, speed profiles, time parameterization, collision checks
-control/            PID, Stanley, LQR, tracking, actuation, delay, watchdog
-coordinate_system/  World / Body / Frenet models and transformations
-vehicle_model/      vehicle state, command, parameters, bicycle dynamics
-hal/                backend-neutral interface and simulator/mock adapters
-demos/              reproducible layer-level and end-to-end scenarios
-tests/              unit, numerical, integration, and regression evidence
-docs/               architecture, contracts, conventions, and scope
-```
-
-## Quick start
-
-Python 3.10 or newer is recommended.
+The Agg prefix is Bash syntax. In PowerShell set `$env:MPLBACKEND='Agg'` first; omit it for interactive plots.
 
 ```bash
-git clone https://github.com/Leo-7GOAT/FalconPlan.git
-cd FalconPlan
-python -m venv .venv
+# WSL; CARLA 0.9.15 server already running on Windows
+python -m pip install -e ".[dev,sim,profiling]"
+python -m demos.carla_regression --host WINDOWS_HOST_IP --steps 240 --seeds 7,19
+python -m demos.carla_regression --host WINDOWS_HOST_IP --steps 400 --seeds 7,19 \
+  --scenarios following,static_obstacle --full-stack --mpc --output artifacts/new_full_stack
+python -m demos.carla_actuator_identification --host WINDOWS_HOST_IP --manual-gear
 ```
 
-Activate the environment and install the dependencies:
+Read WSL's default gateway via `ip route` for the host-specific Windows IP. Only one process may own synchronous ticks. Regression returns nonzero for failed/partial acceptance and keeps its logs.
 
 ```bash
-# Windows PowerShell
-.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-
-# Linux / macOS
-source .venv/bin/activate
-python -m pip install -r requirements.txt
+# Ubuntu: CMake, GCC and libgtest-dev required
+cmake -S cpp -B build/cpp -DCMAKE_BUILD_TYPE=Release
+cmake --build build/cpp -j4
+ctest --test-dir build/cpp --output-on-failure
+python -m tools.cpp_parity --probe build/cpp/core_probe
+python -m tools.cpp_binding_benchmark --library build/cpp/libfalcon_c.so
+cmake -S cpp -B build/asan -DFALCON_SANITIZE=ON -DCMAKE_BUILD_TYPE=Debug
+cmake --build build/asan -j4
+ctest --test-dir build/asan --output-on-failure
 ```
 
-Then run the regression suite:
+[ROS execution scripts](ros2/) · [Commissioning, recording, calibration, replay and rollback](tools/hardware/README.md)
 
-```bash
-python -m pytest -q
-```
+The CARLA driver optionally executes the C++ Stanley kernel in process with `--cpp-lib build/cpp/libfalcon_c.so`. Python remains responsible for the lattice/DP/QP/MPC executive. This is a numerical control-kernel migration, not a completed C++ planner migration. The scalar FFI benchmark is recorded honestly, including cases where call overhead makes C++ slower than Python.
 
-## Suggested demos
+## Engineering lessons and limitations
 
-| Command | What it demonstrates |
-| --- | --- |
-| `python -m demos.behavior_planner_demo` | Risk-aware behavior-state transitions and lane-change evaluation |
-| `python -m demos.lattice_planner_demo` | Full lattice pipeline and collision-aware fallback |
-| `python -m demos.stanley_vs_lqr_demo` | Lateral-controller comparison on the same reference path |
-| `python -m demos.stanley_vs_lqr_delay_actuator_demo` | Controller response with delay and actuator limits |
-| `python -m demos.control_stack_demo` | Integrated longitudinal/lateral closed-loop tracking |
-| `python -m demos.control_stack_hal_demo` | Identical control logic across two HAL backends |
-| `python -m demos.w06_dp_speed_planner_demo` | Dynamic-obstacle ST graph, DP speed search, and acceleration profile |
-| `python -m demos.delay_stability_watchdog_demo` | Stability acceptance and watchdog behavior under delay |
+CARLA wheel positions are world centimeters: treating them as local axle coordinates caused tens of meters of tracking error. The adapter now projects them into the actor frame and explicitly converts handedness. Real step sweeps identified automatic first-gear clutch acceleration spikes of 12–15 m/s²; manual first gear reduced the same throttle sweep to approximately 2–3 m/s². Raw before/after logs are retained. A native Ackermann-servo experiment also failed with a collision.
 
-## Test strategy
-
-The suite covers more than nominal outputs:
-
-- Unit tests for prediction, risk, IDM, MOBIL, polynomials, controllers, and
-  transforms.
-- Numerical tests for round-trip coordinate conversion, continuous reference
-  interpolation, vehicle integration, and LQR/Stanley behavior.
-- Planner regressions for constraint rejection, collision fallback, and cost
-  selection.
-- ST planning regressions for boundary interpolation, grid occupancy, continuous
-  edge collision checks, kinematic transition feasibility, DP search, and speed-profile conversion.
-- Integration tests across planner output, trajectory tracking, vehicle model,
-  actuator semantics, and both HAL adapters.
-- Failure-path tests for invalid inputs, saturation, delay, watchdog triggers,
-  and completion behavior.
-
-## Scope and limitations
-
-FalconPlan is an educational and portfolio implementation, not production
-autonomous-driving software. It currently uses a kinematic bicycle model and
-known static circular obstacles in its lattice-planning demos plus constant-velocity
-predicted dynamic obstacles in its ST speed-planning demos. It does not claim
-CARLA/ROS2 integration, real CAN transport, perception, localization, online
-dynamic-obstacle replanning, high-fidelity tire dynamics, or road-vehicle safety
-certification.
-
-Those boundaries are intentional: the repository focuses on transparent
-algorithm interfaces, reproducible behavior, and testable failure handling.
-See [`docs/architecture.md`](docs/architecture.md) for the lower-level contracts.
+Control localization currently uses ground truth. Real GNSS/IMU EKF diagnostics need noise/dropout and feedback validation before a sensor-localized control claim. Circular geometry, lane-selection assumptions, intersections, traffic compliance, perception and a full ODD safety case remain limited. PPO / Stackelberg are P1 work: no trained-policy result is claimed without actual weights and seeded training/evaluation artifacts. R550 steering geometry, protocol and calibration remain unknown. **Hardware-Ready / Pending Physical Validation** describes the software adapter/tooling interface, not a physically validated vehicle.
