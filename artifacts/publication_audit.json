@@ -1,9 +1,9 @@
 {
   "status": "PASS_PUBLICATION_AUDIT",
-  "source_checkpoint": "2ab155092048dfc6c646328e8f4de94e935176d1",
-  "evaluated_files": 936,
-  "credential_pattern_scan_files": 646,
-  "local_markdown_links": 51,
+  "source_checkpoint": "d003e6508791124ee743932d5a2132b9a0a16231",
+  "evaluated_files": 982,
+  "credential_pattern_scan_files": 680,
+  "local_markdown_links": 61,
   "readme_language": "ENGLISH",
   "detailed_ledger_counts": {
     "PASS_UNIT": 81,
@@ -77,20 +77,20 @@
       "bytes": 11303178
     },
     {
+      "path": "artifacts/readme_gallery_v1/following_seed7/simulation.gif",
+      "bytes": 8146373
+    },
+    {
+      "path": "artifacts/readme_gallery_v1/static_obstacle_seed7/simulation.gif",
+      "bytes": 7654074
+    },
+    {
       "path": "artifacts/game/merge_v1/trajectories.jsonl",
       "bytes": 7422582
     },
     {
-      "path": "ros2/evidence/mock_io/bag_1791726847831266461/bag_1791726847831266461_0.db3",
-      "bytes": 3817472
-    },
-    {
-      "path": "ros2/evidence/mock_io/bag_1791726119623747430/bag_1791726119623747430_0.db3",
-      "bytes": 3391488
-    },
-    {
-      "path": "ros2/evidence/mock_io/bag_1791726701146221531/bag_1791726701146221531_0.db3",
-      "bytes": 3362816
+      "path": "artifacts/readme_gallery_v1/state_timeout_seed19/simulation.gif",
+      "bytes": 4602566
     }
   ],
   "issues": [],

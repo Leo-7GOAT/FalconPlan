@@ -43,3 +43,9 @@ The [PPO study](LEARNING_EXPERIMENT_REPORT.md) uses the analytical dynamic bicyc
 The [Stackelberg study](STACKELBERG_EXPERIMENT.md) executes 540 numerical cases; noncooperative OOD yields 37/60 unguarded predicted collisions and a robust-veto merge completion of 2/60. This is neither a CARLA collision rate nor a road-safety proof.
 
 Latest coordinator full regression with Torch and native planning: **579 passed in 10.25 s**. Profiler process wall 11.902 s, kernel child CPU 7.494 s, sampled tree RSS max 977,154,048 bytes. Raw stdout and methodology are `artifacts/final_publication_regression.*`; all older suite/profile timings above remain dated checkpoints.
+
+## Full camera recordings — 2026-10-12
+
+The new `artifacts/readme_gallery_v1/` records six actual CARLA reruns for the README gallery: 20 s obstacle/following and 12 s curve/delay/command-timeout/state-timeout. All six motion/fault gates pass, with no collisions; physical acceleration/jerk still keep every complete run PARTIAL. RGB callback timelines span the run and determine GIF playback intervals, replacing the earlier startup-only visual snippets. Static avoidance moved 61.839 m with 0.095886 m CTE RMSE; following moved 53.042 m with minimum gap 5.278 m. Both timeout runs finish at actual speed zero. Capture/render pacing excludes these reruns from latency-performance comparisons. No historical raw evidence was overwritten.
+
+The helper's three recording-boundary tests and the full suite pass: **582 passed in 11.36 s**, profile wall 13.048 s, kernel child CPU 8.033 s, sampled tree RSS max 977,027,072 bytes. These host resource numbers belong to the new suite, not a live vehicle or Pi.

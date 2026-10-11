@@ -5,11 +5,32 @@
 
 Vehicle planning and control engineering that connects classical algorithms, a numerically verified C++17 core, ROS 2 safety transport and **real CARLA 0.9.15 physics**. Current delivery: a verified software stage; physical deployment and Raspberry Pi HIL are **PENDING_HARDWARE**.
 
-**Evidence at this stage:** 579 native-enabled Python tests, 9 Release + 9 ASan/UBSan C++ tests, actual ROS2/CARLA stop-and-replay verification, a 12-run sensor-feedback study, two independently trained final PPO policies and an enumerated Stackelberg baseline. Passing components have bounded scopes; physical jerk, robust policy behavior and full-loop timing still need work.
+**Evidence at this stage:** 582 native-enabled Python tests, 9 Release + 9 ASan/UBSan C++ tests, actual ROS2/CARLA stop-and-replay verification, a 12-run sensor-feedback study, two independently trained final PPO policies and an enumerated Stackelberg baseline. Passing components have bounded scopes; physical jerk, robust policy behavior and full-loop timing still need work.
 
 [Baseline audit](docs/BASELINE_AUDIT.md) · [Measured benchmarks](docs/SIMULATION_BENCHMARK.md) · [Hardware preparation](docs/HARDWARE_READINESS.md) · [Acceptance matrix](docs/FINAL_DELIVERY_REPORT.md) · [Interview notes](docs/INTERVIEW_TECHNICAL_GUIDE.md)
 
 [Sensor-feedback evidence](artifacts/carla_estimation/REPORT.md) · [PPO experiment](docs/LEARNING_EXPERIMENT_REPORT.md) · [Stackelberg experiment](docs/STACKELBERG_EXPERIMENT.md)
+
+## Watch the real CARLA tests
+
+New full-run RGB recordings from actual CARLA runs, shown inline as looping GIFs: **20 seconds** for obstacle/following tests and **12 seconds** for the other tests, sampled at about **5 frames/s** with sensor-timestamp playback. All six runs use actor-truth control. Motion/fault behavior and physical acceleration/jerk acceptance are separate: the complete physical envelopes remain **PARTIAL**. [Camera timestamps and complete logs](artifacts/readme_gallery_v1/regression.json).
+
+| **Static obstacle avoidance · seed 7** | **Following a slower vehicle · seed 7** |
+|---|---|
+| ![Real CARLA static-obstacle avoidance](artifacts/readme_gallery_v1/static_obstacle_seed7/simulation.gif) | ![Real CARLA following a slower vehicle](artifacts/readme_gallery_v1/following_seed7/simulation.gif) |
+| Online lattice → ST-DP → QP → MPC; C++ Stanley. **61.84 m** actual movement, **0.0959 m** CTE RMSE, zero collisions. [Run metrics](artifacts/readme_gallery_v1/static_obstacle_seed7/summary.json). | Live lead-vehicle state feeds the planning chain. **53.04 m** actual movement, zero collisions; measured jerk remains open. [Run metrics](artifacts/readme_gallery_v1/following_seed7/summary.json). |
+
+| **Curved-road tracking · seed 7** | **150 ms steering delay · seed 19** |
+|---|---|
+| ![Real CARLA curved-road tracking](artifacts/readme_gallery_v1/curve_seed7/simulation.gif) | ![Real CARLA actuator-delay regression](artifacts/readme_gallery_v1/actuator_delay_seed19/simulation.gif) |
+| C++ Stanley / Python PID on the curved reference route; actual steering, trajectory and raw plant measurements. [Run metrics](artifacts/readme_gallery_v1/curve_seed7/summary.json). | Commands pass through an injected steering queue; **44.16 m** actual movement, zero collisions. This is a delay test, not a measured hardware lag. [Run metrics](artifacts/readme_gallery_v1/actuator_delay_seed19/summary.json). |
+
+| **Expired control command · seed 19** | **Stale state timestamp · seed 19** |
+|---|---|
+| ![Real CARLA command-timeout software stop](artifacts/readme_gallery_v1/command_timeout_seed19/simulation.gif) | ![Real CARLA state-timeout software stop](artifacts/readme_gallery_v1/state_timeout_seed19/simulation.gif) |
+| Injected command expiry invokes latched software braking; final actual speed **0 m/s**. [Run metrics](artifacts/readme_gallery_v1/command_timeout_seed19/summary.json). Emergency deceleration/jerk exceed the nominal envelope. | Injected stale state exercises freshness protection; final actual speed **0 m/s**. [Run metrics](artifacts/readme_gallery_v1/state_timeout_seed19/summary.json). Software braking is not a physical E-stop certificate. |
+
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -25,10 +46,6 @@ flowchart LR
 ```
 
 The complete classical planning chain uses explicitly labelled actor truth. The separate sensor-feedback study initializes from real GNSS/IMU callbacks and drives Stanley/PID/Safety/actuator feedback without Ego truth reads; it does not automatically validate sensor integration into every planner or the ROS transport.
-
-![Actual CARLA Town10HD RGB sensor](artifacts/carla/static_obstacle_seed7/screenshot.png)
-
-[Real simulation GIF](artifacts/carla/static_obstacle_seed7/simulation.gif) · [Analytical dynamics comparison](artifacts/dynamics/comparison.png)
 
 ![Measured CARLA trajectory, speed, acceleration and runtime](artifacts/portfolio/carla_measured_benchmark.png)
 
@@ -50,7 +67,7 @@ The complete classical planning chain uses explicitly labelled actor truth. The 
 | Checkpoint | Measured result |
 |---|---|
 | Python inherited baseline | 483 passed |
-| Latest software regression | WSL, native planning and Torch: **579 passed in 10.25 s**; earlier Windows checkpoint: 524 passed, 11 native/Linux skips |
+| Latest software regression | WSL, native planning and Torch: **582 passed in 11.36 s**; earlier Windows checkpoint: 524 passed, 11 native/Linux skips |
 | Python/C++ parity | Seed 42, 1,000 cases, max absolute difference **1.42e-14** |
 | DP → QP → MPC analytical demo | Position RMSE **0.0521 m**, speed RMSE **0.0297 m/s**, dense ST check passed |
 | CARLA initial PID suite | 7 scenarios × seeds 7/19, 12 s/run, zero collisions after axle-coordinate correction |
@@ -106,6 +123,11 @@ python -m demos.carla_regression --host WINDOWS_HOST_IP --steps 400 --seeds 7,19
 python -m demos.carla_actuator_identification --host WINDOWS_HOST_IP --manual-gear
 python -m demos.carla_estimation_regression --host WINDOWS_HOST_IP --steps 400 \
   --seeds 7,19 --output artifacts/my_sensor_feedback
+
+# Full camera recordings; output must be a new directory.
+# Camera pacing affects wall time, so these runs are excluded from timing benchmarks.
+FALCON_PLANNING_CPP_LIBRARY=build/cpp/libfalcon_c.so python -m demos.carla_record_gallery \
+  --host WINDOWS_HOST_IP --cpp-lib build/cpp/libfalcon_c.so --output artifacts/my_gallery
 ```
 
 Read WSL's default gateway via `ip route` for the host-specific Windows IP. Only one process may own synchronous ticks. Regression returns nonzero for failed/partial acceptance and keeps its logs.

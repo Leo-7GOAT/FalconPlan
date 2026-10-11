@@ -1,0 +1,63 @@
+{
+  "status": "PASS_ANIMATED_GALLERY",
+  "project": "FalconPlan",
+  "source_checkpoint": "d003e6508791124ee743932d5a2132b9a0a16231",
+  "inline_gif_count": 6,
+  "assets": [
+    {
+      "path": "artifacts/readme_gallery_v1/static_obstacle_seed7/simulation.gif",
+      "sha256": "e0f9da800bbb3e1d6d161e32bb154ab8bba154ce40af1b56eaef5cb431e67eac",
+      "bytes": 7654074,
+      "frames": 95,
+      "display_duration_ms": 20050,
+      "distinct_sampled_frames": 3,
+      "source": "Actual simulator recording decoded for gallery QA; target asset pixels were not edited during QA"
+    },
+    {
+      "path": "artifacts/readme_gallery_v1/following_seed7/simulation.gif",
+      "sha256": "5f677ec87669cfc504e7ad2d8a88e982fec28d872102d5332ee076f448ac9849",
+      "bytes": 8146373,
+      "frames": 101,
+      "display_duration_ms": 20200,
+      "distinct_sampled_frames": 3,
+      "source": "Actual simulator recording decoded for gallery QA; target asset pixels were not edited during QA"
+    },
+    {
+      "path": "artifacts/readme_gallery_v1/curve_seed7/simulation.gif",
+      "sha256": "957ca12a6005c4784df4483f5430fc9ba0a0a46833f3de167857ceabe0ef1938",
+      "bytes": 4584788,
+      "frames": 57,
+      "display_duration_ms": 12100,
+      "distinct_sampled_frames": 3,
+      "source": "Actual simulator recording decoded for gallery QA; target asset pixels were not edited during QA"
+    },
+    {
+      "path": "artifacts/readme_gallery_v1/actuator_delay_seed19/simulation.gif",
+      "sha256": "692bc2b15c6c62ed74cac5585192e48ed25cfc9f6e2c057888f8afe2e1264d38",
+      "bytes": 4596259,
+      "frames": 57,
+      "display_duration_ms": 12150,
+      "distinct_sampled_frames": 3,
+      "source": "Actual simulator recording decoded for gallery QA; target asset pixels were not edited during QA"
+    },
+    {
+      "path": "artifacts/readme_gallery_v1/command_timeout_seed19/simulation.gif",
+      "sha256": "4a0c42354f074fe3eace7ef13abeaec21397cc869f41ca73c1dccfbfbb32d0bf",
+      "bytes": 4422172,
+      "frames": 55,
+      "display_duration_ms": 12000,
+      "distinct_sampled_frames": 3,
+      "source": "Actual simulator recording decoded for gallery QA; target asset pixels were not edited during QA"
+    },
+    {
+      "path": "artifacts/readme_gallery_v1/state_timeout_seed19/simulation.gif",
+      "sha256": "8113413c8fa8cf70bd16cb48a8720b5db788dbb1ce01f9ee8faa9f6a319ce582",
+      "bytes": 4602566,
+      "frames": 58,
+      "display_duration_ms": 12100,
+      "distinct_sampled_frames": 3,
+      "source": "Actual simulator recording decoded for gallery QA; target asset pixels were not edited during QA"
+    }
+  ],
+  "scope": "Frame decoding/motion/hash verification plus contact-sheet visual inspection; existing experiment acceptance gates unchanged"
+}
