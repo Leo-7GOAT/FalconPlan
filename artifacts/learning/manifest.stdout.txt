@@ -1,0 +1,156 @@
+{
+  "status": "PASS_EVIDENCE_INTEGRITY",
+  "policy_performance": "PARTIAL",
+  "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+  "training": [
+    {
+      "status": "PASS_TRAINING_PROCESS",
+      "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+      "seed": 7,
+      "trained_steps": 131072,
+      "updates": 64,
+      "completed_episodes": 612,
+      "wall_s": 78.21845812400001,
+      "parameter_delta_l2": 8.891911506652832,
+      "weights_sha256": "7d98bd8aeee463a1bf9eff8d5b846c06b1a1ad1484659ed13d1c321e873dee04",
+      "performance_acceptance": "PENDING_EVALUATION",
+      "directory": "ppo_seed7",
+      "actor_parameter_delta_l2": 1.3264873027801514,
+      "reward_version": 1,
+      "actuator_envelope_version": 1
+    },
+    {
+      "status": "PASS_TRAINING_PROCESS",
+      "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+      "seed": 7,
+      "trained_steps": 262144,
+      "updates": 128,
+      "completed_episodes": 810,
+      "wall_s": 158.64872133600002,
+      "parameter_delta_l2": 13.303284645080566,
+      "weights_sha256": "8b8a02cd7ad33a2eae6d82f7010a26229c91f02dd2a897dc4a8e2528343004c4",
+      "performance_acceptance": "PENDING_EVALUATION",
+      "directory": "ppo_v2_seed7",
+      "actor_parameter_delta_l2": 1.551449179649353,
+      "reward_version": 2,
+      "actuator_envelope_version": 2
+    },
+    {
+      "status": "PASS_TRAINING_PROCESS",
+      "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+      "seed": 19,
+      "trained_steps": 262144,
+      "updates": 128,
+      "completed_episodes": 838,
+      "wall_s": 164.55767377300003,
+      "parameter_delta_l2": 13.533612251281738,
+      "weights_sha256": "b38e6fa98efa515d6741ff686a3d9267449d2f04ddeaa31e6054d049752d92d1",
+      "performance_acceptance": "PENDING_EVALUATION",
+      "directory": "ppo_v2_seed19",
+      "actor_parameter_delta_l2": 1.0968513488769531,
+      "reward_version": 2,
+      "actuator_envelope_version": 2
+    },
+    {
+      "status": "PASS_TRAINING_PROCESS",
+      "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+      "seed": 7,
+      "trained_steps": 262144,
+      "updates": 128,
+      "completed_episodes": 684,
+      "wall_s": 218.584854306,
+      "parameter_delta_l2": 12.930216789245605,
+      "weights_sha256": "e4271b49471ce180a0791407d3b9f261a1e63d808c2d5b7a13d12db380c738d2",
+      "performance_acceptance": "PENDING_EVALUATION",
+      "directory": "ppo_v3_seed7",
+      "actor_parameter_delta_l2": 1.7888922691345215,
+      "reward_version": 2,
+      "actuator_envelope_version": 3
+    },
+    {
+      "status": "PASS_TRAINING_PROCESS",
+      "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+      "seed": 19,
+      "trained_steps": 262144,
+      "updates": 128,
+      "completed_episodes": 680,
+      "wall_s": 218.707490981,
+      "parameter_delta_l2": 12.218094825744629,
+      "weights_sha256": "8149259befef4f0aa223e62d4b2c04dd46013df471ce05a185d65698fe9ddda6",
+      "performance_acceptance": "PENDING_EVALUATION",
+      "directory": "ppo_v3_seed19",
+      "actor_parameter_delta_l2": 1.7064772844314575,
+      "reward_version": 2,
+      "actuator_envelope_version": 3
+    },
+    {
+      "status": "PASS_TRAINING_PROCESS",
+      "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+      "seed": 7,
+      "trained_steps": 512,
+      "updates": 1,
+      "completed_episodes": 0,
+      "wall_s": 0.7858568380000008,
+      "parameter_delta_l2": 0.1532750129699707,
+      "weights_sha256": "6ccf04bf99c9e1ee16d978d486d776d2e1b38d68aebd1afa1cca3ee89720a961",
+      "performance_acceptance": "PENDING_EVALUATION",
+      "directory": "ci_smoke",
+      "actor_parameter_delta_l2": 0.07414833456277847,
+      "reward_version": 2,
+      "actuator_envelope_version": 3
+    }
+  ],
+  "evaluations": [
+    {
+      "directory": "evaluation_seed7",
+      "episodes": 225,
+      "status": "PARTIAL",
+      "process_status": "NOT_RECORDED_IN_LEGACY_REPORT",
+      "sha256": "40c4bea96b2718b71369c9db24c039041a88203933e566e8ebb05444de5854eb"
+    },
+    {
+      "directory": "evaluation_v2_seed7",
+      "episodes": 225,
+      "status": "PARTIAL",
+      "process_status": "PASS_EVALUATION_PROCESS",
+      "sha256": "2bc374a4f961dcc7c6ec2ce9979e9b93a22b2671c00d5f3aa927c902ad2cc31d"
+    },
+    {
+      "directory": "evaluation_v3_seed7",
+      "episodes": 225,
+      "status": "PARTIAL",
+      "process_status": "PASS_EVALUATION_PROCESS",
+      "sha256": "5156764b95c254cdc4c3bafe07a24db2b4cd5ba534bda99bfff2b4532ccd0ea0"
+    },
+    {
+      "directory": "evaluation_v3_seed19",
+      "episodes": 225,
+      "status": "PARTIAL",
+      "process_status": "PASS_EVALUATION_PROCESS",
+      "sha256": "775a220c6a2f15b80e810a3f20e1a94d471ad2fe0e3ba8e13a2a90583038a928"
+    },
+    {
+      "directory": "ci_smoke/evaluation",
+      "episodes": 3,
+      "status": "PASS_MODEL_EXPERIMENT",
+      "process_status": "PASS_EVALUATION_PROCESS",
+      "sha256": "be5ce3ffb777e353ae1452c7e4788db25b68dd8369934d61155e5c70ead9383c"
+    }
+  ],
+  "total_actual_training_transitions": 1180160,
+  "total_evaluation_episodes": 903,
+  "final_source_hashes": {
+    "demos/learning/__init__.py": "de678f9ba7aa8b62025214e936bf7d14b82f6ba90eaa9cf6043e0a8ee1d863b3",
+    "demos/learning/evaluate_ppo.py": "33b09505e924473e71e5ca12483adce441dfada8482a19ac787c3a1446919560",
+    "demos/learning/train_ppo.py": "e43e5cb03ee7f224a9ba0f1e384b7131fcd8e7174330fd14e68f70b8921be1d6",
+    "falcon/learning/__init__.py": "132785ee4c5fe194c137f38790d4e6d1b387bed2bde72835de0891df6cfec798",
+    "falcon/learning/baseline.py": "98d8127f61f1c5ccd415287cb551171208deea288d3f76bad108106a15ac886f",
+    "falcon/learning/environment.py": "3ab507dc4700c098975737762d980ea43a35720171ea0cb055d7051a85a0e021",
+    "falcon/learning/ppo.py": "83ab1fb845b675f5eeee118f8297cbfe1734183f1c1075d617a91cf633694023",
+    "tests/test_learning_environment.py": "d10434b141b3a98319968d8c97474dd861dbf6e25decb353aa4e84e57e177a3d",
+    "tests/test_learning_ppo.py": "0d76ef1c3530193f90a26078fbce26e3d23b908b687212b422de532619f051f0"
+  },
+  "source_hash_scope": "final implementation; older artifacts select retained reward/envelope version branches, not historical source hashes",
+  "physical_validation": "PENDING_HARDWARE",
+  "carla_policy_evaluation": "NOT_EXECUTED"
+}

@@ -1,0 +1,219 @@
+{
+  "status": "PASS_MODEL_EXPERIMENT",
+  "process_status": "PASS_EVALUATION_PROCESS",
+  "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+  "weights": "artifacts/learning/ci_smoke/policy.pt",
+  "trained_steps": 512,
+  "training_seed": 7,
+  "evaluation_seeds": [
+    101
+  ],
+  "scenarios": [
+    "free"
+  ],
+  "cases": [
+    "ID"
+  ],
+  "episodes": 3,
+  "paired_evaluation": true,
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "wall_s": 1.3129756569999955,
+  "acceptance": {
+    "collision_count": 0,
+    "offroad_count": 0,
+    "cte_rmse_below_m": 1,
+    "max_steering_rad": 0.5,
+    "max_rate_rad_s": 0.8,
+    "max_accel_m_s2": 3,
+    "max_decel_m_s2": 6,
+    "max_jerk_m_s3": 6,
+    "full_horizon_samples": 400,
+    "actual_motion_over_m": 3
+  },
+  "groups": [
+    {
+      "case": "ID",
+      "policy": "FSM_IDM_MOBIL",
+      "episodes": 1,
+      "model_acceptance_fraction": 1.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 189.6145125501748,
+      "mean_cte_rmse_m": 0.018275734207897975,
+      "mean_speed_rmse_m_s": 0.795755445679934,
+      "max_measured_jerk_m_s3": 5.7012775897913315,
+      "mean_shield_interventions": 0.0
+    },
+    {
+      "case": "ID",
+      "policy": "PPO_guarded",
+      "episodes": 1,
+      "model_acceptance_fraction": 1.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 134.9588618348059,
+      "mean_cte_rmse_m": 0.09137043999602298,
+      "mean_speed_rmse_m_s": 3.191172530779692,
+      "max_measured_jerk_m_s3": 4.476047895501267,
+      "mean_shield_interventions": 0.0
+    },
+    {
+      "case": "ID",
+      "policy": "PPO_without_predictive_gate",
+      "episodes": 1,
+      "model_acceptance_fraction": 1.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 134.9588618348059,
+      "mean_cte_rmse_m": 0.09137043999602298,
+      "mean_speed_rmse_m_s": 3.191172530779692,
+      "max_measured_jerk_m_s3": 4.476047895501267,
+      "mean_shield_interventions": 0.0
+    }
+  ],
+  "runs": [
+    {
+      "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+      "samples": 400,
+      "return_sum": 189.6145125501748,
+      "displacement_m": 154.49738992404303,
+      "cte_rmse_m": 0.018275734207897975,
+      "heading_rmse_rad": 0.0006270623179206351,
+      "speed_rmse_m_s": 0.795755445679934,
+      "max_steering_rad": 0.0025852573698980667,
+      "max_steering_rate_rad_s": 0.022370747005017566,
+      "max_acceleration_m_s2": 2.497934025871995,
+      "min_acceleration_m_s2": 0.0,
+      "max_jerk_m_s3": 5.7012775897913315,
+      "collision_count": 0,
+      "offroad_count": 0,
+      "shield_interventions": 0,
+      "supervisor_interventions": 0,
+      "lane_changes": 0,
+      "controller_model_runtime_us": {
+        "p50": 548.7635,
+        "p95": 780.1920999999999,
+        "p99": 925.1567599999998
+      },
+      "episode_config": {
+        "dt": 0.05,
+        "steps": 400,
+        "desired_speed": 8.0,
+        "friction": 0.9,
+        "delay": 0.05,
+        "mass_scale": 1.0,
+        "acceleration_gain": 1.0,
+        "reward_version": 2,
+        "actuator_envelope_version": 3
+      },
+      "status": "PASS_MODEL_EXPERIMENT",
+      "case": "ID",
+      "scenario": "free",
+      "episode_seed": 101,
+      "policy": "FSM_IDM_MOBIL",
+      "trained_policy_seed": 7,
+      "decision_runtime_us": {
+        "p50": 50.705,
+        "p95": 87.40724999999992,
+        "p99": 138.40257999999994
+      },
+      "mobil_evaluations": 400
+    },
+    {
+      "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+      "samples": 400,
+      "return_sum": 134.9588618348059,
+      "displacement_m": 195.74712474452392,
+      "cte_rmse_m": 0.09137043999602298,
+      "heading_rmse_rad": 0.0059050094923575325,
+      "speed_rmse_m_s": 3.191172530779692,
+      "max_steering_rad": 0.0865920503892735,
+      "max_steering_rate_rad_s": 0.272607495839645,
+      "max_acceleration_m_s2": 0.7392872607733025,
+      "min_acceleration_m_s2": 0.0,
+      "max_jerk_m_s3": 4.476047895501267,
+      "collision_count": 0,
+      "offroad_count": 0,
+      "shield_interventions": 0,
+      "supervisor_interventions": 1,
+      "lane_changes": 0,
+      "controller_model_runtime_us": {
+        "p50": 613.607,
+        "p95": 854.8627999999994,
+        "p99": 993.27009
+      },
+      "episode_config": {
+        "dt": 0.05,
+        "steps": 400,
+        "desired_speed": 8.0,
+        "friction": 0.9,
+        "delay": 0.05,
+        "mass_scale": 1.0,
+        "acceleration_gain": 1.0,
+        "reward_version": 2,
+        "actuator_envelope_version": 3
+      },
+      "status": "PASS_MODEL_EXPERIMENT",
+      "case": "ID",
+      "scenario": "free",
+      "episode_seed": 101,
+      "policy": "PPO_guarded",
+      "trained_policy_seed": 7,
+      "decision_runtime_us": {
+        "p50": 467.072,
+        "p95": 675.5527999999995,
+        "p99": 858.6710199999997
+      },
+      "mobil_evaluations": 0
+    },
+    {
+      "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+      "samples": 400,
+      "return_sum": 134.9588618348059,
+      "displacement_m": 195.74712474452392,
+      "cte_rmse_m": 0.09137043999602298,
+      "heading_rmse_rad": 0.0059050094923575325,
+      "speed_rmse_m_s": 3.191172530779692,
+      "max_steering_rad": 0.0865920503892735,
+      "max_steering_rate_rad_s": 0.272607495839645,
+      "max_acceleration_m_s2": 0.7392872607733025,
+      "min_acceleration_m_s2": 0.0,
+      "max_jerk_m_s3": 4.476047895501267,
+      "collision_count": 0,
+      "offroad_count": 0,
+      "shield_interventions": 0,
+      "supervisor_interventions": 1,
+      "lane_changes": 0,
+      "controller_model_runtime_us": {
+        "p50": 599.0854999999999,
+        "p95": 803.8331999999997,
+        "p99": 951.4087699999998
+      },
+      "episode_config": {
+        "dt": 0.05,
+        "steps": 400,
+        "desired_speed": 8.0,
+        "friction": 0.9,
+        "delay": 0.05,
+        "mass_scale": 1.0,
+        "acceleration_gain": 1.0,
+        "reward_version": 2,
+        "actuator_envelope_version": 3
+      },
+      "status": "PASS_MODEL_EXPERIMENT",
+      "case": "ID",
+      "scenario": "free",
+      "episode_seed": 101,
+      "policy": "PPO_without_predictive_gate",
+      "trained_policy_seed": 7,
+      "decision_runtime_us": {
+        "p50": 440.687,
+        "p95": 648.2524999999999,
+        "p99": 803.8342699999997
+      },
+      "mobil_evaluations": 0
+    }
+  ],
+  "physical_validation": "PENDING_HARDWARE",
+  "carla_policy_evaluation": "NOT_EXECUTED"
+}

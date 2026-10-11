@@ -1,0 +1,23 @@
+{
+  "seed": 7,
+  "total_steps": 131072,
+  "env_count": 8,
+  "rollout_steps": 256,
+  "epochs": 4,
+  "gamma": 0.995,
+  "gae_lambda": 0.95,
+  "clip": 0.2,
+  "learning_rate": 0.0003,
+  "entropy_coef": 0.01,
+  "hidden": [
+    64,
+    64
+  ],
+  "device": "cpu",
+  "domain_randomization": true,
+  "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+  "torch_version": "2.14.0+cu130",
+  "numpy_version": "1.21.5",
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "deterministic_algorithms": true
+}

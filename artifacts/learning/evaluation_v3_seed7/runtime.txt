@@ -1,0 +1,247 @@
+{"case": "ID", "completed": 45, "wall_s": 18.183811652000003}
+{"case": "OOD_delay", "completed": 90, "wall_s": 36.55529267699998}
+{"case": "OOD_friction", "completed": 135, "wall_s": 56.16137527700002}
+{"case": "OOD_gain_mass", "completed": 180, "wall_s": 71.53447706}
+{"case": "OOD_combined", "completed": 225, "wall_s": 84.526688855}
+{
+  "status": "PARTIAL",
+  "process_status": "PASS_EVALUATION_PROCESS",
+  "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+  "weights": "artifacts/learning/ppo_v3_seed7/policy.pt",
+  "trained_steps": 262144,
+  "training_seed": 7,
+  "evaluation_seeds": [
+    101,
+    211,
+    307,
+    401,
+    503
+  ],
+  "scenarios": [
+    "free",
+    "mixed",
+    "braking"
+  ],
+  "cases": [
+    "ID",
+    "OOD_delay",
+    "OOD_friction",
+    "OOD_gain_mass",
+    "OOD_combined"
+  ],
+  "episodes": 225,
+  "paired_evaluation": true,
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "wall_s": 84.52941983000002,
+  "acceptance": {
+    "collision_count": 0,
+    "offroad_count": 0,
+    "cte_rmse_below_m": 1,
+    "max_steering_rad": 0.5,
+    "max_rate_rad_s": 0.8,
+    "max_accel_m_s2": 3,
+    "max_decel_m_s2": 6,
+    "max_jerk_m_s3": 6,
+    "full_horizon_samples": 400,
+    "actual_motion_over_m": 3
+  },
+  "groups": [
+    {
+      "case": "ID",
+      "policy": "FSM_IDM_MOBIL",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.9333333333333333,
+      "collision_fraction": 0.06666666666666667,
+      "offroad_fraction": 0.0,
+      "mean_return": 104.57161212130814,
+      "mean_cte_rmse_m": 0.059125089582011105,
+      "mean_speed_rmse_m_s": 2.6378527229756097,
+      "max_measured_jerk_m_s3": 5.999551439998929,
+      "mean_shield_interventions": 0.0
+    },
+    {
+      "case": "ID",
+      "policy": "PPO_guarded",
+      "episodes": 15,
+      "model_acceptance_fraction": 1.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 115.46544224918071,
+      "mean_cte_rmse_m": 0.09602328108913365,
+      "mean_speed_rmse_m_s": 3.7713080635084593,
+      "max_measured_jerk_m_s3": 5.999410436057673,
+      "mean_shield_interventions": 50.666666666666664
+    },
+    {
+      "case": "ID",
+      "policy": "PPO_without_predictive_gate",
+      "episodes": 15,
+      "model_acceptance_fraction": 1.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 115.8972227045741,
+      "mean_cte_rmse_m": 0.09350959851718589,
+      "mean_speed_rmse_m_s": 3.843224067841705,
+      "max_measured_jerk_m_s3": 5.701277589793108,
+      "mean_shield_interventions": 14.0
+    },
+    {
+      "case": "OOD_delay",
+      "policy": "FSM_IDM_MOBIL",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.9333333333333333,
+      "collision_fraction": 0.06666666666666667,
+      "offroad_fraction": 0.0,
+      "mean_return": 101.73020180119396,
+      "mean_cte_rmse_m": 0.06826083849181526,
+      "mean_speed_rmse_m_s": 2.7226319102037606,
+      "max_measured_jerk_m_s3": 5.999253233423341,
+      "mean_shield_interventions": 0.2
+    },
+    {
+      "case": "OOD_delay",
+      "policy": "PPO_guarded",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.8666666666666667,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.13333333333333333,
+      "mean_return": 83.42721360221311,
+      "mean_cte_rmse_m": 0.5997765588842757,
+      "mean_speed_rmse_m_s": 3.7125772571416977,
+      "max_measured_jerk_m_s3": 5.999610986416215,
+      "mean_shield_interventions": 158.4
+    },
+    {
+      "case": "OOD_delay",
+      "policy": "PPO_without_predictive_gate",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.7333333333333333,
+      "collision_fraction": 0.2,
+      "offroad_fraction": 0.06666666666666667,
+      "mean_return": 64.7729032520872,
+      "mean_cte_rmse_m": 0.6236107570080665,
+      "mean_speed_rmse_m_s": 3.797759146675693,
+      "max_measured_jerk_m_s3": 5.701277589793108,
+      "mean_shield_interventions": 167.73333333333332
+    },
+    {
+      "case": "OOD_friction",
+      "policy": "FSM_IDM_MOBIL",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.9333333333333333,
+      "collision_fraction": 0.06666666666666667,
+      "offroad_fraction": 0.0,
+      "mean_return": 104.57161212130814,
+      "mean_cte_rmse_m": 0.059125089582011105,
+      "mean_speed_rmse_m_s": 2.6378527229756097,
+      "max_measured_jerk_m_s3": 5.999551439998929,
+      "mean_shield_interventions": 0.0
+    },
+    {
+      "case": "OOD_friction",
+      "policy": "PPO_guarded",
+      "episodes": 15,
+      "model_acceptance_fraction": 1.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 115.27944934745233,
+      "mean_cte_rmse_m": 0.1527498753088623,
+      "mean_speed_rmse_m_s": 3.7667442968617673,
+      "max_measured_jerk_m_s3": 5.9994102382194825,
+      "mean_shield_interventions": 50.86666666666667
+    },
+    {
+      "case": "OOD_friction",
+      "policy": "PPO_without_predictive_gate",
+      "episodes": 15,
+      "model_acceptance_fraction": 1.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 115.6520677525942,
+      "mean_cte_rmse_m": 0.16506518867841838,
+      "mean_speed_rmse_m_s": 3.843224045332323,
+      "max_measured_jerk_m_s3": 5.701277589793108,
+      "mean_shield_interventions": 13.933333333333334
+    },
+    {
+      "case": "OOD_gain_mass",
+      "policy": "FSM_IDM_MOBIL",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.0,
+      "collision_fraction": 0.06666666666666667,
+      "offroad_fraction": 0.0,
+      "mean_return": 105.88317073868947,
+      "mean_cte_rmse_m": 0.05461441825303807,
+      "mean_speed_rmse_m_s": 2.580988695840289,
+      "max_measured_jerk_m_s3": 11.567026940994651,
+      "mean_shield_interventions": 0.0
+    },
+    {
+      "case": "OOD_gain_mass",
+      "policy": "PPO_guarded",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 4.7295258607116,
+      "mean_cte_rmse_m": 0.16867051440923023,
+      "mean_speed_rmse_m_s": 3.8503058157294423,
+      "max_measured_jerk_m_s3": 11.572850074468732,
+      "mean_shield_interventions": 30.866666666666667
+    },
+    {
+      "case": "OOD_gain_mass",
+      "policy": "PPO_without_predictive_gate",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 5.594529092375334,
+      "mean_cte_rmse_m": 0.1679051066062485,
+      "mean_speed_rmse_m_s": 3.8813761964656903,
+      "max_measured_jerk_m_s3": 11.572850074468732,
+      "mean_shield_interventions": 8.733333333333333
+    },
+    {
+      "case": "OOD_combined",
+      "policy": "FSM_IDM_MOBIL",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.0,
+      "mean_return": 73.44886009352847,
+      "mean_cte_rmse_m": 0.1392575366860203,
+      "mean_speed_rmse_m_s": 4.830985043087646,
+      "max_measured_jerk_m_s3": 9.955801474396786,
+      "mean_shield_interventions": 0.0
+    },
+    {
+      "case": "OOD_combined",
+      "policy": "PPO_guarded",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.9333333333333333,
+      "mean_return": -11.926114240978661,
+      "mean_cte_rmse_m": 0.5382926546008108,
+      "mean_speed_rmse_m_s": 3.3991128234784678,
+      "max_measured_jerk_m_s3": 9.724864775876085,
+      "mean_shield_interventions": 51.46666666666667
+    },
+    {
+      "case": "OOD_combined",
+      "policy": "PPO_without_predictive_gate",
+      "episodes": 15,
+      "model_acceptance_fraction": 0.0,
+      "collision_fraction": 0.0,
+      "offroad_fraction": 0.9333333333333333,
+      "mean_return": -9.97694178256082,
+      "mean_cte_rmse_m": 0.5417081929563233,
+      "mean_speed_rmse_m_s": 3.1838097486393715,
+      "max_measured_jerk_m_s3": 9.724864775876085,
+      "mean_shield_interventions": 50.86666666666667
+    }
+  ],
+  "physical_validation": "PENDING_HARDWARE",
+  "carla_policy_evaluation": "NOT_EXECUTED"
+}

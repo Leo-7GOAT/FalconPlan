@@ -1,0 +1,12 @@
+{
+  "status": "PASS_TRAINING_PROCESS",
+  "engine": "ANALYTICAL_DYNAMIC_BICYCLE_NOT_CARLA",
+  "seed": 7,
+  "trained_steps": 512,
+  "updates": 1,
+  "completed_episodes": 0,
+  "wall_s": 0.7858568380000008,
+  "parameter_delta_l2": 0.1532750129699707,
+  "weights_sha256": "6ccf04bf99c9e1ee16d978d486d776d2e1b38d68aebd1afa1cca3ee89720a961",
+  "performance_acceptance": "PENDING_EVALUATION"
+}

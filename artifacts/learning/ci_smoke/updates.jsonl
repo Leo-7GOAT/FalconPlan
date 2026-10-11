@@ -1,0 +1,1 @@
+{"update": 1, "steps": 512, "completed_episodes": 0, "mean_recent_return": null, "recent_collision_rate": null, "wall_s": 0.7631436330000128, "policy_loss": -0.003147862385958433, "value_loss": 3.653575450181961, "entropy": 1.6115414649248123, "approx_kl": 0.0003758773673325777, "clip_fraction": 0.0009765625}

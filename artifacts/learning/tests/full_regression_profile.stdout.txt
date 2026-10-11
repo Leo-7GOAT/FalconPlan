@@ -1,0 +1,36 @@
+......................................F................................. [ 12%]
+........................................................................ [ 25%]
+........................................................................ [ 38%]
+........................................................................ [ 51%]
+........................................................................ [ 63%]
+........................................................................ [ 76%]
+........................................................................ [ 89%]
+...........................................................              [100%]
+=================================== FAILURES ===================================
+_ test_real_sensor_boundary_rejects_spawn_derivative_and_projects_georeference _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7a42777d7280>
+
+    def test_real_sensor_boundary_rejects_spawn_derivative_and_projects_georeference(monkeypatch):
+        monkeypatch.setitem(sys.modules,'carla',S(Location=lambda x=0,y=0:S(x=x,y=y),Transform=lambda:S()))
+        adapter=S(get_state=lambda:VehicleState(0,0,0,0),rear_offset=2)
+        e=CarlaSensorEstimator(World(),None,adapter)
+        e.imu=S(accelerometer=S(x=1e9),gyroscope=S(z=0))
+        e.gnss=S(longitude=2e-5,latitude=0,timestamp=0)
+>       state=e.update(.05)
+
+tests/test_carla_sensor_contract.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <hal.carla_sensors.CarlaSensorEstimator object at 0x7a42776259f0>
+dt = 0.05
+
+    def update(self,dt=None,*,now=None,frame=None,timeout=.5):
+        # Legacy dt is accepted, but every prediction uses measurement time.
+>       if now is None:now=self.world.get_snapshot().timestamp.elapsed_seconds
+E       AttributeError: 'World' object has no attribute 'get_snapshot'
+
+hal/carla_sensors.py:73: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_carla_sensor_contract.py::test_real_sensor_boundary_rejects_spawn_derivative_and_projects_georeference
+1 failed, 562 passed in 8.80s

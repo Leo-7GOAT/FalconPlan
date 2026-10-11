@@ -23,7 +23,7 @@ rl = ["torch>=2.0"]
 profiling = ["psutil>=5.9"]
 
 [tool.setuptools.packages.find]
-include = ["coordinate_system*", "hal*", "vehicle_model*", "planning*", "control*", "behavior*", "demos*", "tools*"]
+include = ["coordinate_system*", "hal*", "vehicle_model*", "planning*", "control*", "behavior*", "demos*", "tools*", "falcon*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

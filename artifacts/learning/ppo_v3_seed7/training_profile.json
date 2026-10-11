@@ -1,0 +1,29 @@
+{
+  "status": "PASS_PROCESS",
+  "command": [
+    "python3",
+    "-m",
+    "demos.learning.train_ppo",
+    "--seed",
+    "7",
+    "--steps",
+    "262144",
+    "--output",
+    "artifacts/learning/ppo_v3_seed7"
+  ],
+  "exit_code": 0,
+  "wall_s": 224.354823273,
+  "cpu_user_s": 211.447545,
+  "cpu_system_s": 1.260633,
+  "cpu_percent_one_core": 94.80882777419583,
+  "sampled_tree_rss_max_bytes": 899252224,
+  "max_observed_processes": 1,
+  "samples": 20593,
+  "requested_sample_interval_s": 0.01,
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "processor": "x86_64",
+  "logical_cpus": 12,
+  "stdout": "artifacts/learning/ppo_v3_seed7/training_profile.stdout.txt",
+  "physical_validation": "PENDING_HARDWARE",
+  "method": "kernel waited-child CPU time; sampled process-tree summed RSS (shared pages may repeat); no target HIL claim"
+}

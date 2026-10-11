@@ -1,0 +1,24 @@
+{
+  "status": "FAIL",
+  "command": [
+    "python3",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "exit_code": 1,
+  "wall_s": 12.37611014099997,
+  "cpu_user_s": 6.855693,
+  "cpu_system_s": 1.775861,
+  "cpu_percent_one_core": 69.74367472219816,
+  "sampled_tree_rss_max_bytes": 1006239744,
+  "max_observed_processes": 2,
+  "samples": 1121,
+  "requested_sample_interval_s": 0.01,
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "processor": "x86_64",
+  "logical_cpus": 12,
+  "stdout": "artifacts/learning/tests/full_regression_profile.stdout.txt",
+  "physical_validation": "PENDING_HARDWARE",
+  "method": "kernel waited-child CPU time; sampled process-tree summed RSS (shared pages may repeat); no target HIL claim"
+}
