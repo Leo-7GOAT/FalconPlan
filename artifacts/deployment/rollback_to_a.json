@@ -1,0 +1,8 @@
+{
+  "commit": "4ecb4e358735fb6e07dea66e7cc8015fb0e9076b",
+  "previous_commit": "98f07c3ce758b13fce2d9524e7064c642023ec19",
+  "operation": "rollback",
+  "hardware_enabled": false,
+  "process_started": false,
+  "physical_validation": "PENDING_HARDWARE"
+}
