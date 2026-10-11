@@ -1,0 +1,26 @@
+{
+  "status": "PASS_MOCK",
+  "physical_validation": "PENDING_HARDWARE",
+  "target_hil": "HIL-ready; no Raspberry Pi measurement",
+  "source_protection": {
+    "initial_git_metadata": "absent; restored from independent remote clone without replacing source",
+    "initial_remote_commit": "0f7b69c44bf017e8d83a0e7063fb3f3f9f04d886",
+    "backup_zip_sha256": "e4cdbc5021db9fe72d0763b5e6917be8f82be0f5aa3f4ae6fcb5d5b3b0186cec",
+    "tracked_source_comparison": "identical to remote before development; FalconPlan also had 9 untracked W07 source/test/demo files"
+  },
+  "commissioning_tools_test_result": {
+    "passed": 16,
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0"
+  },
+  "fixture": {
+    "model": "explicit first order mock I/O",
+    "samples": 401,
+    "dt_s": 0.01,
+    "tau_s": 0.15,
+    "delay_s": 0.05,
+    "amplitude_rad": 0.1,
+    "not_a_hardware_measurement": true
+  },
+  "reproduction": "python -m pytest -q tests/test_hardware_tools.py"
+}
