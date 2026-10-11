@@ -40,7 +40,7 @@ flowchart LR
 | Checkpoint | Measured result |
 |---|---|
 | Python inherited baseline | 483 passed |
-| Software regression | Windows: **524 passed, 11 native/Linux skips**; WSL: **526 passed** in 6.82 s |
+| Software regression | Windows: **524 passed, 11 native/Linux skips**; WSL with native planning: **535 passed** in 5.26 s |
 | Python/C++ parity | Seed 42, 1,000 cases, max absolute difference **1.42e-14** |
 | DP → QP → MPC analytical demo | Position RMSE **0.0521 m**, speed RMSE **0.0297 m/s**, dense ST check passed |
 | CARLA initial PID suite | 7 scenarios × seeds 7/19, 12 s/run, zero collisions after axle-coordinate correction |
