@@ -1,0 +1,15 @@
+{
+  "status": "PASS_PACKAGE",
+  "wheel": "falconplan-0.1.0-py3-none-any.whl",
+  "wheel_bytes": 149247,
+  "sha256": "faebb53940d354028868bc3653fd11647b34c2b9e6755af00891735b93f2a9a9",
+  "build": "python -m pip wheel . --no-deps -w artifacts/package",
+  "build_isolation": true,
+  "python": "Windows Python 3.11",
+  "validation_environment": "C:/Users/Leo/.codex/tmp/falcon-wheel-check; system-site-packages venv",
+  "validation_cwd": "C:/Users/Leo/.codex/tmp",
+  "force_installed_final_wheel": true,
+  "imports_passed": ["control.cpp_core", "planning.online_stack", "hal.carla_sensors", "vehicle_model.state_estimator", "demos.carla_regression", "tools.hardware.profile"],
+  "resolved_from": "C:/Users/Leo/.codex/tmp/falcon-wheel-check/Lib/site-packages",
+  "notes": "Package discovery and outside-source imports validated. This environment inherits dependency packages and is not a clean dependency-resolution or hardware deployment claim. Native C++ library must be built separately. Non-isolated wheel builds failed from local build-tool version mismatch; the standard isolated build above passed."
+}

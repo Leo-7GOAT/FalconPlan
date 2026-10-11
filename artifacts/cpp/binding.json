@@ -1,0 +1,18 @@
+{
+  "status": "PASS_UNIT",
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "samples": 10000,
+  "seed": 42,
+  "max_absolute_error": 0.0,
+  "python_us": {
+    "p50": 0.65,
+    "p95": 1.517,
+    "p99": 4.875
+  },
+  "cpp_ffi_us": {
+    "p50": 1.083,
+    "p95": 1.842,
+    "p99": 5.635070000000024
+  },
+  "note": "In-process ctypes dispatch included; tiny scalar kernel can be slower than Python due to FFI overhead."
+}

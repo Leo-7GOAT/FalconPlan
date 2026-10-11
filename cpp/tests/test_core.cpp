@@ -1,6 +1,21 @@
 #include "falcon/core.hpp"
 #include <gtest/gtest.h>
 #include <limits>
+extern "C" int falcon_stanley(double,double,double,double,double,double,double*) noexcept;
+extern "C" int falcon_bicycle(const double*,const double*,double,double*) noexcept;
+TEST(CAbi,NullAndInvalidBoundaries) {
+ double result=0;
+ EXPECT_EQ(falcon_stanley(0,0,1,1,1,.5,nullptr),-1);
+ EXPECT_EQ(falcon_stanley(0,0,-1,1,1,.5,&result),-2);
+ EXPECT_EQ(falcon_stanley(0,std::numeric_limits<double>::quiet_NaN(),1,1,1,.5,&result),-2);
+ double state[]{0,0,0,1},command[]{0,0},output[4]{};
+ EXPECT_EQ(falcon_bicycle(nullptr,command,.1,output),-1);
+ EXPECT_EQ(falcon_bicycle(state,nullptr,.1,output),-1);
+ EXPECT_EQ(falcon_bicycle(state,command,.1,nullptr),-1);
+ EXPECT_EQ(falcon_bicycle(state,command,0,output),-2);
+ EXPECT_EQ(falcon_bicycle(state,command,.1,output),0);
+ EXPECT_NEAR(output[0],.1,1e-12);
+}
 TEST(Stanley,SignsLimitsAndFailure){EXPECT_GT(falcon::stanley(0,1,10),0);
 EXPECT_DOUBLE_EQ(falcon::stanley(0,100,0),.5);
 EXPECT_THROW(falcon::stanley(0,0,-1),std::invalid_argument);
