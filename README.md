@@ -31,7 +31,7 @@ flowchart LR
 | Planning | Frenet lattice, quartic/quintic, segment collision, dynamic ST projection, DP, corridor, OSQP QP | Unit tests and online real-simulator orchestration |
 | Control | PID anti-windup, Stanley, LQR, receding longitudinal MPC | Solver limits and physical plant limits evaluated separately |
 | Dynamics | Kinematic RK4, friction-limited dynamic bicycle, delayed first-order actuators | Analytical model experiments separately labeled |
-| C++17 | State/command/path structures, PID, Stanley, RK4, nearest-path search, constant jerk, checked C ABI | 6 GoogleTests Release and ASan/UBSan; 1,000 parity samples and 10,000 in-process calls |
+| C++17 | State/command/path structures, PID, Stanley, RK4, nearest-path search, constant jerk, candidate cost / continuous collision / selection, checked C ABI | 9 GoogleTests Release and ASan/UBSan; 1,000 core parity samples, 2,000 planning candidates and 10,000 controller calls |
 | Safety | Timestamp expiry, geofence, speed/steering/rate limits, manual, latched software E-stop | Software / simulator stop only |
 | Real I/O | CARLA spawn/destroy, sync tick, ground-truth actors, control, collision/RGB/GNSS/IMU | Real 0.9.15 engine; estimator diagnostics separate from control |
 | ROS 2 | Humble Ackermann/Odometry, TF, safety services, CARLA bridge, rosbag | Real ROS transport; hardware pending |
@@ -40,7 +40,7 @@ flowchart LR
 | Checkpoint | Measured result |
 |---|---|
 | Python inherited baseline | 483 passed |
-| Software regression | Windows: **524 passed, 2 Linux-only skips**; WSL: **526 passed** in 6.82 s |
+| Software regression | Windows: **524 passed, 11 native/Linux skips**; WSL: **526 passed** in 6.82 s |
 | Python/C++ parity | Seed 42, 1,000 cases, max absolute difference **1.42e-14** |
 | DP → QP → MPC analytical demo | Position RMSE **0.0521 m**, speed RMSE **0.0297 m/s**, dense ST check passed |
 | CARLA initial PID suite | 7 scenarios × seeds 7/19, 12 s/run, zero collisions after axle-coordinate correction |
@@ -51,7 +51,7 @@ flowchart LR
 | Real ROS → Safety → CARLA | 802 samples; latency P50/P95/P99 **0.641/0.950/1.350 ms**, timer jitter σ **0.348 ms** |
 | Analytical actuator delay | CTE RMSE **0.5876 → 0.3301 m** after gain reduction; 20 m/s low-friction OOD case **FAIL** |
 
-The initial PID acceleration log was clipped and is excluded from physical acceleration claims. Updated runs record raw measurements and command intent separately. Normal final PID scenes exceed the +3 m/s² target; timeout emergency stops reach 23–27 m/s² deceleration and 316–508 m/s³ jerk. Online Python planning runs at 2 Hz; observed P95 can approach 0.5 s. This is synchronous simulator evidence, not a 20 Hz real-time full-stack certification. Latest versioned JSON reports retain tuning failures. The original 16-week acceptance matrix has **8 PASS / 8 PARTIAL (50% week-level PASS)**; this is not an estimate of completed engineering effort.
+The initial PID acceleration log was clipped and is excluded from physical acceleration claims. Updated runs record raw measurements and command intent separately. Normal final PID scenes exceed the +3 m/s² target; timeout emergency stops reach 23–27 m/s² deceleration and 316–508 m/s³ jerk. Online Python planning runs at 2 Hz; observed P95 can approach 0.5 s. This is synchronous simulator evidence, not a 20 Hz real-time full-stack certification. Latest versioned JSON reports retain tuning failures. The original 16-week acceptance matrix has **9 PASS / 7 PARTIAL (56.25% week-level PASS)**; this is not an estimate of completed engineering effort.
 
 ## Setup and reproduction
 
@@ -92,10 +92,22 @@ ctest --test-dir build/asan --output-on-failure
 
 [ROS execution scripts](ros2/) · [Commissioning, recording, calibration, replay and rollback](tools/hardware/README.md)
 
-The CARLA driver optionally executes the C++ Stanley kernel in process with `--cpp-lib build/cpp/libfalcon_c.so`. Python remains responsible for the lattice/DP/QP/MPC executive. This is a numerical control-kernel migration, not a completed C++ planner migration. The scalar FFI benchmark is recorded honestly, including cases where call overhead makes C++ slower than Python.
+The CARLA driver optionally executes the C++ Stanley kernel in process with `--cpp-lib build/cpp/libfalcon_c.so`. Python remains responsible for the lattice/DP/QP/MPC executive. With `FALCON_PLANNING_CPP_LIBRARY`, C++ also executes candidate cost, continuous collision and selection; polynomial generation, feasibility, ST-DP/QP and MPC remain Python. The scalar FFI benchmark is recorded honestly, including cases where call overhead makes C++ slower than Python.
 
 ## Engineering lessons and limitations
 
 CARLA wheel positions are world centimeters: treating them as local axle coordinates caused tens of meters of tracking error. The adapter now projects them into the actor frame and explicitly converts handedness. Real step sweeps identified automatic first-gear clutch acceleration spikes of 12–15 m/s²; manual first gear reduced the same throttle sweep to approximately 2–3 m/s². Raw before/after logs are retained. A native Ackermann-servo experiment also failed with a collision.
 
 Control localization currently uses ground truth. Real GNSS/IMU EKF diagnostics need noise/dropout and feedback validation before a sensor-localized control claim. Circular geometry, lane-selection assumptions, intersections, traffic compliance, perception and a full ODD safety case remain limited. PPO / Stackelberg are P1 work: no trained-policy result is claimed without actual weights and seeded training/evaluation artifacts. R550 steering geometry, protocol and calibration remain unknown. **Hardware-Ready / Pending Physical Validation** describes the software adapter/tooling interface, not a physically validated vehicle.
+
+Native planning reproduction after the C++ build:
+
+```bash
+FALCON_PLANNING_CPP_LIBRARY=build/cpp/libfalcon_c.so python -m pytest -q
+python -m tools.cpp_planning_benchmark --library build/cpp/libfalcon_c.so
+FALCON_PLANNING_CPP_LIBRARY=build/cpp/libfalcon_c.so python -m demos.carla_regression \
+  --host WINDOWS_HOST_IP --steps 400 --seeds 7 --scenarios static_obstacle \
+  --full-stack --mpc --cpp-lib build/cpp/libfalcon_c.so --output artifacts/new_cpp_planning
+```
+
+The C++ cost/collision/selection kernel is actually used by the live planner. Its two-thousand-candidate parity study has maximum cost error 4.55e-13 with no collision/selection mismatch. Full native-enabled WSL regression: **535 passed**; the recorded CARLA integration still returns PARTIAL because physical jerk exceeds its unchanged acceptance limit. Original week-level acceptance is **9/16 (56.25%)**, a count of fully accepted milestone groups, not engineering effort.
