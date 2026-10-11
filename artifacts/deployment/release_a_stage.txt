@@ -1,0 +1,70 @@
+Looking in links: /home/leo/release_wheels
+Requirement already satisfied: pip in /home/leo/software_releases_falcon_20261011/releases/4ecb4e358735fb6e07dea66e7cc8015fb0e9076b/.venv/lib/python3.10/site-packages (22.0.2)
+Processing /home/leo/release_wheels/pip-25.1.1-py3-none-any.whl
+Requirement already satisfied: setuptools in /home/leo/software_releases_falcon_20261011/releases/4ecb4e358735fb6e07dea66e7cc8015fb0e9076b/.venv/lib/python3.10/site-packages (59.6.0)
+Processing /home/leo/release_wheels/setuptools-75.8.2-py3-none-any.whl
+Processing /home/leo/release_wheels/wheel-0.45.1-py3-none-any.whl
+Processing /home/leo/release_wheels/packaging-24.2-py3-none-any.whl
+Installing collected packages: wheel, setuptools, pip, packaging
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 59.6.0
+    Uninstalling setuptools-59.6.0:
+      Successfully uninstalled setuptools-59.6.0
+  Attempting uninstall: pip
+    Found existing installation: pip 22.0.2
+    Uninstalling pip-22.0.2:
+      Successfully uninstalled pip-22.0.2
+Successfully installed packaging-24.2 pip-25.1.1 setuptools-75.8.2 wheel-0.45.1
+Looking in links: /home/leo/release_wheels
+Obtaining file:///home/leo/software_releases_falcon_20261011/releases/4ecb4e358735fb6e07dea66e7cc8015fb0e9076b
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Processing /home/leo/release_wheels/numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from falconplan==0.1.0)
+Processing /home/leo/release_wheels/scipy-1.11.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from falconplan==0.1.0)
+Processing /home/leo/release_wheels/matplotlib-3.8.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from falconplan==0.1.0)
+Processing /home/leo/release_wheels/osqp-1.1.3-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (from falconplan==0.1.0)
+Processing /home/leo/release_wheels/casadi-3.8.1-cp310-none-manylinux_2_28_x86_64.whl (from falconplan==0.1.0)
+Processing /home/leo/release_wheels/pytest-8.3.5-py3-none-any.whl (from falconplan==0.1.0)
+Processing /home/leo/release_wheels/psutil-6.1.1-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from falconplan==0.1.0)
+Processing /home/leo/release_wheels/contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from matplotlib>=3.7->falconplan==0.1.0)
+Processing /home/leo/release_wheels/cycler-0.12.1-py3-none-any.whl (from matplotlib>=3.7->falconplan==0.1.0)
+Processing /home/leo/release_wheels/fonttools-4.60.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from matplotlib>=3.7->falconplan==0.1.0)
+Processing /home/leo/release_wheels/kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (from matplotlib>=3.7->falconplan==0.1.0)
+Requirement already satisfied: packaging>=20.0 in /home/leo/software_releases_falcon_20261011/releases/4ecb4e358735fb6e07dea66e7cc8015fb0e9076b/.venv/lib/python3.10/site-packages (from matplotlib>=3.7->falconplan==0.1.0) (24.2)
+Processing /home/leo/release_wheels/pillow-10.4.0-cp310-cp310-manylinux_2_28_x86_64.whl (from matplotlib>=3.7->falconplan==0.1.0)
+Processing /home/leo/release_wheels/pyparsing-3.2.5-py3-none-any.whl (from matplotlib>=3.7->falconplan==0.1.0)
+Processing /home/leo/release_wheels/python_dateutil-2.9.0.post0-py2.py3-none-any.whl (from matplotlib>=3.7->falconplan==0.1.0)
+Processing /home/leo/release_wheels/jinja2-3.1.6-py3-none-any.whl (from osqp>=0.6.3->falconplan==0.1.0)
+Requirement already satisfied: setuptools in /home/leo/software_releases_falcon_20261011/releases/4ecb4e358735fb6e07dea66e7cc8015fb0e9076b/.venv/lib/python3.10/site-packages (from osqp>=0.6.3->falconplan==0.1.0) (75.8.2)
+Processing /home/leo/release_wheels/joblib-1.5.1-py3-none-any.whl (from osqp>=0.6.3->falconplan==0.1.0)
+Processing /home/leo/release_wheels/exceptiongroup-1.3.0-py3-none-any.whl (from pytest>=7.4->falconplan==0.1.0)
+Processing /home/leo/release_wheels/iniconfig-2.1.0-py3-none-any.whl (from pytest>=7.4->falconplan==0.1.0)
+Processing /home/leo/release_wheels/pluggy-1.6.0-py3-none-any.whl (from pytest>=7.4->falconplan==0.1.0)
+Processing /home/leo/release_wheels/tomli-2.2.1-py3-none-any.whl (from pytest>=7.4->falconplan==0.1.0)
+Processing /home/leo/release_wheels/typing_extensions-4.14.1-py3-none-any.whl (from exceptiongroup>=1.0.0rc8->pytest>=7.4->falconplan==0.1.0)
+Processing /home/leo/release_wheels/six-1.17.0-py2.py3-none-any.whl (from python-dateutil>=2.7->matplotlib>=3.7->falconplan==0.1.0)
+Processing /home/leo/release_wheels/markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (from jinja2->osqp>=0.6.3->falconplan==0.1.0)
+Building wheels for collected packages: falconplan
+  Building editable for falconplan (pyproject.toml): started
+  Building editable for falconplan (pyproject.toml): finished with status 'done'
+  Created wheel for falconplan: filename=falconplan-0.1.0-0.editable-py3-none-any.whl size=7550 sha256=86a0baeb96d5d9125d537811f21c7ef24c9c5eb5e767922626659a2dd68aaaba
+  Stored in directory: /tmp/pip-ephem-wheel-cache-r2lnnoxl/wheels/35/97/72/d2f93948035883559dc73f45075f3f4354d0590028df074116
+Successfully built falconplan
+Installing collected packages: typing-extensions, tomli, six, pyparsing, psutil, pluggy, pillow, numpy, MarkupSafe, kiwisolver, joblib, iniconfig, fonttools, cycler, scipy, python-dateutil, jinja2, exceptiongroup, contourpy, casadi, pytest, osqp, matplotlib, falconplan
+
+Successfully installed MarkupSafe-3.0.3 casadi-3.8.1 contourpy-1.3.2 cycler-0.12.1 exceptiongroup-1.3.0 falconplan-0.1.0 fonttools-4.60.1 iniconfig-2.1.0 jinja2-3.1.6 joblib-1.5.1 kiwisolver-1.4.8 matplotlib-3.8.4 numpy-1.26.4 osqp-1.1.3 pillow-10.4.0 pluggy-1.6.0 psutil-6.1.1 pyparsing-3.2.5 pytest-8.3.5 python-dateutil-2.9.0.post0 scipy-1.11.4 six-1.17.0 tomli-2.2.1 typing-extensions-4.14.1
+No broken requirements found.
+{
+  "commit": "4ecb4e358735fb6e07dea66e7cc8015fb0e9076b",
+  "source": "/mnt/c/Users/Leo/Desktop/project/FalconPlan",
+  "release": "/home/leo/software_releases_falcon_20261011/releases/4ecb4e358735fb6e07dea66e7cc8015fb0e9076b",
+  "hardware_enabled": false,
+  "status": "STAGED_TESTED",
+  "physical_validation": "PENDING_HARDWARE"
+}

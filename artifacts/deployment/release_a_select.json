@@ -1,0 +1,8 @@
+{
+  "commit": "4ecb4e358735fb6e07dea66e7cc8015fb0e9076b",
+  "previous_commit": null,
+  "operation": "select",
+  "hardware_enabled": false,
+  "process_started": false,
+  "physical_validation": "PENDING_HARDWARE"
+}
