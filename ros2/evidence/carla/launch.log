@@ -1,0 +1,14 @@
+[INFO] [launch]: All log files can be found below /home/leo/.ros/log/2026-10-11-21-53-13-488473-DESKTOP-RHN5IE9-6907
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [safety_bridge.py-1]: process started with pid [6910]
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [safety_bridge.py-1]: sending signal 'SIGINT' to process[safety_bridge.py-1]
+[safety_bridge.py-1] Traceback (most recent call last):
+[safety_bridge.py-1]   File "/home/leo/falcon_acceptance_ws/install/falcon_ros/lib/falcon_ros/safety_bridge.py", line 150, in <module>
+[safety_bridge.py-1]     main()
+[safety_bridge.py-1]   File "/home/leo/falcon_acceptance_ws/install/falcon_ros/lib/falcon_ros/safety_bridge.py", line 144, in main
+[safety_bridge.py-1]     node.destroy_node()
+[safety_bridge.py-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1696, in destroy_node
+[safety_bridge.py-1]     self.__node.destroy_when_not_in_use()
+[safety_bridge.py-1] KeyboardInterrupt
+[ERROR] [safety_bridge.py-1]: process has died [pid 6910, exit code -2, cmd '/home/leo/falcon_acceptance_ws/install/falcon_ros/lib/falcon_ros/safety_bridge.py --ros-args --params-file /home/leo/falcon_acceptance_ws/install/falcon_ros/share/falcon_ros/config/safety.yaml'].

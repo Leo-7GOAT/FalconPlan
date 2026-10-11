@@ -1,0 +1,6 @@
+{
+  "status": "PASS_REAL_ROSBAG",
+  "safe_command_messages_received": 347,
+  "bag_path": "bag_1791726847831266461",
+  "mode": "Passive observer; simulator/hardware adapters stopped before playback"
+}

@@ -1,0 +1,8 @@
+stdin is not a terminal device. Keyboard handling disabled.[INFO] [1791726882.939841049] [rosbag2_storage]: Opened database '/mnt/c/Users/Leo/Desktop/project/FalconPlan/ros2/evidence/carla/bag_1791726795906306070/bag_1791726795906306070_0.db3' for READ_ONLY.
+[INFO] [1791726882.940451941] [rosbag2_player]: Set rate to 2
+[INFO] [1791726882.952360700] [rosbag2_player]: Adding keyboard callbacks.
+[INFO] [1791726882.953173742] [rosbag2_player]: Press SPACE for Pause/Resume
+[INFO] [1791726882.953752350] [rosbag2_player]: Press CURSOR_RIGHT for Play Next Message
+[INFO] [1791726882.954270942] [rosbag2_player]: Press CURSOR_UP for Increase Rate 10%
+[INFO] [1791726882.954819109] [rosbag2_player]: Press CURSOR_DOWN for Decrease Rate 10%
+[INFO] [1791726882.967056334] [rosbag2_storage]: Opened database '/mnt/c/Users/Leo/Desktop/project/FalconPlan/ros2/evidence/carla/bag_1791726795906306070/bag_1791726795906306070_0.db3' for READ_ONLY.

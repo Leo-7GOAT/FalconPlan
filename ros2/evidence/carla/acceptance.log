@@ -1,0 +1,18 @@
+{
+  "status": "PASS_REAL_SIM_ROS",
+  "platform": "CARLA 0.9.15 via real DDS Ackermann safety bridge",
+  "displacement_m": 5.0098971056425485,
+  "stopped_speed_mps": 0.0,
+  "sample_count": 802,
+  "latency_ms": {
+    "p50": 0.640792,
+    "p95": 0.94981725,
+    "p99": 1.3501049200000006
+  },
+  "control_period_ms": {
+    "p50": 9.993300000132876,
+    "p95": 10.629819600080737,
+    "p99": 10.777532999909454
+  },
+  "control_period_jitter_std_ms": 0.34762549113895574
+}

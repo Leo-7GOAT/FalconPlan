@@ -1,0 +1,15 @@
+
+Files:             bag_1791726795906306070_0.db3
+Bag size:          563.4 KiB
+Storage id:        sqlite3
+Duration:          8.367205577s
+Start:             Oct 11 2026 21:53:16.235393616 (1791726796.235393616)
+End:               Oct 11 2026 21:53:24.602599193 (1791726804.602599193)
+Messages:          5394
+Topic information: Topic: /falcon/control_period | Type: std_msgs/msg/Float64 | Count: 837 | Serialization Format: cdr
+                   Topic: /falcon/safe_command | Type: ackermann_msgs/msg/AckermannDriveStamped | Count: 838 | Serialization Format: cdr
+                   Topic: /falcon/safety_status | Type: std_msgs/msg/String | Count: 838 | Serialization Format: cdr
+                   Topic: /falcon/command | Type: ackermann_msgs/msg/AckermannDriveStamped | Count: 2545 | Serialization Format: cdr
+                   Topic: /falcon/state | Type: nav_msgs/msg/Odometry | Count: 168 | Serialization Format: cdr
+                   Topic: /tf | Type: tf2_msgs/msg/TFMessage | Count: 168 | Serialization Format: cdr
+

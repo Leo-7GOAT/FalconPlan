@@ -1,0 +1,10 @@
+falcon_safety_bridge:
+  ros__parameters:
+    max_state_age: 0.2
+    max_command_age: 0.2
+    max_speed: 20.0
+    max_steer: 0.5
+    max_steer_rate: 0.8
+    max_accel: 3.0
+    max_decel: 6.0
+    geofence: [-10000, 10000, -10000, 10000]

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.8)
+project(falcon_ros)
+find_package(ament_cmake REQUIRED)
+install(PROGRAMS scripts/safety_bridge.py scripts/acceptance.py scripts/carla_bridge.py DESTINATION lib/${PROJECT_NAME})
+install(DIRECTORY launch config DESTINATION share/${PROJECT_NAME})
+ament_package()

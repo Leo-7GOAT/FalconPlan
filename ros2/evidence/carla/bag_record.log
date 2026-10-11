@@ -1,0 +1,15 @@
+stdin is not a terminal device. Keyboard handling disabled.[INFO] [1791726796.167355512] [rosbag2_recorder]: Press SPACE for pausing/resuming
+[INFO] [1791726796.206843556] [rosbag2_storage]: Opened database '/mnt/c/Users/Leo/Desktop/project/FalconPlan/ros2/evidence/carla/bag_1791726795906306070/bag_1791726795906306070_0.db3' for READ_WRITE.
+[INFO] [1791726796.208802981] [rosbag2_recorder]: Listening for topics...
+[INFO] [1791726796.208823564] [rosbag2_recorder]: Event publisher thread: Starting
+[INFO] [1791726796.216031848] [rosbag2_recorder]: Subscribed to topic '/tf'
+[INFO] [1791726796.221078124] [rosbag2_recorder]: Subscribed to topic '/falcon/state'
+[INFO] [1791726796.225458582] [rosbag2_recorder]: Subscribed to topic '/falcon/safety_status'
+[INFO] [1791726796.229742624] [rosbag2_recorder]: Subscribed to topic '/falcon/safe_command'
+[INFO] [1791726796.233983224] [rosbag2_recorder]: Subscribed to topic '/falcon/control_period'
+[INFO] [1791726796.234603108] [rosbag2_recorder]: Recording...
+[INFO] [1791726796.443596213] [rosbag2_recorder]: Subscribed to topic '/falcon/command'
+[INFO] [1791726796.444095304] [rosbag2_recorder]: All requested topics are subscribed. Stopping discovery...
+[INFO] [1791726804.603250709] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[INFO] [1791726804.612949252] [rosbag2_recorder]: Event publisher thread: Exiting
+[INFO] [1791726804.613592427] [rosbag2_recorder]: Recording stopped

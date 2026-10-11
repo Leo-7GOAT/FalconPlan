@@ -1,0 +1,28 @@
+{
+  "status": "PASS_REAL_ROS_MOCK_IO",
+  "timestamp_timeout_pass": true,
+  "latched_stop_pass": true,
+  "clamp_rate_limit_pass": true,
+  "software_estop_pass": true,
+  "manual_override_pass": true,
+  "stale_reset_rejected": true,
+  "sample_count": 304,
+  "latency_ms": {
+    "p50": 0.9497875,
+    "p95": 2.2303124499999996,
+    "p99": 3.0788257399999988
+  },
+  "interval_ms": {
+    "p50": 10.022132999893074,
+    "p95": 11.51301569982479,
+    "p99": 12.470391659853705
+  },
+  "jitter_std_ms": 1.0715913334704465,
+  "control_period_ms": {
+    "p50": 10.009300999854531,
+    "p95": 10.509167699888167,
+    "p99": 11.393424440066156
+  },
+  "control_period_jitter_std_ms": 0.41266033924262996,
+  "measurement": "WSL local DDS callback age. Synthetic stationary input, real ROS safety core."
+}

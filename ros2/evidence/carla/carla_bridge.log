@@ -1,0 +1,3 @@
+[INFO] [1791726794.362306373] [falcon_carla_bridge]: REAL_CARLA server=0.9.15 map=Carla/Maps/Town10HD_Opt actor=138 tick_owner=True
+[INFO] [1791726804.993933017] [falcon_carla_bridge]: ROS commands applied=1073 max_acceleration=2.0
+Failed to publish log message to rosout: publisher's context is invalid, at ./src/rcl/publisher.c:389

@@ -1,0 +1,50 @@
+rosbag2_bagfile_information:
+  version: 5
+  storage_identifier: sqlite3
+  duration:
+    nanoseconds: 3555407330
+  starting_time:
+    nanoseconds_since_epoch: 1791726559001634189
+  message_count: 5840
+  topics_with_message_count:
+    - topic_metadata:
+        name: /falcon/state
+        type: nav_msgs/msg/Odometry
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 3\n  depth: 0\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 2627
+    - topic_metadata:
+        name: /falcon/command
+        type: ackermann_msgs/msg/AckermannDriveStamped
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 3\n  depth: 0\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 2152
+    - topic_metadata:
+        name: /falcon/control_period
+        type: std_msgs/msg/Float64
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 3\n  depth: 0\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 353
+    - topic_metadata:
+        name: /falcon/safe_command
+        type: ackermann_msgs/msg/AckermannDriveStamped
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 3\n  depth: 0\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 354
+    - topic_metadata:
+        name: /falcon/safety_status
+        type: std_msgs/msg/String
+        serialization_format: cdr
+        offered_qos_profiles: "- history: 3\n  depth: 0\n  reliability: 1\n  durability: 2\n  deadline:\n    sec: 9223372036\n    nsec: 854775807\n  lifespan:\n    sec: 9223372036\n    nsec: 854775807\n  liveliness: 1\n  liveliness_lease_duration:\n    sec: 9223372036\n    nsec: 854775807\n  avoid_ros_namespace_conventions: false"
+      message_count: 354
+  compression_format: ""
+  compression_mode: ""
+  relative_file_paths:
+    - bag_1791726558622158423_0.db3
+  files:
+    - path: bag_1791726558622158423_0.db3
+      starting_time:
+        nanoseconds_since_epoch: 1791726559001634189
+      duration:
+        nanoseconds: 3555407330
+      message_count: 5840
