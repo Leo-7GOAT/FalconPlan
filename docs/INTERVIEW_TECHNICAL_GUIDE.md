@@ -20,9 +20,17 @@ PID uses conditional integration against windup. Stanley adds heading error and 
 
 CARLA wheel positions are world centimeters, requiring actor-frame projection and handedness conversion. Automatic gearbox clutch engagement caused 12–15 m/s² spikes in measured sweeps; manual first gear reduced them to about 2–3. Native Ackermann testing collided and is retained as FAIL. Distinguish intended acceleration, physically measured acceleration and simulator execution.
 
-`state_estimator.py` implements IMU propagation, GNSS updates, Mahalanobis gating and Joseph covariance form. `hal/carla_sensors.py` uses actual GNSS/IMU with an OpenDRIVE georeference Jacobian. Bias, gravity, extrinsics and clock alignment are physical deployment prerequisites. Current control uses truth localization.
+`state_estimator.py` implements IMU propagation, GNSS updates, Mahalanobis gating and Joseph covariance form. `hal/carla_sensors.py` uses actual GNSS/IMU with an OpenDRIVE georeference Jacobian. The complete planning-chain checkpoints use truth localization; a separate 12-run controller experiment initializes from real GNSS/IMU callbacks and drives control/servo/Safety without Ego truth reads. Consume each sensor timestamp once and preserve original accepted measurement age during extrapolation. Ten feedback cases pass; long-outage whole-window accuracy and all physical envelopes remain unaccepted. A stationary initialization prior avoids noise-driven false reverse without clipping later estimates. Bias, gravity, extrinsics and clock alignment remain physical deployment prerequisites.
 
 `ros2/falcon_ros` carries Ackermann/Odometry, TF and safety services. Separate callback groups and MultiThreadedExecutor fixed command starvation caused by a synchronous simulator timer. `control/safety.py` latches stale state/command, geofence, speed, reverse, collision and software E-stop. Manual commands still obey limits; explicit stationary reset and fresh reevaluation are required. Explain clock domains, queue expiry and why a software brake command is not a hardware E-stop.
+
+## Actual PPO and Stackelberg experiments
+
+The [learning report](LEARNING_EXPERIMENT_REPORT.md) links actual weights, reward curves, seeded training and paired results. PPO uses a tanh-Gaussian acceleration head and categorical lane head, clipped likelihood ratios and terminal-masked GAE. The classical comparison executes FSM/IDM/MOBIL; learned inference uses trained tensor weights. Guard interventions are visible, and every paired policy uses the same actuator-envelope version. A separate unguarded ablation removes predictive collision/lane gates while retaining actuator/Safety contracts. Improvements across versions also reflect reward/envelope changes; do not attribute them solely to the network.
+
+Two final seeds each train 262,144 transitions; each passes 15/15 ID model episodes but both fail gain/combined OOD. Nominal speed tracking is worse than the classical baseline. All this uses analytical dynamic bicycle motion, not CARLA. Explain why parameter changes in the actor, independent evaluation seeds and saved optimizer/weight/hash records distinguish real learning from a rule labelled PPO; none of them certifies road safety.
+
+The [game report](STACKELBERG_EXPERIMENT.md) enumerates follower best responses for each leader action, then chooses the leader's best feasible strategy with pessimistic tie handling. Cooperation assumptions are measurable failure modes: a noncooperative opponent produces 37/60 unguarded predicted collisions; a bounded robust veto removes those model collisions but completes only 2/60 merges. Discuss opponent-model error and the safety/progress tradeoff, rather than claiming a universal game-policy advantage.
 
 ## C++ and Sim-to-Real
 

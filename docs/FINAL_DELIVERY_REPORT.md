@@ -1,8 +1,8 @@
 # FalconPlan — verified software stage, 2026-10-11
 
-GitHub: https://github.com/Leo-7GOAT/FalconPlan. Preserved checkpoint at report preparation: `e1718ac354949e80a18cc69e91800ed64c7017d0`. The coordinator commits/pushes subsequent verified work; use `git rev-parse HEAD` for the final revision. This is a stage report, not closure of all acceptance gates.
+GitHub: https://github.com/Leo-7GOAT/FalconPlan. Verified source checkpoint: `2ab155092048dfc6c646328e8f4de94e935176d1`, including actual PPO and sensor-feedback experiments. Later portfolio/evidence commits are recorded in Git; use `git rev-parse HEAD` for the final revision. This is a stage report, not closure of all acceptance gates.
 
-The original matrix retains all **16 equally weighted weeks: W01–W12 and W16–W19**. It has **9 PASS / 7 PARTIAL = 56.25% week-level PASS**. This counts accepted week groups, not engineering effort or the entire project's detailed requirement completion. The independent [full requirement ledger](REMAINING_ACCEPTANCE_REVIEW.md) records 127/149 individual checks PASS at its review checkpoint. Historical W01–W05 assignments are inferred from repository history because the task does not define those weeks individually. A component pass never closes its broader week automatically.
+The original matrix retains all **16 equally weighted groups: W01–W12 and W16–W19**. It has **12 PASS / 4 PARTIAL = 75% milestone-level PASS**. W11/W12/W17 accept the originally requested minimum reproducible PPO/game numerical experiments; they do not accept CARLA policy control. W09/W16/W18/W19 remain PARTIAL. This counts named groups, not engineering effort or project completion. The [full requirement ledger](REMAINING_ACCEPTANCE_REVIEW.md) retains every original check. Historical W01–W05 assignments are inferred because the brief does not define those weeks individually. A component pass never closes an unrelated integration gate.
 
 | Week | Status | Evidence / remaining boundary |
 |---|---|---|
@@ -14,13 +14,13 @@ The original matrix retains all **16 equally weighted weeks: W01–W12 and W16�
 | W06 ST-DP | PASS_UNIT | Analytical demo, live dynamic ST projection, corridor and dense checks |
 | W07 QP/MPC | PASS_REAL_SIM algorithm execution | DP-QP/rolling MPC numerical acceptance and real online scenes; plant constraints remain W09/W16 gates |
 | W08 C++17 | PASS_UNIT / PASS_REAL_SIM | 9 GoogleTests Release + ASan/UBSan; native controller, model, data structures and actual candidate cost/collision/selection; 2,000 candidate parity cases and CARLA online execution. The remaining DP/QP/MPC executive is Python. |
-| W09 CARLA/estimation | PARTIAL | Real physics/I/O and corrected nominal GNSS/IMU diagnostics; jerk, noisy/dropout sensor acceptance, sensor feedback and full real-time deadlines open |
+| W09 CARLA/estimation | PARTIAL | Real physics/I/O; sensor-only control matrix 10/12 feedback PASS, 2 long-outage accuracy failures; 0/12 complete physical-envelope passes. Full planning/ROS estimator integration and deadlines remain open. |
 | W10 safety | PASS_REAL_SIM software I/O | Native ROS-CARLA brake-to-zero, geofence/freshness/manual/latching faults; physical E-stop pending |
-| W11 PPO | PARTIAL | No trained result claimed |
-| W12 game decisions | PARTIAL | No evaluated game experiment claimed |
+| W11 PPO | PASS_UNIT | Actual reproducible environment/training, mixed-action PPO, two final training seeds, weights/curve and classical comparison; analytical model, not CARLA |
+| W12 game decisions | PASS_UNIT | Enumerated Stackelberg best responses and 540 numerical baseline/OOD cases; cooperation failures and robust-veto progress tradeoff retained |
 | W16 dynamics/actuators | PARTIAL | Dynamic/actuator unit checks and real throttle sweeps; high-speed low-friction control FAIL and complete identification open |
-| W17 learning/game experiments | PARTIAL | No accepted seeded policy experiment |
-| W18 policy OOD | PARTIAL | Model OOD failure exists; learned policy OOD experiment remains |
+| W17 learning/game experiments | PASS_UNIT | Actual seeded numerical training/evaluation processes and evidence; policy deployment is not accepted |
+| W18 policy OOD | PARTIAL | Actual held-out/OOD tests exist; both final policies fail unknown-gain and combined domains, and unguarded game fails noncooperative opponents |
 | W19 engineering | PARTIAL | Packaging/replay/profiling/release tools and remote CI; broader engineering/deployment acceptance remains |
 
 Physical vehicle / Pi HIL is **PENDING_HARDWARE**: protocol, geometry, wiring, true E-stop and target timing are unmeasured. It is reported separately and does not shrink the 16-week denominator.
@@ -43,9 +43,11 @@ Subsequent four-run `carla_sensor_v2` evidence improves the v4 boundary: actual 
 
 [README](../README.md), [benchmark](SIMULATION_BENCHMARK.md), [hardware guide](HARDWARE_READINESS.md), [interview guide](INTERVIEW_TECHNICAL_GUIDE.md), [commissioning tools](../tools/hardware/README.md), real camera screenshots/GIFs and versioned raw traces. Reproduction commands are in README and ROS scripts.
 
-Open P0 gates: full CARLA physical constraints and planning/control deadlines, sensor-noise/dropout and sensor-feedback acceptance. P1 must generate actual model weights and seeded training/evaluation results. Physical hardware, true E-stop and target Pi timing remain PENDING_HARDWARE. Zero collisions, a mock pass or an interface checklist does not imply final acceptance. First physical week is detailed in HARDWARE_READINESS.
+Open P0 gates: full CARLA physical constraints and planning/control deadlines, long-outage estimation accuracy, estimator integration into the complete planning/ROS chain and complete actuator identification. P1 now has real model weights, curves and seeded comparisons; policy CARLA integration and robust OOD control remain unaccepted. Physical hardware, true E-stop and target Pi timing remain PENDING_HARDWARE. Zero collisions, a mock pass or an interface checklist does not imply final acceptance. First physical week is detailed in HARDWARE_READINESS.
 
 ## Independent release and cloud checkpoints
+
+Latest coordinator regression after all source owners froze: **579 passed in 10.25 s**, with native C++ planning and Torch tests enabled. `artifacts/final_publication_regression.{json,stdout.txt}` records 11.902 s process wall time, 7.494 s kernel child CPU and sampled tree RSS max 977,154,048 bytes. These are host-test resources, not Pi or live-loop measurements. The source `2ab155092048dfc6c646328e8f4de94e935176d1` passed actual [software CI including CPU PPO process verification](https://github.com/Leo-7GOAT/FalconPlan/actions/runs/38152994853) and [ROS2 CI](https://github.com/Leo-7GOAT/FalconPlan/actions/runs/38152994843).
 
 Independent host regression: 526 passed in 6.75 s; wall 7.125 s, kernel child CPU 3.848 s, sampled tree RSS max 108,056,576 bytes (`artifacts/independent_release_regression*`). [Cloud software matrix](https://github.com/Leo-7GOAT/FalconPlan/actions/runs/38146268266) and [ROS2 acceptance](https://github.com/Leo-7GOAT/FalconPlan/actions/runs/38146268280) passed at `793a3ed24819ecf4b22d8548ade9d4c0801923b9`. Later source revisions have their own workflows; a prior pass is not a badge for the current revision.
 
@@ -54,6 +56,12 @@ Independent host regression: 526 passed in 6.75 s; wall 7.125 s, kernel child CP
 The native planning increment at `e1718ac354949e80a18cc69e91800ed64c7017d0` closes the originally requested planning-core migration category: actual candidate cost, continuous segment-circle collision and stable best-candidate selection run inside OnlinePlanningStack. Independent whole-library regression with that native library: **535 passed in 5.26 s**; profiler wall 9.604 s, kernel child CPU 5.130 s, sampled tree RSS max 108,720,128 bytes (`artifacts/final_native_release_regression*`). Windows: 524 passed, 11 explicitly unavailable native/Linux skips. **9 Release + 9 ASan/UBSan GoogleTests** pass. For 2,000 candidates the maximum cost difference is 4.55e-13, with zero collision/selection mismatches. Eight-candidate batch P50 Python/native is 203/126 microseconds, including native packing/FFI/result creation; this is not full-stack timing.
 
 Actual CARLA static seed 7: 400 ticks carry native-plan metadata (not 400 new evaluations), displacement 61.235 m, CTE 0.09825 m, no collision/planner failure, acceleration +2.991/-1.990 m/s², nominal estimator RMSE 0.07278 m. Jerk 78.646 m/s³ keeps the scene **PARTIAL**. See `artifacts/carla_cpp_planning/planning_integration.json` for four matching source hashes, reproduction and the overlapping-test latency caveat.
+
+## Actual sensor-feedback and learning increments
+
+The strictly sequential [GNSS/IMU feedback experiment](../artifacts/carla_estimation/REPORT.md) ran six profiles × two seeds × 400 controlled ticks. Sensor-only initialization and control have zero forbidden Ego-GT accesses. Ten feedback cases pass, including real sensor noise, short dropout and timestamp disorder. Both one-second outages latch the unchanged freshness stop and end at physical speed zero, but their complete-window accuracy fails. All twelve complete physical envelopes remain PARTIAL: peak +4.335/−26.877 m/s² and absolute jerk 514.206 m/s³. Valid failed implementations and explicitly INVALID concurrent-tick histories remain separate. Actors were destroyed, settings restored and only the task-owned server processes were stopped.
+
+The [PPO report](LEARNING_EXPERIMENT_REPORT.md) records five substantive training runs (1,179,648 transitions), two final seeds with 262,144 transitions each and 450 final paired episodes. Each final policy passes 15/15 ID model gates; both fail gain/combined OOD. A 512-step CPU CI smoke proves parameter updates/load/inference, not general policy safety. The [Stackelberg experiment](STACKELBERG_EXPERIMENT.md) records 540 numerical cases; noncooperative OOD causes 37/60 unguarded collisions while a finite-action veto reduces collisions with only 2/60 merges. Both studies are analytical models, not real CARLA policy tests.
 
 ## Actual isolated software release
 

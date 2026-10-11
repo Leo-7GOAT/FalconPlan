@@ -1,0 +1,50 @@
+{
+  "observed_local": "2026-10-11T23:59:20.6336473+08:00",
+  "scope": "Actual core source checkpoint CI; later portfolio commit requires its own CI",
+  "ros": {
+    "jobs": [
+      {
+        "name": "ros2",
+        "conclusion": "success"
+      }
+    ],
+    "url": "https://github.com/Leo-7GOAT/FalconPlan/actions/runs/38152994843",
+    "sha": "2ab155092048dfc6c646328e8f4de94e935176d1",
+    "conclusion": "success"
+  },
+  "software": {
+    "jobs": [
+      {
+        "name": "cpp (OFF)",
+        "conclusion": "success"
+      },
+      {
+        "name": "python (ubuntu-22.04, 3.10)",
+        "conclusion": "success"
+      },
+      {
+        "name": "python (windows-latest, 3.10)",
+        "conclusion": "success"
+      },
+      {
+        "name": "python (ubuntu-22.04, 3.11)",
+        "conclusion": "success"
+      },
+      {
+        "name": "ppo-process",
+        "conclusion": "success"
+      },
+      {
+        "name": "cpp (ON)",
+        "conclusion": "success"
+      },
+      {
+        "name": "python (windows-latest, 3.11)",
+        "conclusion": "success"
+      }
+    ],
+    "url": "https://github.com/Leo-7GOAT/FalconPlan/actions/runs/38152994853",
+    "sha": "2ab155092048dfc6c646328e8f4de94e935176d1",
+    "conclusion": "success"
+  }
+}

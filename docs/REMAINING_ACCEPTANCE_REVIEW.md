@@ -1,6 +1,6 @@
 # Original-scope acceptance review — 2026-10-11
 
-This is a read-only source/evidence audit against the user's original pasted brief, not a replacement scope. Only this review file was written. The current software stage is reviewable, but it does **not** satisfy the original final stopping condition: outstanding software items remain alongside PENDING_HARDWARE.
+This source/evidence audit retains the user's original scope and is updated after tested increments. The current software stage is reviewable, but it does **not** satisfy the original final stopping condition: outstanding software items remain alongside PENDING_HARDWARE.
 
 A PASS accepts only the stated experiment/component and its stated envelope. PASS_UNIT, PASS_MOCK and PASS_REAL_SIM are not interchangeable. PARTIAL means implementation or evidence is incomplete; it is not an environmental BLOCKED. No current missing simulator/component is classified BLOCKED: both native simulator and ROS environments actually ran. Physical vehicle/robot, manufacturer protocol validation, Raspberry Pi HIL and physical E-stop are PENDING_HARDWARE.
 
@@ -9,25 +9,25 @@ Counts below use named acceptance checks as the denominator, splitting compound 
 ## Material findings and remaining software
 
 1. Actual CARLA and ROS were used. The seven-scene/two-seed PID smoke suite and the following/static full planning chain are different experiments. Do not imply that every full-stack behavior has been exercised across all seven scenes, or that the full planning chain ran through ROS in the CARLA smoke test. The ROS acceptance independently executes stamped command → safety → CARLA and brake-to-zero.
-2. Current sensor evidence supersedes the earlier divergent diagnostic. [carla_sensor_v2](../artifacts/carla_sensor_v2/regression.json) records four 20 s runs with GNSS/IMU position RMSE 0.072594, 0.075493, 0.103840 and 0.084998 m; 292–307 accepted GNSS updates and two rejected initial IMU packets in one run. Earlier [full_stack_final](../artifacts/carla_full_stack_final/regression.json) contained three divergent diagnostics and remains a historical failure. Current ideal-sensor diagnostics pass. Control still uses actor ground truth, so sensor-feedback control, noise, dropout and timestamp-disorder robustness remain PARTIAL.
+2. The separate [sensor-feedback matrix](../artifacts/carla_estimation/REPORT.md) initializes and controls from real GNSS/IMU callbacks, with zero forbidden Ego truth reads. Ten of twelve feedback cases pass, including noise, short dropout and timestamp disorder; two one-second outages stop safely but fail whole-window estimator accuracy. All twelve complete physical envelopes remain PARTIAL. The full classical planning-chain and ROS experiments still use truth and do not automatically inherit this estimator. Earlier divergent diagnostics, stationary-prior failures and explicitly INVALID concurrent-tick histories are retained separately.
 3. Raw actual acceleration is now measured without clipping, and manual gear fixes clutch transients. Four sensor-v2 runs stay within the tested nominal acceleration envelope (max 2.885–2.921 m/s²), but measured jerk is 78.646–87.021 m/s³ and explicitly PARTIAL. Old clipped 3/6 m/s² summaries are not physical-limit proof. [C++ CARLA runs](../artifacts/carla_cpp_recovery_verified/regression.json) mark motion/acceleration PASS_REAL_SIM and overall physical constraints PARTIAL.
 4. W08 now satisfies all four original migration categories. In addition to controllers, domain data and kinematic RK4/constant-jerk kernels, the new C++ module evaluates the actual lattice candidate costs, checks collision continuously along each sampled line segment and selects the first minimum-cost collision-free candidate. Its typed C++ API and bounded C ABI reject invalid numeric/count/offset input; no exception crosses the boundary, all-blocked returns no solution, and invalid planning input leaves output arrays unchanged. The online planner calls this module in process and uses its selected trajectory. Polynomial sampling, feasibility filters, extended-route collision checks, ST-DP, QP and MPC remain Python; the original requirement does not demand migrating those entire modules. [Parity/benchmark](../artifacts/cpp_planning/parity_benchmark.json) covers 2,000 candidates in 250 eight-candidate batches, with zero collision/selection mismatches and maximum absolute cost error 4.547e-13. Batch P50 Python/native is 203.016/126.3705 µs, including packing, ctypes, native allocations and output construction. The earlier scalar Stanley FFI benchmark remains separate and shows no speedup.
    [Actual CARLA integration](../artifacts/carla_cpp_planning/planning_integration.json) and raw state logs contain 400 physics ticks with C++ evaluator plan metadata, zero planner failures, 61.234693 m displacement, 0.098253 m CTE RMSE and zero collisions. Replanning occurs at the configured planning cadence; 400 logged ticks do not imply 400 new C++ ranking calls. All four recorded source SHA-256 hashes match the audited files. This is PASS_REAL_SIM for the planning-evaluator component and W08; the scene remains PARTIAL because jerk is 78.645672 m/s³. That run overlapped independent tests, so its host latency is not an isolated performance comparison.
 5. Online planner/controller percentiles are reported, but the planner runs at 2 Hz and some P95/P99 calls exceed 50 ms. Synchronous simulation accepts slow wall-time computation; it does not prove a fixed 20 Hz planning budget. Explicit bounded scheduling, deadline fault behavior and representative real-time performance acceptance remain open.
 6. [Analytical dynamics](../artifacts/dynamics/benchmark.json) retains a low-friction 20 m/s delayed run with tracking RMSE 38.760 m and final error about -111.543 m. This is an observed FAIL inside the model experiment, not a false simulator integration failure. Negative linearized eigenvalues across tested speeds do not establish nonlinear robustness. Current throttle/brake sweeps are actual CARLA identification inputs; fitted steering lag/deadzone/tire/mass parameters are not yet accepted.
-7. PPO and Level-k/Stackelberg with actual training/evaluation artifacts remain mandatory P1 software gaps. Their priority does not remove them from the original scope. No optional multi-agent experiment is claimed.
+7. The minimum reproducible P1 experiments now have actual evidence: five substantive PPO training runs, two final seeds, learned weights/curves and 450 final paired episodes against FSM/IDM/MOBIL; finite-action Stackelberg with 540 numerical cases. These are analytical model experiments. Both PPO policies fail gain/combined OOD; noncooperative game OOD produces 37/60 unguarded predicted collisions. The training/comparison process is accepted, while robust policy control and CARLA integration remain PARTIAL. No optional multi-agent experiment is claimed.
 8. Hardware commissioning tools, immutable release selection and rollback exist. Selection rollback does not itself stop a running actuator process. Joined safe-stop/deploy/rollback acceptance and a vehicle ros2_control mock hardware plugin remain incomplete. Unknown vendor frames are correctly left unspecified.
 
 ## Current evidence and claim boundaries
 
-- Python latest audited checkpoint: [535 passed in 7.75 s](../artifacts/cpp_planning/full_python_tests.txt). Earlier 522/526-test host/profile results remain earlier checkpoints, not the final count.
+- Latest coordinator regression: [579 passed in 10.25 s](../artifacts/final_publication_regression.stdout.txt), native planning and Torch enabled. Earlier 535/526 profiles remain dated checkpoints.
 - C++: [nine release GoogleTests](../artifacts/cpp_planning/release_ctest.txt) and [nine ASan/UBSan passes](../artifacts/cpp_planning/sanitizer_ctest.txt), including analytic cost, sparse-segment tangency, degenerate segment, stable tie, all-blocked, null/invalid input and unchanged-output failure cases. The seeded 1,000-case control probe, 10,000 direct Stanley-binding comparisons and new 2,000-candidate planning study are distinct case sets.
 - Native ROS/CARLA acceptance: 802 latency samples, P50/P95/P99 0.640792/0.949817/1.350105 ms; actual timer standard deviation 0.347625 ms. Three seconds of positive acceleration moved 5.009897 m; four seconds of brake reached zero. [ROS report](ROS2_ACCEPTANCE.md) distinguishes host stamp latency from controller-period jitter and physical feedback.
 - README now contains current architecture, actual figures, measured results, Chinese navigation and limitations. The original inherited 454-test/kinematic-only homepage is no longer the current finding. Final pushed SHA, sensitive-file scan and cloud CI result remain coordinator-owned publication evidence; local test success is not a cloud CI badge.
 
 ## Counts with explicit denominators
 
-Detailed ledger: **127/149 checks have passing evidence**, 22 PARTIAL, 0 current FAIL, 0 BLOCKED. Passing evidence by kind: 69 PASS_UNIT, 58 PASS_REAL_SIM. Historic failed experiment rows remain in raw logs and the findings above; a corrected current check is not counted as a current FAIL. This W08 follow-up changes one detailed check from PARTIAL to PASS_REAL_SIM without reducing the denominator or changing unrelated statuses.
+Detailed ledger: **139/149 checks have passing evidence**, 10 PARTIAL, 0 current FAIL, 0 BLOCKED. Passing evidence by kind: 81 PASS_UNIT, 58 PASS_REAL_SIM. Experiment-process acceptance is distinct from failed control-envelope results retained under their original PARTIAL gates. No denominator was reduced.
 
 | Original section/check group | Denominator | PASS checks | PARTIAL checks |
 | --- | --- | --- | --- |
@@ -36,17 +36,17 @@ Detailed ledger: **127/149 checks have passing evidence**, 22 PARTIAL, 0 current
 | §4.3 C++ migration and engineering | 11 | 11 | 0 |
 | §4.4 CARLA genuine integration | 20 | 20 | 0 |
 | §4.5 Safety | 11 | 11 | 0 |
-| §4.6 P1 learning/game requirements (mandatory) | 6 | 0 | 6 |
+| §4.6 P1 learning/game requirements (mandatory) | 6 | 6 | 0 |
 | §6 stable architecture | 6 | 6 | 0 |
 | §7 hardware-preparation software | 16 | 14 | 2 |
-| §8 tests for every added core: six required classes | 6 | 4 | 2 |
+| §8 tests for every added core: six required classes | 6 | 6 | 0 |
 | §8 vehicle benchmark metrics | 10 | 9 | 1 |
 | §8 engineering metrics | 7 | 7 | 0 |
 | §9 README / portfolio required outputs | 13 | 13 | 0 |
-| §10–13 milestone/Git/final material | 10 | 4 | 6 |
+| §10–13 milestone/Git/final material | 10 | 8 | 2 |
 | Additional W09 hard requirement: state estimation | 4 | 2 | 2 |
 
-The requested week matrix has **9/16 PASS and 7/16 PARTIAL** under the stated week-level scope. This count is not a claim that 9/16 of the entire project is complete.
+The requested week matrix has **12/16 PASS and 4/16 PARTIAL**. W11/W12/W17 accept minimum numerical experiment requirements, with deployment/robustness still open. This is a count of stated milestone groups, not project effort or a completion claim.
 
 | Week | Current status | Acceptance boundary |
 | --- | --- | --- |
@@ -58,14 +58,14 @@ The requested week matrix has **9/16 PASS and 7/16 PARTIAL** under the stated we
 | W06 | PASS_UNIT | ST-DP existing demo/tests |
 | W07 | PASS_REAL_SIM | QP/MPC demos and two real full-stack scenes; GT localization |
 | W08 | PASS_REAL_SIM | All four requested categories: controllers, data, model and actual candidate cost/collision/stable selection; nine release/sanitizer tests, 2,000-candidate parity and native CARLA evaluator execution. DP/QP/MPC may remain Python. |
-| W09 | PARTIAL | Actual CARLA and4/4 nominal GNSS/IMU diagnostics PASS; GT control, noise/dropout and identification incomplete |
+| W09 | PARTIAL | Actual CARLA; 10/12 sensor-feedback cases pass, long-outage accuracy/physical envelopes/full planner-ROS estimator integration still unaccepted |
 | W10 | PASS_REAL_SIM | Software supervisor/faults/ROS plus physical brake-to-zero; hardware estop pending |
-| W11 | PARTIAL | No accepted Falcon PPO experiment at snapshot |
-| W12 | PARTIAL | No accepted Level-k/Stackelberg experiment |
+| W11 | PASS_UNIT | Actual reproducible PPO environment/training/weights/curve and classical comparison; analytical model |
+| W12 | PASS_UNIT | Actual enumerated Stackelberg numerical baseline and OOD experiment; road integration remains open |
 | W16 | PARTIAL | Actuator/dynamic models exist; unsafe low-friction envelope and incomplete identification |
-| W17 | PARTIAL | Minimal RL/game experiment not accepted |
-| W18 | PARTIAL | Minimal RL/game OOD not accepted |
-| W19 | PARTIAL | Replay/profiling/local checks PASS; remote CI/portfolio/final delivery not finished |
+| W17 | PASS_UNIT | Seeded actual minimal RL/game experiments, final two policies and450paired episodes |
+| W18 | PARTIAL | OOD experiment executed; gain/combined policy constraints and noncooperative game safety fail |
+| W19 | PARTIAL | Replay/profiling/local checks, core remote CI and English portfolio PASS; vehicle ros2_control plugin, running-process stop/rollback and target deployment still open |
 
 ## Original §12 minimum visible gates
 
@@ -188,12 +188,12 @@ Each row is the stated check, status and actual evidence/boundary. Passing a uni
 
 | Check | Status | Evidence or remaining requirement |
 | --- | --- | --- |
-| PPO vs FSM/IDM/MOBIL baseline | PARTIAL | No completed Falcon training/evaluation artifact at this snapshot |
-| Level-k or Stackelberg baseline | PARTIAL | No accepted implementation/experiment found |
-| OOD/domain randomization | PARTIAL | Analytical perturbation exists; requested RL/game OOD experiment absent |
-| Actual training process | PARTIAL | Not accepted yet |
-| Reward curve and weights | PARTIAL | Not accepted yet |
-| Seeds and evaluation results | PARTIAL | Not accepted yet |
+| PPO vs FSM/IDM/MOBIL baseline | PASS_UNIT | Actual mixed-action PPO inference against real inherited classical baseline; paired analytical model episodes; no general superiority claim |
+| Level-k or Stackelberg baseline | PASS_UNIT | Nested best-response enumeration, independent solver tests and540numerical cases |
+| OOD/domain randomization | PASS_UNIT | Actual seeded training randomization and held-out/OOD experiments with failed gain/combined/cooperation results retained; W18 control remainsPARTIAL |
+| Actual training process | PASS_UNIT | Five substantive CPU trainings1179648transitions; finaltwo262144each, actor parameters independently changed |
+| Reward curve and weights | PASS_UNIT | Real saved tensors/optimizer/logs/reward plots andSHA256manifest |
+| Seeds and evaluation results | PASS_UNIT | Two final training seeds, five held-out seeds,450final paired episodes; versioned raw/guarded comparisons |
 
 ### §6 stable architecture
 
@@ -234,8 +234,8 @@ Each row is the stated check, status and actual evidence/boundary. Passing a uni
 | Unit tests | PASS_UNIT | Core and ROS tests exist |
 | Numerical tests | PASS_UNIT | MPC/QP/parity/dynamics |
 | Integration tests | PASS_UNIT | Real ROS/CARLA and full-stack loop |
-| Boundary cases | PARTIAL | Coverage exists but not exhaustive across new sensor/online-stack modules |
-| Failure paths | PARTIAL | Initial IMU rejection and divergence corrected; noisy/dropout estimator acceptance not exercised |
+| Boundary cases | PASS_UNIT | Finite/bool/config/count/clock contracts, sensor future/duplicate/reordered packets, native ABI and PPO size/boundary tests; no exhaustive-state claim |
+| Failure paths | PASS_UNIT | Actual sensor dropout/disorder, long-outage stop+accuracy failure, PPO fault latches/collision termination, BT-independent existing vehicle faults; failures retained |
 | Performance tests | PASS_UNIT | Direct in-process C++ comparison and planner/control timing exist; runtime deadlines remain incomplete |
 
 ### §8 vehicle benchmark metrics
@@ -261,7 +261,7 @@ Each row is the stated check, status and actual evidence/boundary. Passing a uni
 | CPU/memory | PASS_UNIT | Host process profiler/time-v; not Pi/server total |
 | Actual control-cycle jitter | PASS_REAL_SIM | ROS monotonic timer periods |
 | ROS message latency | PASS_REAL_SIM | Same-host stamp-to-callback only |
-| Test success rate | PASS_UNIT | artifacts/cpp_planning/full_python_tests.txt: 535 passed in 7.75 s; earlier 522/526 checkpoints retained |
+| Test success rate | PASS_UNIT | artifacts/final_publication_regression.stdout.txt:579passed10.25s; earlier checkpoints retained |
 | Fault recovery result | PASS_REAL_SIM | Explicit ROS and simulation tests |
 | Hardware/software/seeds/sample/statistical metadata | PASS_UNIT | Latest reports distinguish experiment checkpoints and protocols |
 
@@ -289,14 +289,14 @@ Each row is the stated check, status and actual evidence/boundary. Passing a uni
 | --- | --- | --- |
 | M1 baseline/core-loop evidence | PASS_UNIT | Baseline audit and W07 logs |
 | M2 simulation/safety evidence | PARTIAL | Actual GT-control/ROS/safety passes; physical jerk and runtime full acceptance incomplete |
-| M3 hardware-pre-software enhancement evidence | PARTIAL | Identification/robustness/P1 gaps remain |
-| M4 portfolio completion | PARTIAL | Required pages now written; final remote CI/push evidence still coordinator-owned |
+| M3 hardware-pre-software enhancement evidence | PARTIAL | Complete identification/robustness/policy CARLA integration gaps remain; actual P1 experiments accepted |
+| M4 portfolio completion | PASS_UNIT | English README, diagrams/actual images, reproducible commands, truthful failures/limits and proposed physical-deployment analysis; publication audit passes |
 | Independent protected Git/reconciliation | PASS_UNIT | Parent restored/backs up, no destructive reset |
-| Tested incremental commits and non-force push | PARTIAL | First P0 push being performed; final remote SHA/CI pending |
-| Sensitive/oversize/cache check | PARTIAL | Parent final publication scan owns acceptance |
+| Tested incremental commits and non-force push | PASS_UNIT | Independent main history preserved; module commits and non-force pushes verified against GitHub; actual core CI in artifacts/publication_ci.json |
+| Sensitive/oversize/cache check | PASS_UNIT | artifacts/publication_audit.json: known credential/file patterns, oversized files, local Markdown links and English README checked; bounded scan, not arbitrary-secret guarantee |
 | docs/FINAL_DELIVERY_REPORT.md | PASS_UNIT | Present with checkpoint SHA, evidence and partial statuses |
 | docs/INTERVIEW_TECHNICAL_GUIDE.md | PASS_UNIT | Present; parent owns final publication review |
-| Latest commit/GitHub/status matrix/evidence/boundaries | PARTIAL | Stage report lists snapshot commit; final pushed SHA/CI pending |
+| Latest commit/GitHub/status matrix/evidence/boundaries | PASS_UNIT | Exact core checkpoint and actual CI in publication_ci.json; final portfolio SHA is HEAD and reported in the final delivery message; all PARTIAL requirements retained |
 
 ### Additional W09 hard requirement: state estimation
 
@@ -304,7 +304,7 @@ Each row is the stated check, status and actual evidence/boundary. Passing a uni
 | --- | --- | --- |
 | GNSS/IMU estimation actually acquired | PASS_REAL_SIM | Real sensor callbacks logged |
 | Ideal-sensor estimator accuracy | PASS_REAL_SIM | carla_sensor_v2:4/4 nominal diagnostics .072594–.103840m; older3/4 divergence preserved |
-| Estimated-state feedback and sensor robustness | PARTIAL | GT controls plant; added noise/dropout/estimated-feedback experiment absent |
+| Estimated-state feedback and sensor robustness | PARTIAL | Separate sensor-only control10/12feedbackPASS; two long-outage accuracy failures and full planning/ROS integration pending |
 | Calibrated actual simulator actuator model | PARTIAL | Five throttle/brake sweeps exist; fitted steering/lag/deadzone not complete |
 
 ## Closure rule

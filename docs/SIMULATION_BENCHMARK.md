@@ -1,6 +1,6 @@
 # Simulation benchmark — stage evidence
 
-Environment: Windows 10 build 19045; Ubuntu 22.04 / WSL2 kernel 6.18.40.1, x86-64; AMD Ryzen 5 9600X (6 cores / 12 logical CPUs), 63.65 GiB host RAM, RTX 5060 Ti. Python 3.11 Windows / 3.10 WSL. CARLA client/server 0.9.15, Town10HD_Opt, dt .05 s, .01 s physics substeps. Ground truth supplies vehicle/actor localization. Seeds 7/19 and sample counts are recorded; deterministic baseline routes repeat identically when no parameter is randomized. This is a small scenario study, not ODD statistical certification.
+Environment: Windows 10 build 19045; Ubuntu 22.04 / WSL2 kernel 6.18.40.1, x86-64; AMD Ryzen 5 9600X (6 cores / 12 logical CPUs), 63.65 GiB host RAM, RTX 5060 Ti. Python 3.11 Windows / 3.10 WSL. CARLA client/server 0.9.15, Town10HD_Opt, dt .05 s, .01 s physics substeps. The full planning-chain checkpoints use actor truth; the separately labelled estimator-control matrix uses GNSS/IMU feedback and truth only offline. Seeds 7/19 and sample counts are recorded; deterministic baseline routes repeat identically when no parameter is randomized. This is a small scenario study, not ODD statistical certification.
 
 ## Raw evidence
 
@@ -31,3 +31,15 @@ V4 full-chain following planner P95 381 ms, static planner P95 109 ms; controlle
 ## Native planning increment
 
 `artifacts/cpp_planning/` contains 9/9 Release and 9/9 ASan/UBSan GoogleTest results and the 2,000-candidate seed-42 comparison: maximum cost error 4.55e-13, collision/selection mismatches zero; eight-candidate batch P50/P95/P99 Python 203/2024/2598 versus native 126/320/391 microseconds. Native time includes packing, allocation, FFI and result construction. `artifacts/carla_cpp_planning/` proves actual online cost/collision/selection execution; 400 ticks are not 400 fresh planning evaluations, and overlapped tests preclude isolated full-stack performance claims. Its motion and acceleration gates pass, but jerk 78.646 keeps whole-scene PARTIAL. Independent native-enabled regression: 535 passed in 5.26 s, profiler wall 9.604 s, kernel child CPU 5.130 s, sampled summed RSS max 108,720,128 bytes.
+
+## Final sensor-only control matrix
+
+[Exact report and raw evidence](../artifacts/carla_estimation/REPORT.md): 12 strictly serial 20 s runs, six profiles and seeds 7/19, zero forbidden Ego truth accesses. Ten feedback cases pass; noisy-curve position RMSE is 0.067889–0.070008 m and speed RMSE 0.048012–0.049182 m/s. Real callback short-dropout and timestamp-disorder cases pass. Both long outages latch freshness stop and end at zero physical speed, but complete-window estimator accuracy fails. All twelve complete physical envelopes fail at least one unchanged acceleration/jerk gate; max +4.335, min −26.877 m/s² and max absolute jerk 514.206 m/s³. INVALID concurrent-tick histories contribute no acceptance successes. Legacy GT smoke, source hashes, cleanup and server shutdown have separate records.
+
+## Numerical PPO and game experiments
+
+The [PPO study](LEARNING_EXPERIMENT_REPORT.md) uses the analytical dynamic bicycle model. Final two seeds each train 262,144 transitions and evaluate 225 paired episodes; both pass all 15 ID learned-policy episodes and fail gain/combined OOD. Its shared actuator envelope and internal target changed across retained versions, so the differences are not solely learning gains. Actual weights, rewards, source hashes, actor-only parameter changes, guarded/raw ablations and failures are retained. CPU CI verifies the actual 512-step training/inference process, with a separate performance status.
+
+The [Stackelberg study](STACKELBERG_EXPERIMENT.md) executes 540 numerical cases; noncooperative OOD yields 37/60 unguarded predicted collisions and a robust-veto merge completion of 2/60. This is neither a CARLA collision rate nor a road-safety proof.
+
+Latest coordinator full regression with Torch and native planning: **579 passed in 10.25 s**. Profiler process wall 11.902 s, kernel child CPU 7.494 s, sampled tree RSS max 977,154,048 bytes. Raw stdout and methodology are `artifacts/final_publication_regression.*`; all older suite/profile timings above remain dated checkpoints.

@@ -1,0 +1,98 @@
+{
+  "status": "PASS_PUBLICATION_AUDIT",
+  "source_checkpoint": "2ab155092048dfc6c646328e8f4de94e935176d1",
+  "evaluated_files": 936,
+  "credential_pattern_scan_files": 646,
+  "local_markdown_links": 51,
+  "readme_language": "ENGLISH",
+  "detailed_ledger_counts": {
+    "PASS_UNIT": 81,
+    "PASS_REAL_SIM": 58,
+    "PARTIAL": 10
+  },
+  "detailed_ledger_groups": {
+    "\u00a74.1 Planning and live I/O": {
+      "PASS_UNIT": 6,
+      "PASS_REAL_SIM": 11
+    },
+    "\u00a74.2 Dynamics and actuation": {
+      "PASS_UNIT": 7,
+      "PASS_REAL_SIM": 2,
+      "PARTIAL": 3
+    },
+    "\u00a74.3 C++ migration and engineering": {
+      "PASS_UNIT": 10,
+      "PASS_REAL_SIM": 1
+    },
+    "\u00a74.4 CARLA genuine integration": {
+      "PASS_REAL_SIM": 20
+    },
+    "\u00a74.5 Safety": {
+      "PASS_REAL_SIM": 8,
+      "PASS_UNIT": 3
+    },
+    "\u00a74.6 P1 learning/game requirements (mandatory)": {
+      "PASS_UNIT": 6
+    },
+    "\u00a76 stable architecture": {
+      "PASS_UNIT": 6
+    },
+    "\u00a77 hardware-preparation software": {
+      "PASS_UNIT": 13,
+      "PARTIAL": 2,
+      "PASS_REAL_SIM": 1
+    },
+    "\u00a78 tests for every added core: six required classes": {
+      "PASS_UNIT": 6
+    },
+    "\u00a78 vehicle benchmark metrics": {
+      "PASS_REAL_SIM": 9,
+      "PARTIAL": 1
+    },
+    "\u00a78 engineering metrics": {
+      "PASS_REAL_SIM": 4,
+      "PASS_UNIT": 3
+    },
+    "\u00a79 README / portfolio required outputs": {
+      "PASS_UNIT": 13
+    },
+    "\u00a710\u201313 milestone/Git/final material": {
+      "PASS_UNIT": 8,
+      "PARTIAL": 2
+    },
+    "Additional W09 hard requirement: state estimation": {
+      "PASS_REAL_SIM": 2,
+      "PARTIAL": 2
+    }
+  },
+  "original_milestones": {
+    "denominator": 16,
+    "accepted": 12,
+    "partial": 4
+  },
+  "strict_json_records": 14429,
+  "largest_files": [
+    {
+      "path": "artifacts/game/merge_v2/trajectories.jsonl",
+      "bytes": 11303178
+    },
+    {
+      "path": "artifacts/game/merge_v1/trajectories.jsonl",
+      "bytes": 7422582
+    },
+    {
+      "path": "ros2/evidence/mock_io/bag_1791726847831266461/bag_1791726847831266461_0.db3",
+      "bytes": 3817472
+    },
+    {
+      "path": "ros2/evidence/mock_io/bag_1791726119623747430/bag_1791726119623747430_0.db3",
+      "bytes": 3391488
+    },
+    {
+      "path": "ros2/evidence/mock_io/bag_1791726701146221531/bag_1791726701146221531_0.db3",
+      "bytes": 3362816
+    }
+  ],
+  "issues": [],
+  "scope": "Static file/link/language/hash/known-credential-pattern audit; not a guarantee that arbitrary secrets or hardware faults are absent"
+}
