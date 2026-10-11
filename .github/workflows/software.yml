@@ -46,8 +46,16 @@ jobs:
       - run: cmake --build build/cpp
       - run: ctest --test-dir build/cpp --output-on-failure
       - run: python -m tools.cpp_parity --probe build/cpp/core_probe --output artifacts/ci-cpp-parity.json
+      - if: matrix.sanitize == 'OFF'
+        env:
+          FALCON_PLANNING_CPP_LIBRARY: build/cpp/libfalcon_c.so
+        run: python -m pytest -q tests/test_cpp_planning.py
+      - if: matrix.sanitize == 'OFF'
+        run: python -m tools.cpp_planning_benchmark --library build/cpp/libfalcon_c.so --output artifacts/ci-cpp-planning.json
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:
           name: cpp-parity-${{ matrix.sanitize }}
-          path: artifacts/ci-cpp-parity.json
+          path: |
+            artifacts/ci-cpp-parity.json
+            artifacts/ci-cpp-planning.json

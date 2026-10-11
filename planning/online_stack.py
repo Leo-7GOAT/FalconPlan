@@ -4,7 +4,7 @@ Inputs are stamped actor states from the adapter, never a prewritten obstacle
 trajectory. CV prediction is explicit target-level ground truth, not perception.
 """
 from dataclasses import dataclass
-import math,bisect
+import math,bisect,os
 from coordinate_system.reference_line import ReferenceLine
 from coordinate_system.frenet_transform import FrenetTransformer
 from coordinate_system.models import WorldState,FrenetState
@@ -44,12 +44,43 @@ class OnlinePlan:
     metadata: dict
 
 class OnlinePlanningStack:
-    def __init__(self,waypoints,desired_speed=6):
+    def __init__(self,waypoints,desired_speed=6,cpp_core=None):
         self.reference=ReferenceLine(waypoints);self.transform=FrenetTransformer(self.reference)
         self.behavior=BehaviorPlanner(IDMParams(desired_speed,3,2,4,1.5),MOBILParams(.2,4,.1))
         self.lattice=FrenetLatticePlanner(self.reference,TrajectoryConstraints(12,3,6,2.5,8),WorldTrajectoryConstraints(.18),CollisionParams(1,.2),TrajectoryCostWeights(),LateralSamplingConfig((0,)),dt=.1)
         self.desired_speed=desired_speed
+        library=os.environ.get('FALCON_PLANNING_CPP_LIBRARY')
+        if cpp_core is None and library:
+            from control.cpp_core import CppCore
+            cpp_core=CppCore(library)
+        self.cpp_core=cpp_core
+        self.last_candidate_evaluation={}
     def project(self,state):return self.transform.world_to_frenet(WorldState(state.x,state.y,state.psi))
+    def _geometry(self,data):
+        if self.cpp_core is None:
+            result=self.lattice.plan(data)
+            self.last_candidate_evaluation=dict(candidate_evaluator='PYTHON',candidates=result.candidate_count,world_feasible=result.world_feasible_count,collision_free=result.collision_free_count)
+            return result.best
+        # Keep inherited polynomial sampling/projection and feasibility gates;
+        # move the actual collision scan, cost evaluation and argmin to C++.
+        from .sampling import sample_lateral_targets
+        from .trajectory import generate_candidate_trajectories
+        from .constraints import filter_feasible_trajectories
+        from .world_projection import project_trajectory_to_world
+        from .world_constraints import filter_world_feasible_trajectories
+        p=self.lattice
+        candidates=generate_candidate_trajectories(data.s0,data.s_d0,data.s_dd0,data.d0,data.d_d0,data.d_dd0,sample_lateral_targets(data.lane_centers,p.lateral_sampling),data.target_speed_values,data.duration_values,p.dt)
+        if not candidates:raise RuntimeError('no candidate trajectories generated')
+        feasible=filter_feasible_trajectories(candidates,p.trajectory_constraints)
+        if not feasible:raise RuntimeError('no Frenet-feasible trajectory')
+        for trajectory in feasible:project_trajectory_to_world(trajectory,p.reference_line)
+        world=filter_world_feasible_trajectories(feasible,p.world_constraints)
+        if not world:raise RuntimeError('no World-feasible trajectory')
+        winner,costs,blocked=self.cpp_core.rank_candidates(world,data.obstacles,p.collision_params,p.cost_weights,data.desired_d,data.desired_speed)
+        self.last_candidate_evaluation=dict(candidate_evaluator='C++17_IN_PROCESS',candidates=len(candidates),world_feasible=len(world),collision_free=sum(not b for b in blocked),selected_index=winner)
+        if winner is None:raise RuntimeError('no collision-free trajectory')
+        for trajectory,cost in zip(world,costs):trajectory.cost=cost.total
+        return world[winner]
     def plan(self,state,actors,now,acceleration=0):
         if state.v<-.1:raise ValueError('reverse is outside the forward-planning ODD')
         # Small signed rollback while the simulator engages first gear is
@@ -69,7 +100,7 @@ class OnlinePlanningStack:
         desired_d=3.5 if static_ahead else 0
         # Geometry alone uses a small speed floor to parameterize d(s) at rest.
         # ST-QP and MPC retain the measured initial speed, including exactly zero.
-        geometry=self.lattice.plan(FrenetPlanningInput(ego.s,max(2,state.v),0,ego.d,ego.d_prime*state.v,0,[0,3.5] if static else [0],[self.desired_speed],[4,5,6,8],desired_d,self.desired_speed,static)).best
+        geometry=self._geometry(FrenetPlanningInput(ego.s,max(2,state.v),0,ego.d,ego.d_prime*state.v,0,[0,3.5] if static else [0],[self.desired_speed],[4,5,6,8],desired_d,self.desired_speed,static))
         # Extend the selected collision-checked maneuver along its terminal lane
         # to provide sufficient geometry for the independent ST speed horizon.
         while geometry.s[-1] < min(ego.s+34,self.reference.length-.01):
@@ -89,4 +120,4 @@ class OnlinePlanningStack:
         qp=solve_speed_qp(problem=build_speed_qp_problem(reference_profile=coarse,corridor=corridor,constraints=SpeedQPConstraints(0,12,3,6,6),weights=SpeedQPWeights(1,2,.3,3)),reference_profile=coarse).profile
         if not is_speed_profile_st_safe(qp,boundaries,.005):raise RuntimeError('dense ST check rejected online QP')
         parameterized=parameterize_geometry_with_speed(geometry,qp)
-        return OnlinePlan(geometry,qp,parameterized,ego.s,dict(behavior=b.state.value,risk=b.risk.name,target_d=geometry.target_d,actor_ids=[o['id'] for o in actors],st_boundary_count=len(boundaries),dp_nodes=len(dp.nodes),qp_status='solved',dense_st_safe=True,geometry_speed_floor_m_s=2))
+        return OnlinePlan(geometry,qp,parameterized,ego.s,dict(behavior=b.state.value,risk=b.risk.name,target_d=geometry.target_d,actor_ids=[o['id'] for o in actors],st_boundary_count=len(boundaries),dp_nodes=len(dp.nodes),qp_status='solved',dense_st_safe=True,geometry_speed_floor_m_s=2,**self.last_candidate_evaluation))

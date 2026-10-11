@@ -1,0 +1,21 @@
+{
+  "status": "PASS_REAL_SIM_COMPONENT",
+  "engine": "REAL_CARLA_0.9.15",
+  "online_evaluator_modes": [
+    "C++17_IN_PROCESS"
+  ],
+  "row_count": 400,
+  "native_candidate_max": 8,
+  "planner_failures": 0,
+  "motion_status": "PASS_REAL_SIM",
+  "physical_constraint_status": "PARTIAL",
+  "total_scene_status": "PARTIAL",
+  "source_sha256": {
+    "cpp\\src\\planning.cpp": "16a83b10b6de440f8163287d109145e264a67111da2edf2cce969a6fee45d080",
+    "cpp\\src\\c_api.cpp": "d3a0d0b7811102308914d88da10efe3dfcb9a90a792b691b18fc1580ee325f47",
+    "control\\cpp_core.py": "724d87c7af2248540ebb1acdc0d3377ecb834a1d9c95c49118f3898523452f56",
+    "planning\\online_stack.py": "80e3aca00bf7f3d2267e770bee55dc468adab7b053a641d4cb93a6745eda1019"
+  },
+  "command": "FALCON_PLANNING_CPP_LIBRARY=build/cpp/libfalcon_c.so python -m demos.carla_regression --host WINDOWS_HOST_IP --steps 400 --seeds 7 --scenarios static_obstacle --full-stack --mpc --cpp-lib build/cpp/libfalcon_c.so --output artifacts/carla_cpp_planning",
+  "note": "Candidate cost/collision/selection component executed in the live physics loop. Scene remains PARTIAL from jerk; the rest of planning executive is Python. CARLA run overlapped independent sanitizer/Python checks, so its host latency is not an isolated performance comparison."
+}

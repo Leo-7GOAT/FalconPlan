@@ -1,0 +1,24 @@
+{
+  "status": "PASS_PROCESS",
+  "command": [
+    "python3",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "exit_code": 0,
+  "wall_s": 9.603647514000045,
+  "cpu_user_s": 3.894734,
+  "cpu_system_s": 1.235695,
+  "cpu_percent_one_core": 53.42167121940848,
+  "sampled_tree_rss_max_bytes": 108720128,
+  "max_observed_processes": 2,
+  "samples": 843,
+  "requested_sample_interval_s": 0.01,
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "processor": "x86_64",
+  "logical_cpus": 12,
+  "stdout": "artifacts/final_native_release_regression.stdout.txt",
+  "physical_validation": "PENDING_HARDWARE",
+  "method": "kernel waited-child CPU time; sampled process-tree summed RSS (shared pages may repeat); no target HIL claim"
+}

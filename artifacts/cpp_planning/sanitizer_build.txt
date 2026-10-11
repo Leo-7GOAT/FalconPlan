@@ -1,0 +1,20 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/leo/falcon-sanitize
+Consolidate compiler generated dependencies of target falcon_core
+[ 11%] Building CXX object CMakeFiles/falcon_core.dir/src/core.cpp.o
+[ 22%] Building CXX object CMakeFiles/falcon_core.dir/src/planning.cpp.o
+[ 33%] Linking CXX static library libfalcon_core.a
+[ 33%] Built target falcon_core
+Consolidate compiler generated dependencies of target falcon_c
+Consolidate compiler generated dependencies of target core_probe
+[ 44%] Building CXX object CMakeFiles/falcon_c.dir/src/c_api.cpp.o
+[ 55%] Building CXX object CMakeFiles/core_probe.dir/src/probe.cpp.o
+[ 66%] Linking CXX executable core_probe
+[ 77%] Linking CXX shared library libfalcon_c.so
+[ 77%] Built target core_probe
+[ 77%] Built target falcon_c
+Consolidate compiler generated dependencies of target core_tests
+[ 88%] Building CXX object CMakeFiles/core_tests.dir/tests/test_core.cpp.o
+[100%] Linking CXX executable core_tests
+[100%] Built target core_tests

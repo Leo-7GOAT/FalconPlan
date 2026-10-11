@@ -1,0 +1,22 @@
+{
+  "status": "PASS_UNIT",
+  "seed": 42,
+  "batches": 250,
+  "candidates": 2000,
+  "blocked_candidates": 958,
+  "max_absolute_cost_error": 4.547473508864641e-13,
+  "collision_mismatches": 0,
+  "selection_mismatches": 0,
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "python_batch_us": {
+    "p50": 203.01600000000002,
+    "p95": 2024.0894999999994,
+    "p99": 2597.9089899999994
+  },
+  "cpp_batch_us": {
+    "p50": 126.37049999999999,
+    "p95": 319.97355,
+    "p99": 391.3812499999998
+  },
+  "note": "Both timings include a batch of 8 candidates. Native timing includes packing, ctypes, allocations and cost result construction. No full-stack real-time or target hardware claim."
+}
