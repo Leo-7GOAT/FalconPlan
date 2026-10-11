@@ -145,6 +145,8 @@ def main():
     print(f"Speed RMSE:    {vel_rmse:.4f} m/s")
     print(f"Max |jerk|:    {max(abs(v) for v in applied_jerks):.4f} m/s^3")
     print("Executed ST safety: PASS (dense sampled check)")
+    assert pos_rmse<.25 and vel_rmse<.2, 'MPC tracking acceptance failed'
+    assert max(abs(v) for v in applied_jerks)<=cfg.max_jerk+1e-5
 
     plt.figure(figsize=(10, 5))
     plt.fill_between(boundary.times, boundary.lower_s, boundary.upper_s,
@@ -167,6 +169,10 @@ def main():
     plt.axhline(-cfg.max_jerk,ls=":")
     plt.xlabel("Time [s]");plt.ylabel("Jerk [m/s^3]");plt.legend();plt.grid()
     plt.title("MPC jerk constraints")
+    from pathlib import Path
+    output=Path('artifacts/w07');output.mkdir(parents=True,exist_ok=True)
+    for number in plt.get_fignums():
+        plt.figure(number).savefig(output/f'mpc_{number}.png',dpi=150)
     plt.show()
 
 

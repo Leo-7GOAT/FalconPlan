@@ -163,6 +163,26 @@ class LongitudinalMPC:
             ) for k in range(N+1)
         )
         jerks = tuple(float(sol.value(U[0,k])) for k in range(N))
+        # Solver status alone is not an acceptance certificate. Verify exact
+        # dynamics and both knot and inter-knot speed extrema before dispatch.
+        tolerance=1e-5
+        for k,state in enumerate(states):
+            if not all(math.isfinite(v) for v in (state.s,state.v,state.a)):
+                raise RuntimeError('longitudinal MPC returned nonfinite state')
+            if not -tolerance <= state.v <= cfg.max_speed+tolerance or not -cfg.max_decel-tolerance <= state.a <= cfg.max_accel+tolerance:
+                raise RuntimeError('longitudinal MPC violated state bounds')
+            if corridor and not corridor[k][0]-tolerance <= state.s <= corridor[k][1]+tolerance:
+                raise RuntimeError('longitudinal MPC violated corridor')
+            if k<N:
+                j=jerks[k]
+                if not math.isfinite(j) or abs(j)>cfg.max_jerk+tolerance:raise RuntimeError('longitudinal MPC violated jerk bound')
+                expected=propagate_constant_jerk(state,j,dt)
+                if max(abs(a-b) for a,b in zip(vars(expected).values(),vars(states[k+1]).values()))>tolerance:raise RuntimeError('longitudinal MPC violated exact dynamics')
+                if abs(j)>1e-12:
+                    extremum=-state.a/j
+                    if 0<extremum<dt:
+                        velocity=state.v+state.a*extremum+.5*j*extremum**2
+                        if not -tolerance <= velocity <= cfg.max_speed+tolerance:raise RuntimeError('longitudinal MPC violated inter-knot speed bound')
         return MPCResult(
             jerk_command=jerks[0],
             predicted_states=states,

@@ -378,6 +378,10 @@ def main():
     plt.grid()
     plt.legend()
 
+    from pathlib import Path
+    output=Path('artifacts/w07');output.mkdir(parents=True,exist_ok=True)
+    for number in plt.get_fignums():
+        plt.figure(number).savefig(output/f'dp_qp_{number}.png',dpi=150)
     plt.show()
 
 
