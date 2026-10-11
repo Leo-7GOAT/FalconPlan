@@ -1,4 +1,4 @@
-from pip._internal.models import candidate
+import math
 
 
 class PIDController:
@@ -31,7 +31,7 @@ class PIDController:
             feedforward: float = 0.0,
     ) -> float:
 
-        if dt <= 0:
+        if not all(math.isfinite(v) for v in (target,measurement,dt,feedforward)) or dt <= 0:
             raise ValueError("dt must be positive")
 
         error = target - measurement

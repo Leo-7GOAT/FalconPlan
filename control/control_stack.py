@@ -304,7 +304,7 @@ class VehicleControlStack:
 
             command = VehicleCommand(
                 delta=actual_steering,
-                a=0.0,
+                a=-self.vehicle_params.max_decel if state.v > 0.05 else 0.0,
             )
 
             return ControlStepResult(

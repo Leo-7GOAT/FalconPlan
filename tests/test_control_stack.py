@@ -363,7 +363,7 @@ def test_stack_detects_trajectory_completion():
     assert (
         result.command.a
         == pytest.approx(
-            0.0
+            -stack.vehicle_params.max_decel
         )
     )
 
