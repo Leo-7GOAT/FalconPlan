@@ -1,0 +1,25 @@
+{
+  "status": "PASS_PROCESS",
+  "command": [
+    "python3",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_hardware_tools.py"
+  ],
+  "exit_code": 0,
+  "wall_s": 0.6175102219999644,
+  "cpu_user_s": 0.22561,
+  "cpu_system_s": 0.088764,
+  "cpu_percent_one_core": 50.90992647568158,
+  "sampled_tree_rss_max_bytes": 36188160,
+  "max_observed_processes": 1,
+  "samples": 55,
+  "requested_sample_interval_s": 0.01,
+  "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "processor": "x86_64",
+  "logical_cpus": 12,
+  "stdout": "artifacts/commissioning_profile.stdout.txt",
+  "physical_validation": "PENDING_HARDWARE",
+  "method": "kernel waited-child CPU time; sampled process-tree summed RSS (shared pages may repeat); no target HIL claim"
+}

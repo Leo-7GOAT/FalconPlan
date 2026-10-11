@@ -81,3 +81,13 @@ selection unchanged and retain the log. `--skip-tests` leaves a release
 unselectable. Selection/rollback update an atomic software manifest and start no
 process. Previous releases remain intact. Runtime launcher/supervisor owns safe
 stop; switching software selection does not certify physical braking.
+
+For a real local process CPU/memory measurement in Linux/WSL (requires `psutil`):
+
+```bash
+python -m tools.hardware.profile --output artifacts/regression_profile.json -- python -m pytest -q
+```
+
+This records exit status, wall time, kernel-accounted child CPU time and sampled
+process-tree RSS. Summed RSS can repeat shared pages and sampling can miss short
+peaks. It describes the named command on the recorded host, not Raspberry Pi HIL.
