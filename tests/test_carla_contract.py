@@ -15,3 +15,17 @@ def test_handedness_rear_axle_units_and_fixed_tick():
     assert s.x==pytest.approx(10) and s.y==pytest.approx(-18.6)
     assert s.psi==pytest.approx(-math.pi/2) and s.v==3 and a.wheelbase==pytest.approx(2.8)
     with pytest.raises(ValueError):a.step(.01)
+
+def test_estimated_feedback_control_has_no_actor_truth_reads(monkeypatch):
+    import sys
+    from vehicle_model.models import VehicleState,VehicleCommand
+    vehicle=Vehicle();vehicle.apply_control=lambda command:None
+    a=CarlaAdapter(None,World(),vehicle)
+    source=S(state=VehicleState(1,2,.3,4),timestamp=1.5,acceleration=.2)
+    a.use_estimated_feedback(source)
+    def forbidden():raise AssertionError('GT leakage into estimated control')
+    vehicle.get_transform=forbidden;vehicle.get_velocity=forbidden;vehicle.get_acceleration=forbidden
+    monkeypatch.setitem(sys.modules,'carla',S(VehicleControl=lambda **kwargs:S(**kwargs)))
+    assert a.get_state()==source.state and a.timestamp==1.5
+    a.apply_command(VehicleCommand(.1,1))
+    assert a.throttle>0

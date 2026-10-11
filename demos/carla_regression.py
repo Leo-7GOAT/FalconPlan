@@ -54,6 +54,15 @@ def run_one(client,world,route,scenario,seed,steps,outdir,use_mpc=False,full_sta
         adapter=CarlaAdapter(client,world,ego);cfg=SafetyConfig(max_speed=12,max_steer=.5)
         from hal.carla_sensors import CarlaSensorEstimator
         estimator=CarlaSensorEstimator(world,ego,adapter)
+        # Sensor-only initialization needs genuine callbacks while stationary;
+        # this legacy benchmark still uses explicitly labelled GT control.
+        ego.apply_control(carla.VehicleControl(brake=1,hand_brake=True))
+        for _ in range(40):
+            frame=world.tick();stamp=world.get_snapshot().timestamp.elapsed_seconds
+            estimator.update(now=stamp,frame=frame)
+            if estimator.ready:break
+        if not estimator.ready:raise RuntimeError('Real GNSS/IMU stationary initialization timed out')
+        ego.apply_control(carla.VehicleControl(brake=0,hand_brake=False))
         safety=SafetySupervisor(cfg);stanley=StanleyController(1.5,1,.5)
         cpp=None
         if cpp_lib:

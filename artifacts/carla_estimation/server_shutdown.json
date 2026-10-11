@@ -1,0 +1,9 @@
+{
+  "remaining_owned_processes": 0,
+  "stopped_local": "2026-10-11T23:49:08.5005495+08:00",
+  "task_owned_only": true,
+  "actors_destroyed": true,
+  "child_pid": 22608,
+  "launcher_pid": 24004,
+  "asynchronous_world_restored": true
+}

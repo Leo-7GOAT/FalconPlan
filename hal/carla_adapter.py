@@ -25,10 +25,20 @@ class CarlaAdapter(VehicleHAL):
         self.target_speed=0.0
         self.throttle=0.0
         self.brake=0.0
+        self.feedback_source=None
+    def use_estimated_feedback(self,source):
+        """Source supplies state/timestamp/acceleration; actor truth is evaluation only."""
+        self.feedback_source=source
     def get_state(self):
+        if self.feedback_source is not None:
+            self.timestamp=self.feedback_source.timestamp
+            return self.feedback_source.state
+        return self.get_ground_truth_state()
+    def get_ground_truth_state(self):
+        """Explicit evaluation path; never called by estimated feedback control."""
         t=self.vehicle.get_transform();v=self.vehicle.get_velocity()
         psi=-math.radians(t.rotation.yaw)
-        self.timestamp=self.world.get_snapshot().timestamp.elapsed_seconds
+        if self.feedback_source is None:self.timestamp=self.world.get_snapshot().timestamp.elapsed_seconds
         speed=v.x*math.cos(psi)-v.y*math.sin(psi)
         if abs(speed)<1e-3:speed=0.0  # simulator resting-contact numerical noise
         return VehicleState(t.location.x-self.rear_offset*math.cos(psi),-t.location.y-self.rear_offset*math.sin(psi),psi,speed)
@@ -43,8 +53,11 @@ class CarlaAdapter(VehicleHAL):
             return
         if command.a<=-5.99:self.target_speed=0
         target_throttle=max(0.,min(1.,.12+command.a/10.0)) if command.a>.05 else 0.
-        acceleration=self.vehicle.get_acceleration();pose=self.vehicle.get_transform()
-        forward_acc=acceleration.x*math.cos(math.radians(pose.rotation.yaw))+acceleration.y*math.sin(math.radians(pose.rotation.yaw))
+        if self.feedback_source is not None:
+            forward_acc=self.feedback_source.acceleration
+        else:
+            acceleration=self.vehicle.get_acceleration();pose=self.vehicle.get_transform()
+            forward_acc=acceleration.x*math.cos(math.radians(pose.rotation.yaw))+acceleration.y*math.sin(math.radians(pose.rotation.yaw))
         if forward_acc>2.7:target_throttle=min(target_throttle,self.throttle*2.7/forward_acc)
         self.throttle=max(0,min(target_throttle,self.throttle+.25*self.dt)) if command.a>0 else 0
         target_brake=max(0,min(1,-command.a/6))

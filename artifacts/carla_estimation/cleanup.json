@@ -1,0 +1,13 @@
+{
+  "remaining_new_actor_ids": [],
+  "all_owned_actors_destroyed": true,
+  "original_settings": {
+    "synchronous_mode": false,
+    "fixed_delta_seconds": null
+  },
+  "restored_settings": {
+    "synchronous_mode": false,
+    "fixed_delta_seconds": null
+  },
+  "settings_restored": true
+}

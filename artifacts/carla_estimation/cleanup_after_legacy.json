@@ -1,0 +1,7 @@
+{
+  "mode": "READ_ONLY_NO_TICK",
+  "remaining_vehicle_or_sensor_actors": [],
+  "no_remaining_vehicle_or_sensor_actors": true,
+  "synchronous_mode": false,
+  "fixed_delta_seconds": null
+}

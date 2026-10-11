@@ -14,3 +14,11 @@ def test_gnss_outlier_gate_and_imu_failure():
     assert e.state.x==0
     with pytest.raises(ValueError):e.predict(float('nan'),0,.05)
     with pytest.raises(ValueError):e.predict(0,0,0)
+
+def test_compass_wrap_and_covariance():
+    import math
+    e=PlanarEKF(VehicleState(0,0,math.pi-.01,0))
+    e.update_heading(-math.pi+.01)
+    assert abs(math.atan2(math.sin(e.state.psi+math.pi-.01),math.cos(e.state.psi+math.pi-.01)))<.01
+    assert np.min(np.linalg.eigvalsh(e.cov))>0
+    with pytest.raises(ValueError):e.update_heading(float('nan'))

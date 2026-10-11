@@ -1,0 +1,96 @@
+{
+  "profile": "long_dropout",
+  "seed": 7,
+  "steps": 400,
+  "simulation_seconds": 20.0,
+  "status": "FAIL",
+  "feedback_status": "FAIL",
+  "physical_constraints_status": "PARTIAL",
+  "feedback_acceptance": {
+    "no_gt_reads": true,
+    "no_collision": true,
+    "sensor_initialized": true,
+    "position_rmse_under_0_5m": false,
+    "speed_rmse_under_0_5m_s": false,
+    "yaw_rmse_under_0_05rad": true,
+    "tracking_rmse_under_1m": true,
+    "actual_motion_over_3m": true,
+    "steering_limit": true,
+    "timeout_latched": true,
+    "physical_stop": true,
+    "actual_callback_drops": true
+  },
+  "physical_acceptance": {
+    "max_acceleration_le_3": false,
+    "min_acceleration_ge_minus_6": false,
+    "max_absolute_jerk_le_6": false
+  },
+  "position_rmse_m": 0.8105863402190078,
+  "speed_rmse_m_s": 1.422440241855063,
+  "yaw_rmse_rad": 0.000851518847076633,
+  "tracking_rmse_m": 0.01966150210548239,
+  "max_acceleration_m_s2": 3.529423623307437,
+  "min_acceleration_m_s2": -26.351760223112983,
+  "max_absolute_jerk_m_s3": 425.0421488496808,
+  "final_physical_speed_m_s": 0.0,
+  "displacement_m": 23.216372451357344,
+  "gnss_accepted": 370,
+  "gnss_rejected": 10,
+  "invalid_imu": 2,
+  "transport_rejections": {
+    "out_of_order": 0,
+    "future": 0,
+    "nonfinite": 0,
+    "dropped": 40,
+    "imu_gap": 1
+  },
+  "real_callback_counts": {
+    "gnss": 400,
+    "imu": 400
+  },
+  "initialization": {
+    "source": "REAL_GNSS_IMU_COMPASS_STATIONARY_HOLD",
+    "timestamp": 1565.653689943254,
+    "x": -68.51713866954012,
+    "y": -28.07660724351122,
+    "yaw": -0.0027785738322396725,
+    "speed": 0.0,
+    "initial_velocity_variance": 0.0001
+  },
+  "noise_blueprint_attributes": {
+    "gnss": {
+      "sensor_tick": "0.05",
+      "noise_seed": "7",
+      "noise_lat_stddev": "0.000001",
+      "noise_lon_stddev": "0.000001"
+    },
+    "imu": {
+      "sensor_tick": "0.05",
+      "noise_seed": "7",
+      "noise_accel_stddev_x": "0.05",
+      "noise_gyro_stddev_z": "0.005"
+    }
+  },
+  "fault_configuration": {
+    "dropout_windows": [
+      [
+        6.0,
+        7.0
+      ]
+    ],
+    "reorder_every": 0,
+    "future_every": 0
+  },
+  "feedback_gt_access_attempts": 0,
+  "control_source": "GNSS_IMU_EKF including low-level acceleration feedback; no actor ground truth",
+  "evaluation_source": "actor transform/velocity AFTER command; map route is static configuration",
+  "compass_limitation": "CARLA compass stays ideal even in noisy GNSS/accelerometer/gyroscope runs; not magnetometer calibration or real hardware",
+  "physical_measurement": "Every 50ms closed-loop physical speed difference, unclipped, including terminal tick; no excluded emergency/stop samples",
+  "terminal_physical_acceleration": 0.0,
+  "terminal_physical_jerk": 0.0,
+  "loop_wall_ms": {
+    "p50": 0.45216949999371536,
+    "p95": 0.6742517499674249,
+    "p99": 0.7643892500010451
+  }
+}

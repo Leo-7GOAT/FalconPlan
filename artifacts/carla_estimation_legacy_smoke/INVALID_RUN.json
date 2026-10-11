@@ -1,0 +1,1 @@
+{"status":"INVALID_CONCURRENT_TICK_HISTORY","use_for_acceptance":false,"reason":"A legacy smoke client briefly ticked the same synchronous world while this matrix owned tick. All raw records retained; none of these runs are counted as valid acceptance.","legacy_output":"artifacts/carla_estimation_legacy_smoke","replacement":"artifacts/carla_estimation"}

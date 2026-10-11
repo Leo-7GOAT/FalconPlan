@@ -1,0 +1,808 @@
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 568.9631227515638, "frame": 89232, "values": [-1.0666449658178823e-35, -2.2100529739610408e-11, 0.01900879293680191], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 568.9631227515638, "frame": 89232, "values": [0.0009497863812948169, -0.0008333357379370909], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.0631227530539, "frame": 89234, "values": [36296.0390625, 5.259299939996964e-12, 0.01900879293680191], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.0631227530539, "frame": 89234, "values": [0.0009497863812948169, -0.0008333357379370909], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.113122753799, "frame": 89235, "values": [0.0009497863812948169, -0.0008333435510365916], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.113122753799, "frame": 89235, "values": [-0.3475703001022339, -0.0005517087993212044, 0.019018199294805527], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.163122754544, "frame": 89236, "values": [0.4124603867530823, 0.0004971359157934785, 0.01901506446301937], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.163122754544, "frame": 89236, "values": [0.0009497863812948169, -0.0008333420432506955], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.2131227552891, "frame": 89237, "values": [0.0009497863812948169, -0.0008333492395422581], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.2131227552891, "frame": 89237, "values": [-0.38502946496009827, -0.0006810681661590934, 0.01902446709573269], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.2631227560341, "frame": 89238, "values": [0.0009497863812948169, -0.0008333473205226483], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.2631227560341, "frame": 89238, "values": [0.40749630331993103, 0.0006040589651092887, 0.019021332263946533], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.3131227567792, "frame": 89239, "values": [-0.3700008690357208, -0.0007239212282001972, 0.019030731171369553], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.3131227567792, "frame": 89239, "values": [0.0009497863812948169, -0.000833353625822042], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.3631227575243, "frame": 89240, "values": [0.0009497863812948169, -0.0008333504731723451], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.3631227575243, "frame": 89240, "values": [0.42252400517463684, 0.0006846899050287902, 0.01902446709573269], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.4131227582693, "frame": 89241, "values": [-0.3574718236923218, -0.000705365149769932, 0.01903386414051056], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.4131227582693, "frame": 89241, "values": [0.0009497863812948169, -0.0008333554077779581], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.4631227590144, "frame": 89242, "values": [0.4325503706932068, 0.000767936697229743, 0.01902446709573269], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.4631227590144, "frame": 89242, "values": [0.0009497863812948169, -0.0008333506102644606], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.5131227597594, "frame": 89243, "values": [0.0009497863812948169, -0.0008333533516946545], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.5131227597594, "frame": 89243, "values": [-0.33994370698928833, -0.0006292967009358108, 0.019027600064873695], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.5631227605045, "frame": 89244, "values": [0.46508195996284485, 0.0008743550861254334, 0.019011929631233215], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.5631227605045, "frame": 89244, "values": [0.0009497863812948169, -0.0008333457441977998], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.6131227612495, "frame": 89245, "values": [-0.3024008870124817, -0.0004456101742107421, 0.01900879293680191], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.6131227612495, "frame": 89245, "values": [0.0009497863812948169, -0.0008333448532340526], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.6631227619946, "frame": 89246, "values": [0.0009497864498308341, -0.0008333307348067365], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.6631227619946, "frame": 89246, "values": [0.592748761177063, 0.0011857235804200172, 0.018983690068125725], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.7131227627397, "frame": 89247, "values": [1.0801023244857788, 0.012656150385737419, 0.019058899953961372], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.7131227627397, "frame": 89247, "values": [0.0009497860386147311, -0.0008332923546419124], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.7631227634847, "frame": 89248, "values": [0.0009497863812948169, -0.00083323039807226], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.7631227634847, "frame": 89248, "values": [1.05159330368042, 0.031466588377952576, 0.018898721784353256], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.8131227642298, "frame": 89249, "values": [0.0009497864498308341, -0.0008331446595093439], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.8131227642298, "frame": 89249, "values": [1.0560113191604614, 0.03172934800386429, 0.018807029351592064], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.8631227649748, "frame": 89250, "values": [0.0009497865183668513, -0.0008330348648257768], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.8631227649748, "frame": 89250, "values": [1.0764153003692627, -0.02010270021855831, 0.01871170476078987], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.9131227657199, "frame": 89251, "values": [1.2219480276107788, 0.013552084565162659, 0.018619094043970108], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.9131227657199, "frame": 89251, "values": [0.0009497869981189714, -0.0008328976557123724], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 569.963122766465, "frame": 89252, "values": [1.1296343803405762, -0.024003388360142708, 0.01857742853462696], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 569.963122766465, "frame": 89252, "values": [0.0009497877520151601, -0.000832735088280856], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.01312276721, "frame": 89253, "values": [1.0201668739318848, 0.011624717153608799, 0.018204696476459503], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.01312276721, "frame": 89253, "values": [0.0009497895339516063, -0.0008325496983445646], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.0631227679551, "frame": 89254, "values": [0.0009497915900321211, -0.0008323455980985273], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.0631227679551, "frame": 89254, "values": [0.8373152017593384, 0.02044653333723545, 0.01787426695227623], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.1131227687001, "frame": 89255, "values": [0.0009497918641761898, -0.0008321181270503075], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.1131227687001, "frame": 89255, "values": [1.0379786491394043, 0.0070823682472109795, 0.01790425553917885], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.1631227694452, "frame": 89256, "values": [1.9308186769485474, 0.0053850323893129826, 0.017733650282025337], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.1631227694452, "frame": 89256, "values": [0.0009497934405045844, -0.0008318474097848139], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.2131227701902, "frame": 89257, "values": [1.5029704570770264, 0.013789831660687923, 0.017277369275689125], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.2131227701902, "frame": 89257, "values": [0.0009497959078012022, -0.0008315429727900892], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.2631227709353, "frame": 89258, "values": [0.0009497983065618028, -0.000831206735114165], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.2631227709353, "frame": 89258, "values": [1.4201799631118774, 0.024243764579296112, 0.016886545345187187], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.3131227716804, "frame": 89259, "values": [0.0009498007738584205, -0.0008308397932665912], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.3131227716804, "frame": 89259, "values": [1.3700984716415405, 0.026043888181447983, 0.01651896722614765], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.3631227724254, "frame": 89260, "values": [1.8300858736038208, 0.0019051331328228116, 0.016417620703577995], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.3631227724254, "frame": 89260, "values": [0.000949802692866901, -0.0008304317298097885], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.4131227731705, "frame": 89261, "values": [1.7105534076690674, 0.017672602087259293, 0.016355782747268677], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.4131227731705, "frame": 89261, "values": [0.0009498048860194501, -0.0008299854232802772], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.4631227739155, "frame": 89262, "values": [0.0009498089296444625, -0.0008294982692689246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.4631227739155, "frame": 89262, "values": [1.8219962120056152, 0.006620101165026426, 0.015852395445108414], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.5131227746606, "frame": 89263, "values": [1.8177146911621094, 0.0007091245497576892, 0.015720240771770477], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.5131227746606, "frame": 89263, "values": [0.0009498120823012519, -0.0008289703363146828], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.5631227754056, "frame": 89264, "values": [0.0009498161944622815, -0.0008283988830015687], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.5631227754056, "frame": 89264, "values": [1.9416543245315552, 0.008270341902971268, 0.015413916669785976], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.6131227761507, "frame": 89265, "values": [2.6090919971466064, 0.007948086597025394, 0.015018262900412083], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.6131227761507, "frame": 89265, "values": [0.0009498208549114484, -0.0008277688999385191], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.6631227768958, "frame": 89266, "values": [0.0009498259265767182, -0.0008270907360525825], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.6631227768958, "frame": 89266, "values": [2.1543996334075928, 0.007539261598140001, 0.014620057307183743], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.7131227776408, "frame": 89267, "values": [2.637101650238037, 0.008610038086771965, 0.014202306047081947], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.7131227776408, "frame": 89267, "values": [0.0009498316150661425, -0.0008263533570413983], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.7631227783859, "frame": 89268, "values": [0.0009498375776996355, -0.0008255669747825323], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.7631227783859, "frame": 89268, "values": [2.1872458457946777, 0.008332605473697186, 0.013789192773401737], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.8131227791309, "frame": 89269, "values": [0.0009498440886212656, -0.00082472172009318], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.8131227791309, "frame": 89269, "values": [2.627358913421631, 0.008452770300209522, 0.01337223220616579], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.863122779876, "frame": 89270, "values": [2.167478322982788, 0.008120886981487274, 0.012964854948222637], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.863122779876, "frame": 89270, "values": [0.0009498509422229816, -0.0008238279418861794], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.913122780621, "frame": 89271, "values": [2.550142765045166, 0.00808638148009777, 0.012567990459501743], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.913122780621, "frame": 89271, "values": [0.0009498582755768178, -0.0008228769361124932], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 570.9631227813661, "frame": 89272, "values": [0.0009498659516107397, -0.0008218785719407151], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 570.9631227813661, "frame": 89272, "values": [2.1174371242523193, 0.007723532151430845, 0.012182667851448059], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.0131227821112, "frame": 89273, "values": [0.0009498741073967818, -0.0008208257216466563], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.0131227821112, "frame": 89273, "values": [2.425149917602539, 0.007522642146795988, 0.011799918487668037], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.0631227828562, "frame": 89274, "values": [0.0009498826058629095, -0.0008197284600157673], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.0631227828562, "frame": 89274, "values": [1.9873853921890259, 0.007204240653663874, 0.011440858244895935], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.1131227836013, "frame": 89275, "values": [0.0009498913099370889, -0.0008185810985423814], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.1131227836013, "frame": 89275, "values": [2.234901189804077, 0.0066522276028990746, 0.011097047477960587], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.1631227843463, "frame": 89276, "values": [1.7472158670425415, 0.01380273699760437, 0.010747786611318588], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.1631227843463, "frame": 89276, "values": [0.0009499004252273712, -0.0008173946030183288], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.2131227850914, "frame": 89277, "values": [0.0009499098831977392, -0.000816172674376503], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.2131227850914, "frame": 89277, "values": [1.5819703340530396, 0.0030909706838428974, 0.010369558818638325], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.2631227858365, "frame": 89278, "values": [0.0009499196838481932, -0.0008149201101161907], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.2631227858365, "frame": 89278, "values": [1.3667197227478027, 0.014547096565365791, 0.009874917566776276], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.3131227865815, "frame": 89279, "values": [0.0009499295530346641, -0.0008136323869081252], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.3131227865815, "frame": 89279, "values": [1.571280598640442, 0.0021525283809751272, 0.00953090563416481], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.3631227873266, "frame": 89280, "values": [0.0009499395592931695, -0.0008123148505063682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.3631227873266, "frame": 89280, "values": [1.3312046527862549, 0.01273863110691309, 0.009102254174649715], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.4131227880716, "frame": 89281, "values": [0.0009499494970156578, -0.000810965307792344], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.4131227880716, "frame": 89281, "values": [1.425965428352356, 0.0008940078550949693, 0.008829687722027302], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.4631227888167, "frame": 89282, "values": [0.0009499597774182317, -0.0008095895843354128], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.4631227888167, "frame": 89282, "values": [1.1708937883377075, 0.010994711890816689, 0.008478421717882156], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.5131227895617, "frame": 89283, "values": [0.0009499698522127542, -0.0008081857610733323], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.5131227895617, "frame": 89283, "values": [1.2580302953720093, -0.0002774215827230364, 0.008279235102236271], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.5631227903068, "frame": 89284, "values": [0.9830277562141418, 0.00945074763149023, 0.00800098292529583], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.5631227903068, "frame": 89284, "values": [0.0009499803382233798, -0.0008067598007102106], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.6131227910519, "frame": 89285, "values": [0.0009499906186259537, -0.0008053103324670019], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.6131227910519, "frame": 89285, "values": [1.052667260169983, -0.00127367430832237, 0.007858163677155972], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.6631227917969, "frame": 89286, "values": [0.0009500013787806478, -0.0008038424280698564], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.6631227917969, "frame": 89286, "values": [0.8227270841598511, 0.008154653944075108, 0.007642828859388828], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.713122792542, "frame": 89287, "values": [0.8797213435173035, -0.0020724739879369736, 0.007540762424468994], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.713122792542, "frame": 89287, "values": [0.000950011727719239, -0.0008023548538176328], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.763122793287, "frame": 89288, "values": [0.6548880338668823, 0.007104314398020506, 0.007372901774942875], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.763122793287, "frame": 89288, "values": [0.0009500226934819846, -0.0008008525443159442], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.8131227940321, "frame": 89289, "values": [0.0009500333851006615, -0.0007993339917788944], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.8131227940321, "frame": 89289, "values": [0.7268997430801392, -0.0026923632249236107, 0.007316092494875193], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.8631227947772, "frame": 89290, "values": [0.0009500443508634072, -0.0007978038566562873], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.8631227947772, "frame": 89290, "values": [0.5169258117675781, 0.0062780361622571945, 0.007176254875957966], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.9131227955222, "frame": 89291, "values": [0.5891400575637817, -0.003154035657644272, 0.007151294033974409], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.9131227955222, "frame": 89291, "values": [0.0009500552480901356, -0.0007962606311622267], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 571.9631227962673, "frame": 89292, "values": [0.000950066556532967, -0.0007947082903854152], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 571.9631227962673, "frame": 89292, "values": [0.40164196491241455, 0.005641563795506954, 0.007050565909594297], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.0131227970123, "frame": 89293, "values": [0.0009500775222957126, -0.0007931449838451954], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.0131227970123, "frame": 89293, "values": [0.4912373423576355, -0.0034814816899597645, 0.007042106706649065], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.0631227977574, "frame": 89294, "values": [0.30132967233657837, 0.005172615870833397, 0.006956950761377811], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.0631227977574, "frame": 89294, "values": [0.0009500887622025269, -0.0007915749607576572], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.1131227985024, "frame": 89295, "values": [0.0009500997279652724, -0.0007899962335926602], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.1131227985024, "frame": 89295, "values": [0.3885505497455597, -0.003704127622768283, 0.006965513341128826], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.1631227992475, "frame": 89296, "values": [0.23109081387519836, 0.004830923862755299, 0.006888068281114101], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.1631227992475, "frame": 89296, "values": [0.0009501110364081039, -0.0007884123662194042], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.2131227999926, "frame": 89297, "values": [0.31590336561203003, -0.0038537762593477964, 0.006922595202922821], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.2131227999926, "frame": 89297, "values": [0.0009501224133869523, -0.0007868213711361705], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.2631228007376, "frame": 89298, "values": [0.1658587008714676, 0.0045868996530771255, 0.006853367201983929], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.2631228007376, "frame": 89298, "values": [0.0009501339959738525, -0.0007852266750916215], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.3131228014827, "frame": 89299, "values": [0.26315468549728394, -0.003938800655305386, 0.006879409309476614], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.3131228014827, "frame": 89299, "values": [0.0009501453044166838, -0.00078362608493876], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.3631228022277, "frame": 89300, "values": [0.11819584667682648, 0.004420090466737747, 0.006827225908637047], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.3631228022277, "frame": 89300, "values": [0.0009501568870035838, -0.0007820228904336091], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.4131228029728, "frame": 89301, "values": [0.0009501682639824324, -0.0007804148298475866], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.4131228029728, "frame": 89301, "values": [0.2180098295211792, -0.003984775394201279, 0.006853367201983929], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.4631228037179, "frame": 89302, "values": [0.08803138136863708, 0.004307865165174007, 0.006809742655605078], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.4631228037179, "frame": 89302, "values": [0.0009501797094972981, -0.0007788047817314236], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.5131228044629, "frame": 89303, "values": [0.17792822420597076, -0.004002336412668228, 0.006844664458185434], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.5131228044629, "frame": 89303, "values": [0.0009501910179401296, -0.0007771906900160275], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.563122805208, "frame": 89304, "values": [0.0009502026005270296, -0.0007755755016916055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.563122805208, "frame": 89304, "values": [0.05296317860484123, 0.004237135406583548, 0.00679221423342824], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.613122805953, "frame": 89305, "values": [0.000950213908969861, -0.0007739567495121946], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.613122805953, "frame": 89305, "values": [0.1553034484386444, -0.004001060035079718, 0.006827225908637047], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.6631228066981, "frame": 89306, "values": [0.0009502254230207438, -0.0007723371748795671], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.6631228066981, "frame": 89306, "values": [0.040348757058382034, 0.00418771430850029, 0.0067834327928721905], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.7131228074431, "frame": 89307, "values": [0.13276685774326324, -0.003991991281509399, 0.006818489637225866], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.7131228074431, "frame": 89307, "values": [0.0009502367314635753, -0.0007707145846751473], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.7631228081882, "frame": 89308, "values": [0.02032223343849182, 0.0041547357104718685, 0.006774640176445246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.7631228081882, "frame": 89308, "values": [0.0009502482455144582, -0.0007690915832370138], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.8131228089333, "frame": 89309, "values": [0.0009502595539572895, -0.0007674657033049925], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.8131228089333, "frame": 89309, "values": [0.12514634430408478, -0.003977460321038961, 0.006809742655605078], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.8631228096783, "frame": 89310, "values": [0.01531048770993948, 0.004131389781832695, 0.006774640176445246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.8631228096783, "frame": 89310, "values": [0.0009502711365441896, -0.0007658395492455838], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.9131228104234, "frame": 89311, "values": [0.10760711878538132, -0.0039581479504704475, 0.0068009840324521065], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.9131228104234, "frame": 89311, "values": [0.0009502823764510038, -0.0007642109278549469], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 572.9631228111684, "frame": 89312, "values": [0.007810413837432861, 0.004116448573768139, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 572.9631228111684, "frame": 89312, "values": [0.0009502939590379038, -0.000762582169429038], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.0131228119135, "frame": 89313, "values": [0.10754405707120895, -0.003942599520087242, 0.00679221423342824], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.0131228119135, "frame": 89313, "values": [0.0009503052674807353, -0.0007609510121966423], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.0631228126585, "frame": 89314, "values": [-0.012247597798705101, 0.004098695702850819, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.0631228126585, "frame": 89314, "values": [0.0009503167815316182, -0.0007593201291342666], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.1131228134036, "frame": 89315, "values": [0.0009503280899744495, -0.0007576868473080367], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.1131228134036, "frame": 89315, "values": [0.10755711048841476, -0.003925221506506205, 0.0067834327928721905], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.1631228141487, "frame": 89316, "values": [0.0027680955827236176, 0.004085611552000046, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.1631228141487, "frame": 89316, "values": [0.0009503396725613496, -0.0007560534284181131], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.2131228148937, "frame": 89317, "values": [0.0009503508439321467, -0.000754417953430675], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.2131228148937, "frame": 89317, "values": [0.09500961005687714, -0.003912495449185371, 0.0067834327928721905], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.2631228156388, "frame": 89318, "values": [0.0009503624265190467, -0.0007527825469821892], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.2631228156388, "frame": 89318, "values": [-0.00477843452244997, 0.004070675000548363, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.3131228163838, "frame": 89319, "values": [0.0009503738034978953, -0.0007511448788903863], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.3131228163838, "frame": 89319, "values": [0.10256677120923996, -0.0038992026820778847, 0.006774640176445246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.3631228171289, "frame": 89320, "values": [0.000950385249012761, -0.0007495073478054337], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.3631228171289, "frame": 89320, "values": [-0.0048539889976382256, 0.0040546804666519165, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.413122817874, "frame": 89321, "values": [0.0009503965574555924, -0.0007478676236019055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.413122817874, "frame": 89321, "values": [0.09509381651878357, -0.0038842707872390747, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.463122818619, "frame": 89322, "values": [-0.004858706146478653, 0.004037243779748678, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.463122818619, "frame": 89322, "values": [0.0009504080715064752, -0.0007462280364478602], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.5131228193641, "frame": 89323, "values": [0.09258925169706345, -0.0038789326790720224, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.5131228193641, "frame": 89323, "values": [0.0009504193799493067, -0.0007445863247141915], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.5631228201091, "frame": 89324, "values": [0.0009504309625362067, -0.0007429448185547471], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.5631228201091, "frame": 89324, "values": [-0.004828706383705139, 0.004016965627670288, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.6131228208542, "frame": 89325, "values": [0.0009504422024430209, -0.0007413012563404209], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.6131228208542, "frame": 89325, "values": [0.08751843124628067, -0.0038680287543684244, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.6631228215992, "frame": 89326, "values": [0.000950453785029921, -0.0007396576941118838], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.6631228215992, "frame": 89326, "values": [0.0027022305876016617, 0.004000804387032986, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.7131228223443, "frame": 89327, "values": [0.0009504650934727524, -0.000738012075800043], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.7131228223443, "frame": 89327, "values": [0.09255097806453705, -0.003858281532302499, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.7631228230894, "frame": 89328, "values": [-0.007366945501416922, 0.003981900401413441, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.7631228230894, "frame": 89328, "values": [0.0009504766075236353, -0.0007363665945661069], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.8131228238344, "frame": 89329, "values": [0.08758363127708435, -0.0038509864825755358, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.8131228238344, "frame": 89329, "values": [0.0009504879159664667, -0.0007347190572488671], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.8631228245795, "frame": 89330, "values": [0.0009504994300173496, -0.0007330716569953211], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.8631228245795, "frame": 89330, "values": [-0.002368256216868758, 0.0039612529799342155, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.9131228253245, "frame": 89331, "values": [0.09258237481117249, -0.003842403879389167, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.9131228253245, "frame": 89331, "values": [0.0009505107384601809, -0.0007314222006726823], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 573.9631228260696, "frame": 89332, "values": [0.0009505221839750467, -0.000729772881427948], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 573.9631228260696, "frame": 89332, "values": [-0.007368171121925116, 0.003942253068089485, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.0131228268147, "frame": 89333, "values": [0.0009505334924178781, -0.0007281215060856994], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.0131228268147, "frame": 89333, "values": [0.09258124232292175, -0.0038363069761544466, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.0631228275597, "frame": 89334, "values": [-0.0048360261134803295, 0.003926966805011034, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.0631228275597, "frame": 89334, "values": [0.0009505450750047781, -0.0007264702678355661], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.1131228283048, "frame": 89335, "values": [0.0875130370259285, -0.003826066153123975, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.1131228283048, "frame": 89335, "values": [0.0009505563149115923, -0.0007248170420126598], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.1631228290498, "frame": 89336, "values": [-0.007303816732019186, 0.003908822778612375, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.1631228290498, "frame": 89336, "values": [0.0009505678974984923, -0.000723163953281869], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.2131228297949, "frame": 89337, "values": [0.09254541248083115, -0.003817327320575714, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.2131228297949, "frame": 89337, "values": [0.0009505792059413238, -0.0007215088084677745], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.2631228305399, "frame": 89338, "values": [0.0009505907199922067, -0.000719853869270537], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.2631228305399, "frame": 89338, "values": [-0.007338396273553371, 0.003890239866450429, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.313122831285, "frame": 89339, "values": [0.08501207828521729, -0.003808810841292143, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.313122831285, "frame": 89339, "values": [0.000950602028435038, -0.0007181969425289481], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.3631228320301, "frame": 89340, "values": [-0.002305205911397934, 0.003871470456942916, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.3631228320301, "frame": 89340, "values": [0.000950613542485921, -0.0007165400842978897], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.4131228327751, "frame": 89341, "values": [0.0009506248509287523, -0.0007148813070756432], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.4131228327751, "frame": 89341, "values": [0.08751089125871658, -0.0038047239650040865, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.4631228335202, "frame": 89342, "values": [-0.009806253015995026, 0.0038519492372870445, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.4631228335202, "frame": 89342, "values": [0.0009506363649796352, -0.0007132227354702536], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.5131228342652, "frame": 89343, "values": [0.09254200756549835, -0.0037971853744238615, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.5131228342652, "frame": 89343, "values": [0.0009506476734224667, -0.0007115621077815604], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.5631228350103, "frame": 89344, "values": [0.0009506591189373324, -0.0007099016856813023], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.5631228350103, "frame": 89344, "values": [-0.012374019250273705, 0.003836138639599085, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.6131228357553, "frame": 89345, "values": [0.08757446706295013, -0.003791081951931119, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.6131228357553, "frame": 89345, "values": [0.0009506704959161809, -0.0007082394131288083], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.6631228365004, "frame": 89346, "values": [0.0009506819414310466, -0.0007065772091010558], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.6631228365004, "frame": 89346, "values": [-0.007376478053629398, 0.003815707052126527, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.7131228372455, "frame": 89347, "values": [0.0009506932498738781, -0.0007049131545926457], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.7131228372455, "frame": 89347, "values": [0.08507335931062698, -0.0037826483603566885, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.7631228379905, "frame": 89348, "values": [-0.01237754337489605, 0.0038015686441212893, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.7631228379905, "frame": 89348, "values": [0.0009507047639247609, -0.0007032493742542556], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.8131228387356, "frame": 89349, "values": [0.09007207304239273, -0.0037760206032544374, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.8131228387356, "frame": 89349, "values": [0.0009507160723675923, -0.000701583537818351], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.8631228394806, "frame": 89350, "values": [0.0009507275864184751, -0.0006999179755240448], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.8631228394806, "frame": 89350, "values": [-0.012378716841340065, 0.0037842995952814817, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.9131228402257, "frame": 89351, "values": [0.08756980299949646, -0.0037660126108676195, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.9131228402257, "frame": 89351, "values": [0.0009507388948613066, -0.0006982505627632918], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 574.9631228409708, "frame": 89352, "values": [-0.01237989030778408, 0.003771199146285653, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 574.9631228409708, "frame": 89352, "values": [0.0009507504089121895, -0.0006965832870804434], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.0131228417158, "frame": 89353, "values": [0.0009507617173550208, -0.0006949142294558897], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.0131228417158, "frame": 89353, "values": [0.08256874978542328, -0.0037606090772897005, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.0631228424609, "frame": 89354, "values": [0.0009507731628698865, -0.0006932454459587234], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.0631228424609, "frame": 89354, "values": [-0.012348939664661884, 0.0037535398732870817, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.1131228432059, "frame": 89355, "values": [0.0009507845398487351, -0.0006915747434845798], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.1131228432059, "frame": 89355, "values": [0.08500056713819504, -0.0037556851748377085, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.163122843951, "frame": 89356, "values": [0.0009507959853636009, -0.0006899042465988714], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.163122843951, "frame": 89356, "values": [-0.009816868230700493, 0.0037362303119152784, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.213122844696, "frame": 89357, "values": [0.07749954611063004, -0.0037467654328793287, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.213122844696, "frame": 89357, "values": [0.0009508072938064322, -0.0006882320363246208], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.2631228454411, "frame": 89358, "values": [-0.007318076677620411, 0.003726695431396365, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.2631228454411, "frame": 89358, "values": [0.0009508188078573151, -0.0006865600316388054], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.3131228461862, "frame": 89359, "values": [0.07503074407577515, -0.0037385784089565277, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.3131228461862, "frame": 89359, "values": [0.0009508301163001465, -0.0006848862450254956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.3631228469312, "frame": 89360, "values": [0.0009508416303510294, -0.000683212732553784], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.3631228469312, "frame": 89360, "values": [-0.007385837379842997, 0.0037080852780491114, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.4131228476763, "frame": 89361, "values": [0.0009508529387938608, -0.0006815373696156257], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.4131228476763, "frame": 89361, "values": [0.07756299525499344, -0.003737150691449642, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.4631228484213, "frame": 89362, "values": [-0.009888110682368279, 0.00368876033462584, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.4631228484213, "frame": 89362, "values": [0.0009508644528447437, -0.0006798623493722289], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.5131228491664, "frame": 89363, "values": [0.0750618577003479, -0.003734149970114231, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.5131228491664, "frame": 89363, "values": [0.0009508757612875751, -0.0006781855471729159], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.5631228499115, "frame": 89364, "values": [0.0009508872068024408, -0.0006765090191152012], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.5631228499115, "frame": 89364, "values": [-0.009888092055916786, 0.0036715969908982515, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.6131228506565, "frame": 89365, "values": [0.0009508985837812894, -0.0006748307091157812], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.6131228506565, "frame": 89365, "values": [0.0775594636797905, -0.0037308342289179564, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.6631228514016, "frame": 89366, "values": [-0.01238919049501419, 0.003657511668279767, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.6631228514016, "frame": 89366, "values": [0.000950910029296155, -0.0006731527418111227], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.7131228521466, "frame": 89367, "values": [0.0775594413280487, -0.0037177170161157846, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.7131228521466, "frame": 89367, "values": [0.0009509213377389865, -0.000671473061117922], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.7631228528917, "frame": 89368, "values": [-0.014890288934111595, 0.003649606602266431, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.7631228528917, "frame": 89368, "values": [0.0009509328517898694, -0.0006697935860131565], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.8131228536367, "frame": 89369, "values": [0.0775582417845726, -0.003711748169735074, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.8131228536367, "frame": 89369, "values": [0.0009509441602327008, -0.0006681124660445903], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.8631228543818, "frame": 89370, "values": [0.0009509556742835837, -0.0006664316887707855], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.8631228543818, "frame": 89370, "values": [-0.014858067966997623, 0.0036328560672700405, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.9131228551269, "frame": 89371, "values": [0.07748991996049881, -0.003706619841977954, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.9131228551269, "frame": 89371, "values": [0.0009509669141903979, -0.0006647491295268537], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 575.9631228558719, "frame": 89372, "values": [-0.014826967380940914, 0.0036245854571461678, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 575.9631228558719, "frame": 89372, "values": [0.0009509784967772979, -0.0006630669130061051], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.013122856617, "frame": 89373, "values": [0.07498875260353088, -0.0036961582954972982, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.013122856617, "frame": 89373, "values": [0.000950989668148095, -0.000661383051593134], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.063122857362, "frame": 89374, "values": [-0.012326966971158981, 0.003612658940255642, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.063122857362, "frame": 89374, "values": [0.0009510012507349951, -0.0006596994643217613], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.1131228581071, "frame": 89375, "values": [0.07248640060424805, -0.0036885032895952463, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.1131228581071, "frame": 89375, "values": [0.0009510124906418093, -0.0006580141636618464], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.1631228588521, "frame": 89376, "values": [0.0009510240046926922, -0.000656329205696693], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.1631228588521, "frame": 89376, "values": [-0.012361516244709492, 0.0036029100883752108, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.2131228595972, "frame": 89377, "values": [0.0725536048412323, -0.003681435016915202, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.2131228595972, "frame": 89377, "values": [0.0009510353131355235, -0.0006546426713924802], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.2631228603423, "frame": 89378, "values": [-0.014896038919687271, 0.0035850361455231905, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.2631228603423, "frame": 89378, "values": [0.0009510468271864065, -0.0006529563426767027], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.3131228610873, "frame": 89379, "values": [0.0725523978471756, -0.003679803339764476, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.3131228610873, "frame": 89379, "values": [0.0009510581356292378, -0.0006512685061892398], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.3631228618324, "frame": 89380, "values": [-0.01239723525941372, 0.003570938715711236, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.3631228618324, "frame": 89380, "values": [0.0009510696496801207, -0.0006495809438291644], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.4131228625774, "frame": 89381, "values": [0.0009510810951949864, -0.0006478917366194992], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.4131228625774, "frame": 89381, "values": [0.07011863589286804, -0.0036763574462383986, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.4631228633225, "frame": 89382, "values": [-0.017431775107979774, 0.0035579584073275328, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.4631228633225, "frame": 89382, "values": [0.0009510926777818864, -0.000646202940615126], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.5131228640676, "frame": 89383, "values": [0.0009511042603687866, -0.0006445124997753737], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.5131228640676, "frame": 89383, "values": [0.07758360356092453, -0.0036683257203549147, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.5631228648126, "frame": 89384, "values": [0.0009511159114917037, -0.0006428224015735395], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.5631228648126, "frame": 89384, "values": [-0.022398123517632484, 0.003547796281054616, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.6131228655577, "frame": 89385, "values": [0.07754868268966675, -0.0036613044794648886, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.6131228655577, "frame": 89385, "values": [0.0009511274940786037, -0.0006411306585221155], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.6631228663027, "frame": 89386, "values": [-0.01736580580472946, 0.0035399917978793383, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.6631228663027, "frame": 89386, "values": [0.0009511392822735553, -0.0006394393266901943], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.7131228670478, "frame": 89387, "values": [0.07004766166210175, -0.003643575357273221, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.7131228670478, "frame": 89387, "values": [0.0009511510019324897, -0.0006377464185334247], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.7631228677928, "frame": 89388, "values": [0.0009511629271994755, -0.0006360538530429949], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.7631228677928, "frame": 89388, "values": [-0.01733333431184292, 0.0035447890404611826, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.8131228685379, "frame": 89389, "values": [0.07248001545667648, -0.0036215016152709723, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.8131228685379, "frame": 89389, "values": [0.000951174715394427, -0.000634359642717186], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.863122869283, "frame": 89390, "values": [-0.01733444258570671, 0.0035491364542394876, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.863122869283, "frame": 89390, "values": [0.0009511866406614128, -0.0006326659121214107], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.913122870028, "frame": 89391, "values": [0.0009511984288563644, -0.0006309706052007868], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.913122870028, "frame": 89391, "values": [0.06997886300086975, -0.003599839983507991, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 576.9631228707731, "frame": 89392, "values": [0.0009512102170513159, -0.0006292755724359722], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 576.9631228707731, "frame": 89392, "values": [-0.014868092723190784, 0.0035540659446269274, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.0131228715181, "frame": 89393, "values": [0.0009512220052462674, -0.0006275790318426289], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.0131228715181, "frame": 89393, "values": [0.06751152873039246, -0.0035742931067943573, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.0631228722632, "frame": 89394, "values": [-0.014902880415320396, 0.0035633284132927656, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.0631228722632, "frame": 89394, "values": [0.0009512337249052017, -0.0006258829024972101], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.1131228730083, "frame": 89395, "values": [0.0009512455131001533, -0.0006241851282737798], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.1131228730083, "frame": 89395, "values": [0.06757913529872894, -0.003552868030965328, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.1631228737533, "frame": 89396, "values": [0.0009512571642230704, -0.0006224878338088047], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.1631228737533, "frame": 89396, "values": [-0.01747124083340168, 0.0035662760492414236, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.2131228744984, "frame": 89397, "values": [0.07254406064748764, -0.003530432004481554, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.2131228744984, "frame": 89397, "values": [0.0009512687468099705, -0.0006207888944942397], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.2631228752434, "frame": 89398, "values": [0.0009512803979328877, -0.0006190904349097082], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.2631228752434, "frame": 89398, "values": [-0.01990395411849022, 0.003571394132450223, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.3131228759885, "frame": 89399, "values": [0.0009512919805197877, -0.0006173903990003282], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.3131228759885, "frame": 89399, "values": [0.06754302233457565, -0.003514645155519247, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.3631228767335, "frame": 89400, "values": [-0.0174051932990551, 0.003568182932212949, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.3631228767335, "frame": 89400, "values": [0.0009513037001787221, -0.000615690774324662], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.4131228774786, "frame": 89401, "values": [0.06504309922456741, -0.0035030334256589413, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.4131228774786, "frame": 89401, "values": [0.0009513152827656221, -0.0006139897103736303], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.4631228782237, "frame": 89402, "values": [0.0009513269338885394, -0.0006122889891031491], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.4631228782237, "frame": 89402, "values": [-0.017405210062861443, 0.0035629880148917437, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.5131228789687, "frame": 89403, "values": [0.0009513385164754394, -0.0006105868285715133], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.5131228789687, "frame": 89403, "values": [0.06754188984632492, -0.0034964648075401783, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.5631228797138, "frame": 89404, "values": [-0.017406394705176353, 0.0035490363370627165, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.5631228797138, "frame": 89404, "values": [0.0009513501675983566, -0.0006088850107488497], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.6131228804588, "frame": 89405, "values": [0.0009513617501852566, -0.0006071817536366098], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.6131228804588, "frame": 89405, "values": [0.0675407275557518, -0.0034947062376886606, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.6631228812039, "frame": 89406, "values": [-0.019872792065143585, 0.0035357081796973944, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.6631228812039, "frame": 89406, "values": [0.0009513734698441909, -0.0006054788392191313], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.713122881949, "frame": 89407, "values": [0.06747327744960785, -0.003491522977128625, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.713122881949, "frame": 89407, "values": [0.0009513849838950739, -0.0006037744170157566], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.763122882694, "frame": 89408, "values": [0.0009513967720900253, -0.0006020704745566263], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.763122882694, "frame": 89408, "values": [-0.017340488731861115, 0.0035240405704826117, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.8131228834391, "frame": 89409, "values": [0.06747214496135712, -0.0034870172385126352, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.8131228834391, "frame": 89409, "values": [0.0009514082176048911, -0.0006003649557584367], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.8631228841841, "frame": 89410, "values": [-0.019840456545352936, 0.0035138248931616545, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.8631228841841, "frame": 89410, "values": [0.0009514200057998426, -0.0005986598482081718], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.9131228849292, "frame": 89411, "values": [0.0700395330786705, -0.00348486821167171, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.9131228849292, "frame": 89411, "values": [0.0009514316569227599, -0.0005969533013683304], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 577.9631228856742, "frame": 89412, "values": [-0.019943412393331528, 0.003500651102513075, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 577.9631228856742, "frame": 89412, "values": [0.000951443308045677, -0.0005952470972232504], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.0131228864193, "frame": 89413, "values": [0.0009514550962406286, -0.0005935394538170158], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.0131228864193, "frame": 89413, "values": [0.06507102400064468, -0.0034821622539311647, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.0631228871644, "frame": 89414, "values": [0.000951466815899563, -0.0005918321530913317], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.0631228871644, "frame": 89414, "values": [-0.014909997582435608, 0.00348601583391428, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.1131228879094, "frame": 89415, "values": [0.06007114052772522, -0.003480661893263459, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.1131228879094, "frame": 89415, "values": [0.0009514786040945144, -0.0005901235501823976], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.1631228886545, "frame": 89416, "values": [-0.019909881055355072, 0.0034746485762298107, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.1631228886545, "frame": 89416, "values": [0.0009514905293615003, -0.000588415289954014], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.2131228893995, "frame": 89417, "values": [0.06253737211227417, -0.0034748364705592394, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.2131228893995, "frame": 89417, "values": [0.0009515022490204346, -0.0005867056590034281], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.2631228901446, "frame": 89418, "values": [0.0009515142428234377, -0.000584996439272345], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.2631228901446, "frame": 89418, "values": [-0.014911161735653877, 0.0034683062694966793, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.3131228908896, "frame": 89419, "values": [0.0650024488568306, -0.003464454086497426, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.3131228908896, "frame": 89419, "values": [0.000951525962482372, -0.000583285711741155], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.3631228916347, "frame": 89420, "values": [-0.02234392985701561, 0.0034659914672374725, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.3631228916347, "frame": 89420, "values": [0.0009515378877493579, -0.0005815754639826309], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.4131228923798, "frame": 89421, "values": [0.062467630952596664, -0.003451295429840684, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.4131228923798, "frame": 89421, "values": [0.0009515496759443093, -0.0005798638454876937], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.4631228931248, "frame": 89422, "values": [-0.01734522357583046, 0.003466101363301277, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.4631228931248, "frame": 89422, "values": [0.0009515616012112952, -0.000578152569673307], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.5131228938699, "frame": 89423, "values": [0.0009515733208702295, -0.0005764399231509287], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.5131228938699, "frame": 89423, "values": [0.06246764585375786, -0.003436189843341708, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.5631228946149, "frame": 89424, "values": [-0.017378773540258408, 0.0034708534367382526, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.5631228946149, "frame": 89424, "values": [0.0009515851776011982, -0.0005747277221104241], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.61312289536, "frame": 89425, "values": [0.06000141799449921, -0.003417067928239703, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.61312289536, "frame": 89425, "values": [0.0009515969657961497, -0.0005730141160569246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.663122896105, "frame": 89426, "values": [-0.019913416355848312, 0.0034718774259090424, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.663122896105, "frame": 89426, "values": [0.0009516086854550841, -0.0005713009554995097], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.7131228968501, "frame": 89427, "values": [0.0009516204736500357, -0.0005695863899717324], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.7131228968501, "frame": 89427, "values": [0.06506751477718353, -0.0034073020797222853, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.7631228975952, "frame": 89428, "values": [0.00095163219330897, -0.0005678722699116179], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.7631228975952, "frame": 89428, "values": [-0.02244686707854271, 0.0034633479081094265, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.8131228983402, "frame": 89429, "values": [0.06250026822090149, -0.0034021728206425905, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.8131228983402, "frame": 89429, "values": [0.0009516438444318872, -0.000566156779129301], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.8631228990853, "frame": 89430, "values": [0.0009516556326268388, -0.0005644416995664869], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.8631228990853, "frame": 89430, "values": [-0.01988114044070244, 0.0034553557634353638, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.9131228998303, "frame": 89431, "values": [0.0650327205657959, -0.0033925280440598726, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.9131228998303, "frame": 89431, "values": [0.0009516672837497559, -0.0005627252150333106], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 578.9631229005754, "frame": 89432, "values": [-0.024947980418801308, 0.0034519005566835403, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 578.9631229005754, "frame": 89432, "values": [0.0009516789348726731, -0.0005610092444783277], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.0131229013205, "frame": 89433, "values": [0.06506635248661041, -0.0033870937768369913, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.0131229013205, "frame": 89433, "values": [0.0009516906545316075, -0.0005592918347048226], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.0631229020655, "frame": 89434, "values": [0.0009517023056545247, -0.0005575749389237217], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.0631229020655, "frame": 89434, "values": [-0.022448038682341576, 0.00344223459251225, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.1131229028106, "frame": 89435, "values": [0.06256524473428726, -0.003387468634173274, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.1131229028106, "frame": 89435, "values": [0.0009517139567774419, -0.0005558566381864694], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.1631229035556, "frame": 89436, "values": [0.0009517257449723934, -0.0005541387829168798], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.1631229035556, "frame": 89436, "values": [-0.019949262961745262, 0.0034279802348464727, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.2131229043007, "frame": 89437, "values": [0.05759895592927933, -0.0033880758564919233, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.2131229043007, "frame": 89437, "values": [0.0009517374646313277, -0.0005524196254498293], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.2631229050457, "frame": 89438, "values": [0.0009517493213622964, -0.0005507008449541217], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.2631229050457, "frame": 89438, "values": [-0.01741589419543743, 0.003411839483305812, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.3131229057908, "frame": 89439, "values": [0.0009517610410212308, -0.000548980796523324], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.3131229057908, "frame": 89439, "values": [0.057496991008520126, -0.0033900521229952574, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.3631229065359, "frame": 89440, "values": [0.0009517730348242338, -0.0005472611250496584], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.3631229065359, "frame": 89440, "values": [-0.014883700758218765, 0.0033988028299063444, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.4131229072809, "frame": 89441, "values": [0.0009517847544831681, -0.0005455401856693243], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.4131229072809, "frame": 89441, "values": [0.05253070220351219, -0.003387878416106105, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.463122908026, "frame": 89442, "values": [-0.012383757159113884, 0.003391121281310916, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.463122908026, "frame": 89442, "values": [0.0009517967482861712, -0.0005438196232319115], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.513122908771, "frame": 89443, "values": [0.05246236175298691, -0.0033803482074290514, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.513122908771, "frame": 89443, "values": [0.0009518084679451055, -0.0005420978271217791], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.5631229095161, "frame": 89444, "values": [-0.017350241541862488, 0.0033873056527227163, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.5631229095161, "frame": 89444, "values": [0.0009518204617481085, -0.0005403764079972007], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.6131229102612, "frame": 89445, "values": [0.057462260127067566, -0.0033709111157804728, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.6131229102612, "frame": 89445, "values": [0.0009518321128710257, -0.0005386537209375319], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.6631229110062, "frame": 89446, "values": [0.0009518441752100459, -0.0005369315136363184], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.6631229110062, "frame": 89446, "values": [-0.019851360470056534, 0.003384654177352786, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.7131229117513, "frame": 89447, "values": [0.000951855826332963, -0.0005352079355986916], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.7131229117513, "frame": 89447, "values": [0.057461097836494446, -0.003360799280926585, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.7631229124963, "frame": 89448, "values": [0.0009518678201359661, -0.0005334848715818907], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.7631229124963, "frame": 89448, "values": [-0.019851375371217728, 0.003379321424290538, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.8131229132414, "frame": 89449, "values": [0.05995988845825195, -0.0033538995776325464, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.8131229132414, "frame": 89449, "values": [0.0009518794712588832, -0.0005317604711478907], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.8631229139864, "frame": 89450, "values": [-0.02485244907438755, 0.0033745092805474997, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.8631229139864, "frame": 89450, "values": [0.0009518915335979034, -0.0005300365846778732], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.9131229147315, "frame": 89451, "values": [0.0009519031847208206, -0.0005283113618048674], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.9131229147315, "frame": 89451, "values": [0.059959910809993744, -0.003349210834130645, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 579.9631229154766, "frame": 89452, "values": [-0.01985374465584755, 0.003370988881215453, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 579.9631229154766, "frame": 89452, "values": [0.0009519151785238237, -0.000526586618661895], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.0131229162216, "frame": 89453, "values": [0.0009519269667187751, -0.0005248606075980433], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.0131229162216, "frame": 89453, "values": [0.05499361455440521, -0.003339505521580577, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.0631229169667, "frame": 89454, "values": [0.000951938891985761, -0.000523135042030276], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.0631229169667, "frame": 89454, "values": [-0.019920554012060165, 0.003365684999153018, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.1131229177117, "frame": 89455, "values": [0.0009519506801807124, -0.0005214081742792587], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.1131229177117, "frame": 89455, "values": [0.05749356746673584, -0.0033326821867376566, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.1631229184568, "frame": 89456, "values": [0.0009519626054476984, -0.0005196818205348563], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.1631229184568, "frame": 89456, "values": [-0.019853800535202026, 0.003361315233632922, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.2131229192019, "frame": 89457, "values": [0.054958928376436234, -0.003324759192764759, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.2131229192019, "frame": 89457, "values": [0.0009519743251066327, -0.0005179541988979963], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.2631229199469, "frame": 89458, "values": [0.0009519862503736186, -0.0005162269884522175], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.2631229199469, "frame": 89458, "values": [-0.019853821024298668, 0.0033579522278159857, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.313122920692, "frame": 89459, "values": [0.05745889991521835, -0.003316416870802641, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.313122920692, "frame": 89459, "values": [0.00095199803856857, -0.0005144985443621408], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.363122921437, "frame": 89460, "values": [-0.022353798151016235, 0.003351278370246291, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.363122921437, "frame": 89460, "values": [0.0009520099638355559, -0.0005127705800447302], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.4131229221821, "frame": 89461, "values": [0.05495898425579071, -0.003315247129648924, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.4131229221821, "frame": 89461, "values": [0.0009520216834944902, -0.0005110413820546], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.4631229229271, "frame": 89462, "values": [-0.019855046644806862, 0.003341295523568988, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.4631229229271, "frame": 89462, "values": [0.000952033608761476, -0.0005093125952839728], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.5131229236722, "frame": 89463, "values": [0.0009520453969564276, -0.0005075826091456292], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.5131229236722, "frame": 89463, "values": [0.057457778602838516, -0.0033090454526245594, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.5631229244173, "frame": 89464, "values": [-0.0248882994055748, 0.00333761447109282, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.5631229244173, "frame": 89464, "values": [0.0009520573222234134, -0.0005058530684749485], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.6131229251623, "frame": 89465, "values": [0.0009520691104183649, -0.0005041222941599699], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.6131229251623, "frame": 89465, "values": [0.06002477556467056, -0.003304546233266592, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.6631229259074, "frame": 89466, "values": [0.0009520810356853509, -0.0005023919653552866], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.6631229259074, "frame": 89466, "values": [-0.024922827258706093, 0.0033306952100247145, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.7131229266524, "frame": 89467, "values": [0.057523664087057114, -0.0032962970435619354, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.7131229266524, "frame": 89467, "values": [0.0009520927553442851, -0.0005006604371402545], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.7631229273975, "frame": 89468, "values": [0.000952104680611271, -0.0004989294229602592], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.7631229273975, "frame": 89468, "values": [-0.02492283470928669, 0.0033253219444304705, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.8131229281425, "frame": 89469, "values": [0.05502374470233917, -0.0032952004112303257, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.8131229281425, "frame": 89469, "values": [0.0009521164688062225, -0.0004971971751217552], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.8631229288876, "frame": 89470, "values": [-0.019922956824302673, 0.0033151719253510237, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.8631229288876, "frame": 89470, "values": [0.0009521283940732083, -0.0004954654413040771], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.9131229296327, "frame": 89471, "values": [0.0009521401137321427, -0.0004937324053173597], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.9131229296327, "frame": 89471, "values": [0.05502374470233917, -0.003293080721050501, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 580.9631229303777, "frame": 89472, "values": [-0.01992412842810154, 0.0033074181992560625, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 580.9631229303777, "frame": 89472, "values": [0.0009521520389991285, -0.0004919998490748867], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.0131229311228, "frame": 89473, "values": [0.0009521638271940801, -0.0004902661277128573], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.0131229311228, "frame": 89473, "values": [0.050022684037685394, -0.0032927128486335278, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.0631229318678, "frame": 89474, "values": [-0.019924134016036987, 0.003297112649306655, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.0631229318678, "frame": 89474, "values": [0.0009521757524610659, -0.0004885328860950722], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.1131229326129, "frame": 89475, "values": [0.0009521875406560174, -0.00048679841086141096], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.1131229326129, "frame": 89475, "values": [0.05502140149474144, -0.003287766594439745, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.163122933358, "frame": 89476, "values": [-0.019924134016036987, 0.0032930050510913134, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.163122933358, "frame": 89476, "values": [0.0009521994659230032, -0.00048506441534357236], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.213122934103, "frame": 89477, "values": [0.0009522111855819376, -0.00048332918618143594], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.213122934103, "frame": 89477, "values": [0.0525214709341526, -0.0032847095280885696, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.2631229348481, "frame": 89478, "values": [0.0009522231108489234, -0.0004815945053451287], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.2631229348481, "frame": 89478, "values": [-0.022425249218940735, 0.003284598933532834, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.3131229355931, "frame": 89479, "values": [0.0525214709341526, -0.003282508347183466, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.3131229355931, "frame": 89479, "values": [0.000952234899043875, -0.00047985862509847266], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.3631229363382, "frame": 89480, "values": [-0.022426413372159004, 0.0032769369427114725, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.3631229363382, "frame": 89480, "values": [0.0009522468243108608, -0.0004781232245818501], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.4131229370832, "frame": 89481, "values": [0.0009522585439697952, -0.00047638662472593296], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.4131229370832, "frame": 89481, "values": [0.055021416395902634, -0.003279450349509716, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.4631229378283, "frame": 89482, "values": [-0.022426415234804153, 0.003269883571192622, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.4631229378283, "frame": 89482, "values": [0.000952270469236781, -0.00047465053889084174], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.5131229385734, "frame": 89483, "values": [0.0009522822574317325, -0.0004729132879219833], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.5131229385734, "frame": 89483, "values": [0.05002034083008766, -0.003272264264523983, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.5631229393184, "frame": 89484, "values": [-0.022426415234804153, 0.0032678761053830385, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.5631229393184, "frame": 89484, "values": [0.0009522941826987184, -0.00047117651669736915], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.6131229400635, "frame": 89485, "values": [0.057520173490047455, -0.0032652653753757477, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.6131229400635, "frame": 89485, "values": [0.0009523059708936699, -0.0004694385461192496], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.6631229408085, "frame": 89486, "values": [-0.024926360696554184, 0.0032637619879096746, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.6631229408085, "frame": 89486, "values": [0.0009523178961606557, -0.00046770108954774514], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.7131229415536, "frame": 89487, "values": [0.0009523296158195901, -0.0004659624335801027], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.7131229415536, "frame": 89487, "values": [0.05248680338263512, -0.0032601943239569664, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.7631229422987, "frame": 89488, "values": [0.0009523415410865759, -0.0004642243259240786], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.7631229422987, "frame": 89488, "values": [-0.022359762340784073, 0.003258142387494445, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.8131229430437, "frame": 89489, "values": [0.052452147006988525, -0.0032601908314973116, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.8131229430437, "frame": 89489, "values": [0.0009523533292815275, -0.00046248501888612736], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.8631229437888, "frame": 89490, "values": [-0.02360972762107849, 0.003247535554692149, 0.006659280508756638], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.8631229437888, "frame": 89490, "values": [0.0009523652545485133, -0.00046074626013137276], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.9131229445338, "frame": 89491, "values": [0.0009523769742074477, -0.0004590063019804802], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.9131229445338, "frame": 89491, "values": [0.05245213583111763, -0.003260623896494508, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 581.9631229452789, "frame": 89492, "values": [0.0009523888994744335, -0.00045726685787883525], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 581.9631229452789, "frame": 89492, "values": [-0.02361089363694191, 0.003237901022657752, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.0131229460239, "frame": 89493, "values": [0.05370210111141205, -0.003256609896197915, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.0131229460239, "frame": 89493, "values": [0.000952400687669385, -0.00045552624864342306], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.063122946769, "frame": 89494, "values": [-0.02361086755990982, 0.0032325296197086573, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.063122946769, "frame": 89494, "values": [0.0009524126129363708, -0.0004537861534430476], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.1131229475141, "frame": 89495, "values": [0.05245092511177063, -0.0032529912423342466, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.1131229475141, "frame": 89495, "values": [0.0009524244011313224, -0.0004520448588607451], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.1631229482591, "frame": 89496, "values": [-0.022394217550754547, 0.0032259949948638678, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.1631229482591, "frame": 89496, "values": [0.0009524363263983082, -0.0004503041125474283], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.2131229490042, "frame": 89497, "values": [0.0009524480460572426, -0.00044856223540534756], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.2131229490042, "frame": 89497, "values": [0.05001799017190933, -0.0032470885198563337, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.2631229497492, "frame": 89498, "values": [0.0009524599713242284, -0.000446820838021722], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.2631229497492, "frame": 89498, "values": [-0.02242872305214405, 0.0032256741542369127, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.3131229504943, "frame": 89499, "values": [0.050017982721328735, -0.0032426260877400637, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.3131229504943, "frame": 89499, "values": [0.00095247175951918, -0.0004450783097809108], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.3631229512393, "frame": 89500, "values": [0.0009524836847861658, -0.00044333629556092546], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.3631229512393, "frame": 89500, "values": [-0.021178748458623886, 0.0032185136806219816, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.4131229519844, "frame": 89501, "values": [0.0009524954044451002, -0.0004415931504979653], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.4131229519844, "frame": 89501, "values": [0.05001680925488472, -0.0032379787880927324, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.4631229527295, "frame": 89502, "values": [-0.022428717464208603, 0.0032138077076524496, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.4631229527295, "frame": 89502, "values": [0.000952507329712086, -0.00043985051947004195], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.5131229534745, "frame": 89503, "values": [0.0009525191179070375, -0.0004381067233225622], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.5131229534745, "frame": 89503, "values": [0.05001680552959442, -0.003238435136154294, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.5631229542196, "frame": 89504, "values": [-0.021179908886551857, 0.003202789695933461, 0.006668225396424532], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.5631229542196, "frame": 89504, "values": [0.0009525310431740233, -0.00043636344118169745], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.6131229549646, "frame": 89505, "values": [0.0009525428313689749, -0.00043461906248865034], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.6131229549646, "frame": 89505, "values": [0.04876682162284851, -0.0032404030207544565, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.6631229557097, "frame": 89506, "values": [-0.024929814040660858, 0.003192150266841054, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.6631229557097, "frame": 89506, "values": [0.0009525547566359607, -0.00043287523205037814], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.7131229564548, "frame": 89507, "values": [0.0009525664762948951, -0.000431130270783342], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.7131229564548, "frame": 89507, "values": [0.05001677945256233, -0.0032382465433329344, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.7631229571998, "frame": 89508, "values": [-0.021179884672164917, 0.003189288778230548, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.7631229571998, "frame": 89508, "values": [0.0009525784015618809, -0.00042938578926055015], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.8131229579449, "frame": 89509, "values": [0.05001560226082802, -0.003233005991205573, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.8131229579449, "frame": 89509, "values": [0.0009525901897568324, -0.0004276402111997868], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.8631229586899, "frame": 89510, "values": [0.0009526021150238183, -0.00042589518139379834], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.8631229586899, "frame": 89510, "values": [-0.02492978423833847, 0.0031840193551033735, 0.006677158176898956], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.913122959435, "frame": 89511, "values": [0.0009526138346827527, -0.00042414902074483507], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.913122959435, "frame": 89511, "values": [0.05001559108495712, -0.0032311950344592333, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 582.96312296018, "frame": 89512, "values": [0.0009526257599497385, -0.0004224034083790684], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 582.96312296018, "frame": 89512, "values": [-0.02493094466626644, 0.0031760460697114468, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.0131229609251, "frame": 89513, "values": [0.0009526374796086729, -0.00042065669944690853], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.0131229609251, "frame": 89513, "values": [0.049981988966464996, -0.0032279572915285826, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.0631229616702, "frame": 89514, "values": [0.0009526494048756587, -0.000418910470258993], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.0631229616702, "frame": 89514, "values": [-0.021147586405277252, 0.003173188306391239, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.1131229624152, "frame": 89515, "values": [0.0009526611245345931, -0.0004171631444904733], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.1131229624152, "frame": 89515, "values": [0.048764418810606, -0.0032200117129832506, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.1631229631603, "frame": 89516, "values": [0.0009526730498015789, -0.00041541633277120127], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.1631229631603, "frame": 89516, "values": [-0.023680951446294785, 0.003170768264681101, 0.006686078850179911], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.2131229639053, "frame": 89517, "values": [0.0009526848379965304, -0.00041366842445711427], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.2131229639053, "frame": 89517, "values": [0.04876440390944481, -0.0032200755085796118, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.2631229646504, "frame": 89518, "values": [-0.024932073429226875, 0.003163452260196209, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.2631229646504, "frame": 89518, "values": [0.0009526967632635162, -0.0004119210986885946], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.3131229653955, "frame": 89519, "values": [0.0009527084829224505, -0.00041017267636789256], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.3131229653955, "frame": 89519, "values": [0.047514431178569794, -0.0032161211129277945, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.3631229661405, "frame": 89520, "values": [-0.0224321112036705, 0.0031547192484140396, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.3631229661405, "frame": 89520, "values": [0.0009527204767254536, -0.0004084247680395947], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.4131229668856, "frame": 89521, "values": [0.05001317709684372, -0.003214990021660924, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.4131229668856, "frame": 89521, "values": [0.000952732196384388, -0.0004066757974214852], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.4631229676306, "frame": 89522, "values": [0.0009527441216513738, -0.00040492737510078314], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.4631229676306, "frame": 89522, "values": [-0.02743198722600937, 0.0031472379341721535, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.5131229683757, "frame": 89523, "values": [0.0009527559098463254, -0.00040317782190868456], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.5131229683757, "frame": 89523, "values": [0.05001315847039223, -0.0032154887448996305, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.5631229691207, "frame": 89524, "values": [-0.02368205599486828, 0.003144596703350544, 0.006694987881928682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.5631229691207, "frame": 89524, "values": [0.0009527678351133112, -0.00040142885129057504], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.6131229698658, "frame": 89525, "values": [0.0009527795547722455, -0.0003996787498294907], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.6131229698658, "frame": 89525, "values": [0.050013136118650436, -0.0032129797618836164, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.6631229706109, "frame": 89526, "values": [0.0009527914800392314, -0.00039792923092818455], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.6631229706109, "frame": 89526, "values": [-0.0274331197142601, 0.0031336001120507717, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.7131229713559, "frame": 89527, "values": [0.049979425966739655, -0.003214555559679866, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.7131229713559, "frame": 89527, "values": [0.0009528032682341828, -0.00039617861543206345], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.763122972101, "frame": 89528, "values": [-0.024866070598363876, 0.0031272838823497295, 0.006703884806483984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.763122972101, "frame": 89528, "values": [0.0009528151935011687, -0.0003944285482475607], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.813122972846, "frame": 89529, "values": [0.046194594353437424, -0.003213173011317849, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.813122972846, "frame": 89529, "values": [0.000952826913160103, -0.0003926774529929844], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.8631229735911, "frame": 89530, "values": [-0.023616047576069832, 0.0031227157451212406, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.8631229735911, "frame": 89530, "values": [0.0009528389069631061, -0.00039092690605002645], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.9131229743361, "frame": 89531, "values": [0.0009528505580860232, -0.0003891752282498828], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.9131229743361, "frame": 89531, "values": [0.049944449216127396, -0.0032076926436275244, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 583.9631229750812, "frame": 89532, "values": [0.000952862483353009, -0.00038742406448477595], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 583.9631229750812, "frame": 89532, "values": [-0.023649554699659348, 0.0031186328269541264, 0.006712770089507103], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.0131229758263, "frame": 89533, "values": [0.04622822627425194, -0.003206699388101697, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.0131229758263, "frame": 89533, "values": [0.0009528742030119434, -0.0003856718726780173], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.0631229765713, "frame": 89534, "values": [-0.023615896701812744, 0.003109536599367857, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.0631229765713, "frame": 89534, "values": [0.0009528861282789293, -0.00038392019487787366], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.1131229773164, "frame": 89535, "values": [0.04619321599602699, -0.0032035771291702986, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.1131229773164, "frame": 89535, "values": [0.0009528979164738808, -0.00038216752329844894], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.1631229780614, "frame": 89536, "values": [0.0009529098417408666, -0.00038041540003064256], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.1631229780614, "frame": 89536, "values": [-0.026116933673620224, 0.003107624128460884, 0.006721643265336752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.2131229788065, "frame": 89537, "values": [0.0009529216299358182, -0.00037866221443039194], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.2131229788065, "frame": 89537, "values": [0.048693086951971054, -0.0032031366135925055, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.2631229795516, "frame": 89538, "values": [-0.023616911843419075, 0.0030977660790085793, 0.0067305052652955055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.2631229795516, "frame": 89538, "values": [0.000952933555202804, -0.00037690954287938894], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.3131229802966, "frame": 89539, "values": [0.04744303226470947, -0.0032034453470259905, 0.006774640176445246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.3131229802966, "frame": 89539, "values": [0.0009529452748617384, -0.0003751558089959417], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.3631229810417, "frame": 89540, "values": [-0.027366749942302704, 0.0030960612930357456, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.3631229810417, "frame": 89540, "values": [0.0009529572001287242, -0.0003734026919630651], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.4131229817867, "frame": 89541, "values": [0.04619297757744789, -0.003195251105353236, 0.006774640176445246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.4131229817867, "frame": 89541, "values": [0.0009529689883236757, -0.0003716485125835334], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.4631229825318, "frame": 89542, "values": [-0.02365046925842762, 0.003094310872256756, 0.006739355623722076], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.4631229825318, "frame": 89542, "values": [0.0009529809135906615, -0.0003698949157779907], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.5131229832768, "frame": 89543, "values": [0.04747676104307175, -0.003192818956449628, 0.006774640176445246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.5131229832768, "frame": 89543, "values": [0.0009529925647135788, -0.00036814022239184396], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.5631229840219, "frame": 89544, "values": [0.0009530044899805646, -0.0003663860773031047], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.5631229840219, "frame": 89544, "values": [-0.024866659194231033, 0.0030863257125020027, 0.006748193874955177], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.613122984767, "frame": 89545, "values": [0.0009530162781755161, -0.0003646309041727136], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.613122984767, "frame": 89545, "values": [0.046191662549972534, -0.003192806849256158, 0.0067834327928721905], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.663122985512, "frame": 89546, "values": [0.000953028203442502, -0.0003628763136021007], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.663122985512, "frame": 89546, "values": [-0.024867741391062737, 0.003081208560615778, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.7131229862571, "frame": 89547, "values": [0.04744154214859009, -0.0031887826044112444, 0.0067834327928721905], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.7131229862571, "frame": 89547, "values": [0.0009530399231014364, -0.0003611206264650946], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.7631229870021, "frame": 89548, "values": [-0.02611762285232544, 0.00307605043053627, 0.006757020950317383], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.7631229870021, "frame": 89548, "values": [0.0009530518483684222, -0.00035936555612181564], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.8131229877472, "frame": 89549, "values": [0.046191491186618805, -0.0031897251028567553, 0.00679221423342824], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.8131229877472, "frame": 89549, "values": [0.0009530636365633737, -0.00035760942348872504], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.8631229884923, "frame": 89550, "values": [-0.02615252137184143, 0.003069850616157055, 0.006774640176445246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.8631229884923, "frame": 89550, "values": [0.0009530755618303595, -0.0003558538734012018], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.9131229892373, "frame": 89551, "values": [0.0009530873500253111, -0.0003540972953004484], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.9131229892373, "frame": 89551, "values": [0.04750934615731239, -0.0031826512422412634, 0.0068009840324521065], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 584.9631229899824, "frame": 89552, "values": [-0.024936342611908913, 0.0030719973146915436, 0.006774640176445246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 584.9631229899824, "frame": 89552, "values": [0.0009530992752922969, -0.00035234126545447], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.0131229907274, "frame": 89553, "values": [0.0449741892516613, -0.0031766260508447886, 0.0068009840324521065], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.0131229907274, "frame": 89553, "values": [0.0009531109264152141, -0.00035058420759526143], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.0631229914725, "frame": 89554, "values": [0.0009531228516822, -0.0003488277322674094], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.0631229914725, "frame": 89554, "values": [-0.024868566542863846, 0.0030670003034174442, 0.006774640176445246], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.1131229922175, "frame": 89555, "values": [0.0009531345713411342, -0.00034707022891211636], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.1131229922175, "frame": 89555, "values": [0.04494009166955948, -0.003178534796461463, 0.006818489637225866], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.1631229929626, "frame": 89556, "values": [0.0009531465651441373, -0.00034531327385423083], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.1631229929626, "frame": 89556, "values": [-0.024902384728193283, 0.0030623688362538815, 0.0067834327928721905], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.2131229937077, "frame": 89557, "values": [0.04625812545418739, -0.003173974109813571, 0.006818489637225866], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.2131229937077, "frame": 89557, "values": [0.0009531582848030716, -0.00034355532500285335], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.2631229944527, "frame": 89558, "values": [0.0009531702100700575, -0.0003417979587254649], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.2631229944527, "frame": 89558, "values": [-0.027436204254627228, 0.003057916183024645, 0.0067834327928721905], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.3131229951978, "frame": 89559, "values": [0.0009531819982650091, -0.0003400395301298431], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.3131229951978, "frame": 89559, "values": [0.04625809192657471, -0.0031750358175486326, 0.006827225908637047], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.3631229959428, "frame": 89560, "values": [0.0009531939235319949, -0.0003382817183563702], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.3631229959428, "frame": 89560, "values": [-0.02493622526526451, 0.0030510439537465572, 0.00679221423342824], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.4131229966879, "frame": 89561, "values": [0.045075178146362305, -0.0031733775977045298, 0.006827225908637047], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.4131229966879, "frame": 89561, "values": [0.0009532058487989807, -0.0003365228785412455], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.463122997433, "frame": 89562, "values": [0.0009532179111380009, -0.0003347646213143207], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.463122997433, "frame": 89562, "values": [-0.026221323758363724, 0.0030449549667537212, 0.0068009840324521065], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.513122998178, "frame": 89563, "values": [0.0009532299049410038, -0.00033300530174074083], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.513122998178, "frame": 89563, "values": [0.04629101604223251, -0.003170696785673499, 0.006835951004177332], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.5631229989231, "frame": 89564, "values": [0.000953241967280024, -0.00033124663326589143], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.5631229989231, "frame": 89564, "values": [-0.026221320033073425, 0.0030443002469837666, 0.0068009840324521065], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.6131229996681, "frame": 89565, "values": [0.045109424740076065, -0.0031651475001126528, 0.006844664458185434], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.6131229996681, "frame": 89565, "values": [0.0009532541666910785, -0.0003294869024870195], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.6631230004132, "frame": 89566, "values": [-0.027560755610466003, 0.014807412400841713, 0.0063757747411727905], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.6631230004132, "frame": 89566, "values": [0.0009532617056529661, -0.0003277277885302965], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.7131230011582, "frame": 89567, "values": [0.03937870264053345, 0.020220350474119186, 0.005382186267524958], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.7131230011582, "frame": 89567, "values": [0.0009532612944368631, -0.0003259677150850848], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.7631230019033, "frame": 89568, "values": [-0.032496869564056396, 0.03542441129684448, 0.0038602047134190798], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.7631230019033, "frame": 89568, "values": [0.0009532534127948897, -0.00032420839553992664], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.8131230026484, "frame": 89569, "values": [0.03937491774559021, 0.03541891276836395, 0.002042627427726984], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.8131230026484, "frame": 89569, "values": [0.0009532381977990802, -0.00032244811646364724], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.8631230033934, "frame": 89570, "values": [0.0009532168830977435, -0.0003206885913016322], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.8631230033934, "frame": 89570, "values": [-0.03120565414428711, 0.04602869972586632, 0.0], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.9131230041385, "frame": 89571, "values": [0.028859466314315796, 0.05419402942061424, 6.280445098876953], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.9131230041385, "frame": 89571, "values": [0.0009531846711696783, -0.00031892841504088665], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 585.9631230048835, "frame": 89572, "values": [-0.050103962421417236, 0.07610110193490982, 6.276951313018799], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 585.9631230048835, "frame": 89572, "values": [0.0009531392317903011, -0.00031716947242443894], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.0131230056286, "frame": 89573, "values": [0.0009530796739913891, -0.0003154102556663929], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.0131230056286, "frame": 89573, "values": [0.016517341136932373, 0.08058889210224152, 6.272937297821045], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.0631230063736, "frame": 89574, "values": [0.0009530081223894741, -0.000313652341091597], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.0631230063736, "frame": 89574, "values": [-0.04843646287918091, 0.09468895196914673, 6.268435478210449], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.1131230071187, "frame": 89575, "values": [0.0009529261533129508, -0.0003118938782336045], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.1131230071187, "frame": 89575, "values": [0.033979952335357666, 0.08871982991695404, 6.263868808746338], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.1631230078638, "frame": 89576, "values": [-0.03875485062599182, 0.09887632727622986, 6.25910758972168], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.1631230078638, "frame": 89576, "values": [0.0009528349318741108, -0.00031013647769384534], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.2131230086088, "frame": 89577, "values": [0.011853277683258057, 0.10562574863433838, 6.253855228424072], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.2131230086088, "frame": 89577, "values": [0.00095272876958353, -0.0003083792484659398], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.2631230093539, "frame": 89578, "values": [0.0009526060215767964, -0.0003066240753355487], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.2631230093539, "frame": 89578, "values": [-0.06386637687683105, 0.12541532516479492, 6.247895240783691], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.3131230100989, "frame": 89579, "values": [0.001201033592224121, 0.12457463890314102, 6.241572380065918], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.3131230100989, "frame": 89579, "values": [0.0009524671676060302, -0.0003048695190273065], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.363123010844, "frame": 89580, "values": [0.0009523141952157291, -0.0003031167789231404], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.363123010844, "frame": 89580, "values": [-0.04978996515274048, 0.14004196226596832, 6.234912395477295], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.413123011589, "frame": 89581, "values": [0.0009521482009821676, -0.0003013653410164352], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.413123011589, "frame": 89581, "values": [-0.026913225650787354, 0.12597380578517914, 6.228329181671143], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.4631230123341, "frame": 89582, "values": [0.0009519665120006765, -0.0002996160962425165], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.4631230123341, "frame": 89582, "values": [-0.05400490760803223, 0.15160858631134033, 6.221179962158203], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.5131230130792, "frame": 89583, "values": [0.0009517661812225177, -0.0002978691817077106], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.5131230130792, "frame": 89583, "values": [-0.045930564403533936, 0.1468294858932495, 6.213675022125244], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.5631230138242, "frame": 89584, "values": [0.0009515488535121034, -0.0002961245973978066], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.5631230138242, "frame": 89584, "values": [-0.04469013214111328, 0.16673657298088074, 6.205697059631348], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.6131230145693, "frame": 89585, "values": [0.0009513153513016394, -0.0002943816236609109], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.6131230145693, "frame": 89585, "values": [-0.011292099952697754, 0.15384666621685028, 6.197736740112305], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.6631230153143, "frame": 89586, "values": [0.0009510682789597775, -0.0002926403290786084], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.6631230153143, "frame": 89586, "values": [-0.01700413227081299, 0.1668088734149933, 6.189665794372559], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.7131230160594, "frame": 89587, "values": [0.0009508087330627926, -0.00029090002826137606], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.7131230160594, "frame": 89587, "values": [0.01303797960281372, 0.14849643409252167, 6.181902885437012], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.7631230168045, "frame": 89588, "values": [0.0009505334924178781, -0.0002891620233924641], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.7631230168045, "frame": 89588, "values": [-0.027285873889923096, 0.1706520915031433, 6.173757076263428], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.8131230175495, "frame": 89589, "values": [-0.01914578676223755, 0.16304564476013184, 6.165405750274658], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.8131230175495, "frame": 89589, "values": [0.0009502398155843474, -0.0002874266743191356], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.8631230182946, "frame": 89590, "values": [0.0009499294159626299, -0.0002856940666617902], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.8631230182946, "frame": 89590, "values": [-0.028219521045684814, 0.18026812374591827, 6.156715393066406], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.9131230190396, "frame": 89591, "values": [0.004436075687408447, 0.16534678637981415, 6.1481547355651855], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.9131230190396, "frame": 89591, "values": [0.0009496031159849311, -0.0002839635151019593], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 586.9631230197847, "frame": 89592, "values": [0.0009492635200199033, -0.00028223493393397803], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 586.9631230197847, "frame": 89592, "values": [-0.0022115111351013184, 0.17631125450134277, 6.139582633972168], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.0131230205297, "frame": 89593, "values": [0.0009489113819637353, -0.0002805076892400393], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.0131230205297, "frame": 89593, "values": [0.025332927703857422, 0.15655562281608582, 6.131398677825928], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.0631230212748, "frame": 89594, "values": [-0.016570210456848145, 0.1773885041475296, 6.122898578643799], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.0631230212748, "frame": 89594, "values": [0.0009485438918397233, -0.0002787833230399883], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.1131230220199, "frame": 89595, "values": [-0.012478828430175781, 0.1691359579563141, 6.1142354011535645], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.1131230220199, "frame": 89595, "values": [0.0009481578969910782, -0.0002770623836596542], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.1631230227649, "frame": 89596, "values": [0.0009477553164262804, -0.00027534497387193824], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.1631230227649, "frame": 89596, "values": [-0.024092674255371094, 0.18552850186824799, 6.105271339416504], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.21312302351, "frame": 89597, "values": [0.0009473367669694842, -0.0002736303740675794], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.21312302351, "frame": 89597, "values": [0.008637845516204834, 0.17012730240821838, 6.096465587615967], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.263123024255, "frame": 89598, "values": [-0.00016874074935913086, 0.1803729385137558, 6.087680816650391], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.263123024255, "frame": 89598, "values": [0.0009469050585973935, -0.00027191837861550994], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.3131230250001, "frame": 89599, "values": [-0.008805334568023682, 0.17405031621456146, 6.078797340393066], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.3131230250001, "frame": 89599, "values": [0.0009464555993968582, -0.0002702102897274017], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.3631230257452, "frame": 89600, "values": [0.0009459876354716897, -0.0002685071182924048], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.3631230257452, "frame": 89600, "values": [-0.03866422176361084, 0.19415991008281708, 6.0694475173950195], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.4131230264902, "frame": 89601, "values": [0.0009455012353579052, -0.00026680828176495197], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.4131230264902, "frame": 89601, "values": [-0.0076825618743896484, 0.18209385871887207, 6.060088634490967], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.4631230272353, "frame": 89602, "values": [0.0009449994146402597, -0.0002651134546169942], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.4631230272353, "frame": 89602, "values": [-0.016110241413116455, 0.19457444548606873, 6.0506205558776855], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.5131230279803, "frame": 89603, "values": [0.0009444827901429077, -0.0002634218486292639], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.5131230279803, "frame": 89603, "values": [0.01958608627319336, 0.17621557414531708, 6.04147481918335], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.5631230287254, "frame": 89604, "values": [0.0009439539662345011, -0.000261733104039763], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.5631230287254, "frame": 89604, "values": [0.01042032241821289, 0.18381492793560028, 6.032482147216797], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.6131230294704, "frame": 89605, "values": [-0.003227829933166504, 0.17580147087574005, 6.023490905761719], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.6131230294704, "frame": 89605, "values": [0.0009434084880739247, -0.00026004886568387064], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.6631230302155, "frame": 89606, "values": [0.0009428453961569382, -0.0002583703158194339], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.6631230302155, "frame": 89606, "values": [-0.03476357460021973, 0.19463704526424408, 6.014100074768066], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.7131230309606, "frame": 89607, "values": [0.0009422646219475244, -0.00025669694042562696], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.7131230309606, "frame": 89607, "values": [-0.006623506546020508, 0.18183347582817078, 6.0047454833984375], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.7631230317056, "frame": 89608, "values": [0.0009416689068863696, -0.00025502831115886693], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.7631230317056, "frame": 89608, "values": [-0.011898338794708252, 0.1935180127620697, 5.995319366455078], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.8131230324507, "frame": 89609, "values": [0.0009410590048696628, -0.00025336355416527567], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.8131230324507, "frame": 89609, "values": [0.01742798089981079, 0.17475759983062744, 5.986242771148682], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.8631230331957, "frame": 89610, "values": [0.0009404326542088377, -0.0002517047769430292], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.8631230331957, "frame": 89610, "values": [-0.03222924470901489, 0.1955675333738327, 5.976830005645752], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.9131230339408, "frame": 89611, "values": [0.0009397871819992247, -0.0002500527847786316], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.9131230339408, "frame": 89611, "values": [-0.021536827087402344, 0.18696822226047516, 5.967273712158203], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 587.9631230346859, "frame": 89612, "values": [-0.034399211406707764, 0.2020321488380432, 5.95746374130249], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 587.9631230346859, "frame": 89612, "values": [0.0009391247128573562, -0.0002484073035446954], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.0131230354309, "frame": 89613, "values": [0.0031628012657165527, 0.1860296130180359, 5.947859287261963], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.0131230354309, "frame": 89613, "values": [0.0009384460692154379, -0.0002467674251391827], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.063123036176, "frame": 89614, "values": [-0.006431639194488525, 0.19490593671798706, 5.938327789306641], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.063123036176, "frame": 89614, "values": [0.0009377538554421219, -0.0002451325669738935], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.113123036921, "frame": 89615, "values": [0.000937048825433597, -0.00024350183811350234], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.113123036921, "frame": 89615, "values": [0.025157034397125244, 0.17414133250713348, 5.929255485534668], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.1631230376661, "frame": 89616, "values": [0.0009363284433572283, -0.0002418775173822496], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.1631230376661, "frame": 89616, "values": [-0.025723159313201904, 0.19333381950855255, 5.919933795928955], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.2131230384111, "frame": 89617, "values": [0.0009355901733803808, -0.0002402607527329792], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.2131230384111, "frame": 89617, "values": [-0.021021723747253418, 0.1840796023607254, 5.910513401031494], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.2631230391562, "frame": 89618, "values": [0.0009348359345115351, -0.00023865120149935137], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.2631230391562, "frame": 89618, "values": [-0.03230184316635132, 0.1985558569431305, 5.900869369506836], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.3131230399013, "frame": 89619, "values": [0.0009340661379667939, -0.00023704795557932812], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.3131230399013, "frame": 89619, "values": [0.003441035747528076, 0.18230512738227844, 5.891448974609375], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.3631230406463, "frame": 89620, "values": [0.0009332835251868439, -0.00023545034675009902], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.3631230406463, "frame": 89620, "values": [-0.008257269859313965, 0.1908746063709259, 5.882113456726074], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.4131230413914, "frame": 89621, "values": [0.0009324841210826897, -0.00023386055103458148], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.4131230413914, "frame": 89621, "values": [-0.02198195457458496, 0.18411989510059357, 5.872724533081055], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.4631230421364, "frame": 89622, "values": [0.0009316675144382283, -0.00023227969926153946], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.4631230421364, "frame": 89622, "values": [-0.04836905002593994, 0.2027399092912674, 5.8629231452941895], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.5131230428815, "frame": 89623, "values": [0.0009308335681814255, -0.00023070720887119478], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.5131230428815, "frame": 89623, "values": [-0.018686652183532715, 0.19013187289237976, 5.853158950805664], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.5631230436265, "frame": 89624, "values": [-0.02308601140975952, 0.20131532847881317, 5.843333721160889], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.5631230436265, "frame": 89624, "values": [0.0009299850237529675, -0.00022914218894243277], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.6131230443716, "frame": 89625, "values": [0.009628474712371826, 0.18257541954517365, 5.833867073059082], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.6131230443716, "frame": 89625, "values": [0.0009291223609049746, -0.00022758369703979042], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.6631230451167, "frame": 89626, "values": [0.0009282483896141504, -0.00022603084222794223], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.6631230451167, "frame": 89626, "values": [-0.00012487173080444336, 0.18906188011169434, 5.824594974517822], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.7131230458617, "frame": 89627, "values": [-0.012974023818969727, 0.18094371259212494, 5.815348148345947], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.7131230458617, "frame": 89627, "values": [0.0009273587235753964, -0.00022448617747272692], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.7631230466068, "frame": 89628, "values": [0.0009264531571806614, -0.00022295103921976533], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.7631230466068, "frame": 89628, "values": [-0.04846632480621338, 0.19885756075382233, 5.805731773376465], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.8131230473518, "frame": 89629, "values": [0.0009255314162858766, -0.00022142491346244242], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.8131230473518, "frame": 89629, "values": [-0.019437551498413086, 0.1859254240989685, 5.796172618865967], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.8631230480969, "frame": 89630, "values": [0.0009245959681876598, -0.00021990680640726623], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.8631230480969, "frame": 89630, "values": [-0.02374488115310669, 0.19679874181747437, 5.786568641662598], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.913123048842, "frame": 89631, "values": [0.0009236474297101654, -0.00021839577571824975], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.913123048842, "frame": 89631, "values": [0.00960993766784668, 0.17798154056072235, 5.777331829071045], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 588.963123049587, "frame": 89632, "values": [-0.042884111404418945, 0.1981879323720932, 5.767777919769287], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 588.963123049587, "frame": 89632, "values": [0.0009226837447728787, -0.00021689435719451922], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 589.0131230503321, "frame": 89633, "values": [-0.04113161563873291, 0.19135203957557678, 5.758026599884033], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 589.0131230503321, "frame": 89633, "values": [0.0009217023090071475, -0.00021540426422461678], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 589.0631230510771, "frame": 89634, "values": [0.0009207054526375553, -0.0002139246572880893], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 589.0631230510771, "frame": 89634, "values": [-0.04724776744842529, 0.20580200850963593, 5.748018741607666], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 589.1131230518222, "frame": 89635, "values": [0.0009196928329840163, -0.00021245507373635064], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 589.1131230518222, "frame": 89635, "values": [-0.021338820457458496, 0.19256183505058289, 5.738124847412109], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "imu", "timestamp": 589.1631230525672, "frame": 89636, "values": [-0.03516107797622681, 0.2060328722000122, 5.728091716766357], "transport_dropped": false}
+{"source": "REAL_CARLA_CALLBACK", "kind": "gnss", "timestamp": 589.1631230525672, "frame": 89636, "values": [0.0009186658207668738, -0.00021099539364399789], "transport_dropped": false}

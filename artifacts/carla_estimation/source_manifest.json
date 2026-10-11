@@ -1,0 +1,28 @@
+{
+  "source_sha256": {
+    "hal/carla_adapter.py": "ab1bf4f3097229549f90f7c7abe67dc36f076a69ea461e6c07da75f47d01c85d",
+    "hal/carla_sensors.py": "0844dbda92bc532b469cd56523a56f2b6aa9536780dbd348696df5672a1623ab",
+    "vehicle_model/state_estimator.py": "b5224688981adf788f86204354e529d8f1d0cb15d343fbf624ad56a908f9a1b2",
+    "demos/carla_estimation_regression.py": "3665049b3576973efef6ceff00c08c334b7411539a1e289cff6fdfe927a464b6",
+    "demos/carla_regression.py": "a12cea0ecebaaca68f9ea5d661fe038e08c9c3cea3b4de7630899374882cf9f1",
+    "tests/test_carla_sensor_contract.py": "09ec7027f9dc9cdb2d3db3d0e3438d7f520fffe18d8703c3570b78b741d80354",
+    "tests/test_carla_contract.py": "5ef32fa716e43dd84f1045179e3399fce9b80473d931048192a3f31a4f131346",
+    "tests/test_state_estimator.py": "be75fe50e255884055ad3501901d425ee3a6f0373c571ff254627b9e3f0a608d"
+  },
+  "base_git_head": "365281053d327e1329b8571e2dd7eafefaf9a33e",
+  "source_state": "Uncommitted frozen implementation; root owns final commit/push",
+  "valid_output": "artifacts/carla_estimation",
+  "command": "python3 -m demos.carla_estimation_regression --steps 400 --seeds 7,19 --output artifacts/carla_estimation",
+  "scope": "6 profiles x 2 seeds; 400 controlled ticks and one terminal physics sample per run; no threshold exclusions",
+  "unit_command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest -q tests/test_carla_sensor_contract.py tests/test_carla_contract.py tests/test_state_estimator.py",
+  "unit_tests": 11,
+  "unit_result": "PASS",
+  "legacy_compatibility_command": "python3 -m demos.carla_regression --steps 80 --scenarios straight --seeds 7 --output artifacts/carla_estimation_legacy_final_smoke",
+  "historical_outputs": {
+    "carla_estimation_invalid_tick_overlap": "INVALID concurrent tick history; excluded entirely from acceptance",
+    "carla_estimation_legacy_smoke": "INVALID concurrent tick history; excluded entirely",
+    "carla_estimation_before_stationary_prior": "Valid earlier implementation failure: 8/12 feedback passed; retained and superseded by source fix",
+    "carla_estimation_smoke": "Valid earlier independent 400-tick ideal-straight feedback pass, physical PARTIAL",
+    "carla_estimation_legacy_smoke_valid": "Valid earlier compatibility smoke before final stationary covariance prior"
+  }
+}
