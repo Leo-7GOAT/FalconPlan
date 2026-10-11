@@ -1,0 +1,43 @@
+{
+  "status": "PASS_REAL_SIM",
+  "engine": "0.9.15",
+  "map": "Carla/Maps/Town10HD_Opt",
+  "dt": 0.05,
+  "runs": [
+    {
+      "throttle": 0.1,
+      "max_speed": 0.8129183400293382,
+      "max_finite_difference_acceleration": 1.8826921677592163,
+      "max_native_acceleration": 2.09091514367124,
+      "final_speed": 0.0
+    },
+    {
+      "throttle": 0.15,
+      "max_speed": 1.6550991754884787,
+      "max_finite_difference_acceleration": 2.1196391148725646,
+      "max_native_acceleration": 2.124229062375469,
+      "final_speed": 0.0
+    },
+    {
+      "throttle": 0.2,
+      "max_speed": 2.6283689443214393,
+      "max_finite_difference_acceleration": 2.20114169204489,
+      "max_native_acceleration": 2.336315052419316,
+      "final_speed": 0.0
+    },
+    {
+      "throttle": 0.25,
+      "max_speed": 3.719309608262626,
+      "max_finite_difference_acceleration": 2.4974589501890154,
+      "max_native_acceleration": 2.4974589502624163,
+      "final_speed": 0.0
+    },
+    {
+      "throttle": 0.3,
+      "max_speed": 4.819091129234191,
+      "max_finite_difference_acceleration": 3.032368959455851,
+      "max_native_acceleration": 3.0323697212917264,
+      "final_speed": 0.0
+    }
+  ]
+}

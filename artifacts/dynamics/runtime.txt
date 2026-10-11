@@ -1,0 +1,146 @@
+{
+  "status": "PASS_UNIT",
+  "engine": "ANALYTICAL_BICYCLE_NOT_CARLA",
+  "samples_per_run": 1000,
+  "dt": 0.01,
+  "platform": "Windows-10-10.0.19045-SP0",
+  "runs": [
+    {
+      "model": "kinematic",
+      "delay_s": 0,
+      "gain": 1,
+      "friction": 0.9,
+      "speed_m_s": 10,
+      "cte_rmse_m": 0.26515970895081964,
+      "heading_rmse_rad": 0.02261309548179152,
+      "max_steering_rad": 0.05974211447790444,
+      "controller_model_runtime_us": {
+        "p50": 14.0,
+        "p95": 32.504999999999995,
+        "p99": 92.01599999999999
+      },
+      "final_cte_m": -0.032221579951225036,
+      "status": "PASS_UNIT"
+    },
+    {
+      "model": "dynamic",
+      "delay_s": 0,
+      "gain": 1,
+      "friction": 0.9,
+      "speed_m_s": 10,
+      "cte_rmse_m": 0.26218505367522144,
+      "heading_rmse_rad": 0.023361618644149165,
+      "max_steering_rad": 0.06840099094425757,
+      "controller_model_runtime_us": {
+        "p50": 55.95,
+        "p95": 150.86499999999995,
+        "p99": 401.2769999999999
+      },
+      "final_cte_m": -0.023661104157949978,
+      "status": "PASS_UNIT"
+    },
+    {
+      "model": "dynamic",
+      "delay_s": 0.2,
+      "gain": 1.5,
+      "friction": 0.7,
+      "speed_m_s": 10,
+      "cte_rmse_m": 0.5875711361354663,
+      "heading_rmse_rad": 0.16511262842437865,
+      "max_steering_rad": 0.2878217411614634,
+      "controller_model_runtime_us": {
+        "p50": 56.55,
+        "p95": 130.905,
+        "p99": 234.97699999999995
+      },
+      "final_cte_m": -0.8571994435170703,
+      "status": "PASS_UNIT"
+    },
+    {
+      "model": "dynamic",
+      "delay_s": 0.2,
+      "gain": 0.6,
+      "friction": 0.7,
+      "speed_m_s": 10,
+      "cte_rmse_m": 0.3300516841228644,
+      "heading_rmse_rad": 0.02508714325602476,
+      "max_steering_rad": 0.05142245996278344,
+      "controller_model_runtime_us": {
+        "p50": 58.0,
+        "p95": 133.25499999999994,
+        "p99": 259.2859999999999
+      },
+      "final_cte_m": 0.013449843074420483,
+      "status": "PASS_UNIT"
+    },
+    {
+      "model": "dynamic",
+      "delay_s": 0.2,
+      "gain": 0.6,
+      "friction": 0.4,
+      "speed_m_s": 20,
+      "cte_rmse_m": 38.760275635179184,
+      "heading_rmse_rad": 1.2484620301751126,
+      "max_steering_rad": 0.49999999999999967,
+      "controller_model_runtime_us": {
+        "p50": 58.7,
+        "p95": 159.405,
+        "p99": 318.525
+      },
+      "final_cte_m": -111.54271640232751,
+      "status": "FAIL"
+    }
+  ],
+  "lateral_linear_eigenvalues": {
+    "2": [
+      [
+        -43.4058845353628,
+        0.0
+      ],
+      [
+        -59.26078213130386,
+        0.0
+      ]
+    ],
+    "5": [
+      [
+        -19.728901166453426,
+        0.0
+      ],
+      [
+        -21.337765500213244,
+        0.0
+      ]
+    ],
+    "10": [
+      [
+        -10.266666666666666,
+        2.870230343059982
+      ],
+      [
+        -10.266666666666666,
+        -2.870230343059982
+      ]
+    ],
+    "20": [
+      [
+        -5.133333333333334,
+        3.2341236147611236
+      ],
+      [
+        -5.133333333333334,
+        -3.2341236147611236
+      ]
+    ],
+    "30": [
+      [
+        -3.4222222222222225,
+        3.297106849989383
+      ],
+      [
+        -3.4222222222222225,
+        -3.297106849989383
+      ]
+    ]
+  }
+}

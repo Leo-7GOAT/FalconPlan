@@ -9,3 +9,10 @@ dist/
 build/
 *.egg-info/
 
+
+artifacts/package/*.whl
+# Keep representative camera GIFs; all raw traces and metrics are versioned.
+artifacts/carla*/**/simulation.gif
+!artifacts/carla/static_obstacle_seed7/simulation.gif
+!artifacts/carla_cpp_recovery_verified/static_obstacle_seed7/simulation.gif
+!artifacts/carla_cpp_recovery_verified/following_seed7/simulation.gif
