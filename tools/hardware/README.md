@@ -75,8 +75,8 @@ python -m tools.hardware.deploy --root ../falconplan-releases rollback
 ```
 
 `stage` exports committed sources into a new release folder, builds an isolated
-venv reusing installed host packages, installs this project without modifying
-global dependencies, and runs its Python regression. Failed tests leave the
+venv reusing compatible installed host packages, installs missing project/test
+dependencies locally, checks dependency consistency, and runs its Python regression. Failed tests leave the
 selection unchanged and retain the log. `--skip-tests` leaves a release
 unselectable. Selection/rollback update an atomic software manifest and start no
 process. Previous releases remain intact. Runtime launcher/supervisor owns safe
