@@ -1,0 +1,19 @@
+name: ROS2 Humble I/O regression
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  ros2:
+    runs-on: ubuntu-22.04
+    container: ros:humble-ros-base
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - run: apt-get update && apt-get install -y python3-pip python3-colcon-common-extensions ros-humble-ackermann-msgs ros-humble-tf2-ros
+      - run: python3 -m pip install --upgrade pip setuptools wheel
+      - run: python3 -m pip install ".[dev]"
+      - run: bash ros2/verify.sh
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: ros2-humble-mock-io
+          path: ros2/evidence/mock_io
