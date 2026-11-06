@@ -8,6 +8,22 @@ __pycache__/
 dist/
 build/
 *.egg-info/
+HW02_*.md
+HW02_*.json
+HW03_*.md
+HW03_*.json
+hw03_calibration_*/
+artifacts/r550_*/
+R550_*.md
+R550_*.json
+ASYNC_PLANNING_BENCHMARK.json
+IPC_QP_BENCHMARK.json
+LOW_SPEED_RUNTIME_BENCHMARK.json
+MPC_REUSE_BENCHMARK.json
+planning/longitudinal_mpc_legacy.py
+planning/longitudinal_mpc_qp.py
+planning/longitudinal_mpc_runtime.py
+hal/r550/
 
 
 artifacts/package/*.whl

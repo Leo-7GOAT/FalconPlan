@@ -3,205 +3,225 @@
 [![Software CI](https://github.com/Leo-7GOAT/FalconPlan/actions/workflows/software.yml/badge.svg)](https://github.com/Leo-7GOAT/FalconPlan/actions/workflows/software.yml)
 [![ROS2 CI](https://github.com/Leo-7GOAT/FalconPlan/actions/workflows/ros2.yml/badge.svg)](https://github.com/Leo-7GOAT/FalconPlan/actions/workflows/ros2.yml)
 
-Vehicle planning and control engineering that connects classical algorithms, a numerically verified C++17 core, ROS 2 safety transport and **real CARLA 0.9.15 physics**. Current delivery: a verified software stage; physical deployment and Raspberry Pi HIL are **PENDING_HARDWARE**.
+Planning and control stack: PID / Stanley / LQR / MPC, Frenet lattice, ST-DP + QP speed, IDM/MOBIL, camera occupancy, ROS 2 Humble on a WHEELTEC R550, and CARLA 0.9.15. 582 tests. Details below in Chinese.
 
-**Evidence at this stage:** 582 native-enabled Python tests, 9 Release + 9 ASan/UBSan C++ tests, actual ROS2/CARLA stop-and-replay verification, a 12-run sensor-feedback study, two independently trained final PPO policies and an enumerated Stackelberg baseline. Passing components have bounded scopes; physical jerk, robust policy behavior and full-loop timing still need work.
+面向规控算法的车辆规划与控制栈：经典控制 / Lattice / ST 速度规划 / 行为决策 / 学习，经 **ROS 2 Humble** 接到 **WHEELTEC R550 阿克曼小车** 与 **CARLA 0.9.15**。
 
-[Baseline audit](docs/BASELINE_AUDIT.md) · [Measured benchmarks](docs/SIMULATION_BENCHMARK.md) · [Hardware preparation](docs/HARDWARE_READINESS.md) · [Acceptance matrix](docs/FINAL_DELIVERY_REPORT.md) · [Interview notes](docs/INTERVIEW_TECHNICAL_GUIDE.md)
+- 软件：Python 算法 + C++17 核（PID / Stanley / 碰撞代价），582 项测试。
+- 仿真：CARLA 全链路 Lattice → ST-DP → QP → MPC，零碰撞验收场景。
+- 实车：R550 + 树莓派 4B，算法节点发 `/cmd_vel`，`chassis_bridge` 写串口并回 `/odom`。
 
-[Sensor-feedback evidence](artifacts/carla_estimation/REPORT.md) · [PPO experiment](docs/LEARNING_EXPERIMENT_REPORT.md) · [Stackelberg experiment](docs/STACKELBERG_EXPERIMENT.md)
+更细的实车记录见 [docs/VEHICLE_ONBOARD.md](docs/VEHICLE_ONBOARD.md)。仿真数字见 [docs/SIMULATION_BENCHMARK.md](docs/SIMULATION_BENCHMARK.md)。
 
-## Watch the real CARLA tests
-
-New full-run RGB recordings from actual CARLA runs, shown inline as looping GIFs: **20 seconds** for obstacle/following tests and **12 seconds** for the other tests, sampled at about **5 frames/s** with sensor-timestamp playback. All six runs use actor-truth control. Motion/fault behavior and physical acceleration/jerk acceptance are separate: the complete physical envelopes remain **PARTIAL**. [Camera timestamps and complete logs](artifacts/readme_gallery_v1/regression.json).
-
-| **Static obstacle avoidance · seed 7** | **Following a slower vehicle · seed 7** |
-|---|---|
-| ![Real CARLA static-obstacle avoidance](artifacts/readme_gallery_v1/static_obstacle_seed7/simulation.gif) | ![Real CARLA following a slower vehicle](artifacts/readme_gallery_v1/following_seed7/simulation.gif) |
-| Online lattice → ST-DP → QP → MPC; C++ Stanley. **61.84 m** actual movement, **0.0959 m** CTE RMSE, zero collisions. [Run metrics](artifacts/readme_gallery_v1/static_obstacle_seed7/summary.json). | Live lead-vehicle state feeds the planning chain. **53.04 m** actual movement, zero collisions; measured jerk remains open. [Run metrics](artifacts/readme_gallery_v1/following_seed7/summary.json). |
-
-| **Curved-road tracking · seed 7** | **150 ms steering delay · seed 19** |
-|---|---|
-| ![Real CARLA curved-road tracking](artifacts/readme_gallery_v1/curve_seed7/simulation.gif) | ![Real CARLA actuator-delay regression](artifacts/readme_gallery_v1/actuator_delay_seed19/simulation.gif) |
-| C++ Stanley / Python PID on the curved reference route; actual steering, trajectory and raw plant measurements. [Run metrics](artifacts/readme_gallery_v1/curve_seed7/summary.json). | Commands pass through an injected steering queue; **44.16 m** actual movement, zero collisions. This is a delay test, not a measured hardware lag. [Run metrics](artifacts/readme_gallery_v1/actuator_delay_seed19/summary.json). |
-
-| **Expired control command · seed 19** | **Stale state timestamp · seed 19** |
-|---|---|
-| ![Real CARLA command-timeout software stop](artifacts/readme_gallery_v1/command_timeout_seed19/simulation.gif) | ![Real CARLA state-timeout software stop](artifacts/readme_gallery_v1/state_timeout_seed19/simulation.gif) |
-| Injected command expiry invokes latched software braking; final actual speed **0 m/s**. [Run metrics](artifacts/readme_gallery_v1/command_timeout_seed19/summary.json). Emergency deceleration/jerk exceed the nominal envelope. | Injected stale state exercises freshness protection; final actual speed **0 m/s**. [Run metrics](artifacts/readme_gallery_v1/state_timeout_seed19/summary.json). Software braking is not a physical E-stop certificate. |
-
-## Architecture
+## 框架
 
 ```mermaid
-flowchart LR
- A[Stamped actor state / GNSS / IMU] --> B[CV / CA + FSM / IDM / MOBIL]
- B --> C[Frenet lattice + collision filtering]
- C --> D[ST DP → corridor → OSQP QP]
- D --> E[Time parameterization → longitudinal MPC]
- E --> F[Stanley / LQR / PID]
- F --> G[Latched software safety]
- G --> H[VehicleHAL / ROS 2 Ackermann]
- H --> I[REAL CARLA 0.9.15]
- I --> A
+flowchart TB
+  subgraph sense [感知与状态]
+    cam[USB 相机 C70]
+    odom["/odom"]
+  end
+  subgraph decide [决策]
+    fsm[FSM + TTC/THW]
+    idm[IDM]
+    mobil[MOBIL]
+  end
+  subgraph plan [规划]
+    lat[Frenet Lattice]
+    stdp[ST-DP]
+    qp[速度 QP]
+  end
+  subgraph ctrl [跟踪]
+    lmpc[纵向 MPC]
+    latc[横向 MPC / LQR / Stanley / PID]
+  end
+  subgraph ros [ROS 2]
+    cmd["/cmd_vel Twist"]
+    bridge[chassis_bridge]
+  end
+  cam --> fsm
+  odom --> fsm
+  fsm --> idm
+  idm --> mobil
+  mobil --> lat
+  lat --> stdp
+  stdp --> qp
+  qp --> lmpc
+  lmpc --> latc
+  latc --> cmd
+  cmd --> bridge
+  bridge -->|串口 vx wz| stm[STM32 底盘]
+  stm --> bridge
+  bridge --> odom
 ```
 
-The complete classical planning chain uses explicitly labelled actor truth. The separate sensor-feedback study initializes from real GNSS/IMU callbacks and drives Stanley/PID/Safety/actuator feedback without Ego truth reads; it does not automatically validate sensor integration into every planner or the ROS transport.
+仓库分层：`behavior/` 决策，`planning/` 路径与速度，`control/` 跟踪，`onboard/` 实车 ROS2 节点，`ros2/falcon_ros/` CARLA / mock 桥，`cpp/` 核，`demos/` 仿真。
 
-![Measured CARLA trajectory, speed, acceleration and runtime](artifacts/portfolio/carla_measured_benchmark.png)
+## 理论与公式
 
-## Implementation and measured evidence
+坐标系：车后轴中心，\(x\) 向前，\(y\) 向左，\(\psi\) 逆时针为正。R550 轴距 \(L=0.144\,\mathrm{m}\)，轮距 \(0.162\,\mathrm{m}\)，轮径 \(0.065\,\mathrm{m}\)。控制周期 \(0.05\,\mathrm{s}\)。阿克曼：
 
-| Layer | Implementation | Verified boundary |
+\[
+\omega = \frac{v}{L}\tan\delta,\qquad |\delta|\le 0.38\,\mathrm{rad},\quad |\omega|\le 0.30\,\mathrm{rad/s}
+\]
+
+### Stanley
+
+\[
+\delta = \tilde{\psi} + \arctan\frac{k\,e}{v+\varepsilon}
+\]
+
+实车直线取 \(k=0.2\)，\(\varepsilon=0.15\)。
+
+### LQR
+
+状态 \(x=[e,\tilde{\psi}]^\top\)，离散化后 DARE 求 \(K\)。实车权重 \(Q=\mathrm{diag}(18,1)\)，\(R=10\)。
+
+### 纵向 / 横向 MPC
+
+纵向：跟踪 \(s,v\)，惩罚 \(\Delta v\)，箱约束 \(0\le v\le v_{\max}\)。横向：误差与航向进 QP，舵角与转角变化率限幅。实车周期 50 ms，预测步数纵向 16、横向 10。
+
+### Frenet Lattice
+
+纵向弧长上采样横向目标 \(y^\star\) 与收束距离，五次多项式满足端点位置、一阶、二阶为零：
+
+\[
+y(s)=y_0+c_3 u^3+c_4 u^4+c_5 u^5,\quad u=s-s_0
+\]
+
+碰撞圆检验：障碍半径 + 车体半径 + 余量。实车绕障目标 \(y\in\{0.15,0.28,0.34,0.40\}\,\mathrm{m}\)（地面系，缝为 0）。
+
+### ST-DP + 速度 QP
+
+ST 图上障碍占栅，DP 代价含速度误差与加速度，再 QP 光滑：
+
+\[
+\min_v\ \|v-v_{\mathrm{dp}}\|^2 + \lambda\|Dv\|^2
+\]
+
+0.5 s 滚动重规划。
+
+### IDM
+
+\[
+s^\star = s_0 + \max\Bigl(0,\; vT + \frac{v\Delta v}{2\sqrt{a b}}\Bigr),\quad
+a_{\mathrm{idm}}=a\Bigl(1-(v/v_0)^4 - (s^\star/s)^2\Bigr)
+\]
+
+实车 \(s_0=0.40\,\mathrm{m}\)，\(T=1.0\,\mathrm{s}\)，\(a=0.35\,\mathrm{m/s^2}\)。MOBIL 激励阈值 0.1。
+
+### 相机占栅
+
+C70 `/dev/video2`，640×480 MJPEG。前方 ROI 均值低于 95 视为有盒子；亮且对比低视为空。有盒子：等待后 Lattice 左绕。拿走盒子：贴缝直行。
+
+## ROS 2 话题
+
+实车两个节点，DDS 话题，串口只在桥里：
+
+```mermaid
+sequenceDiagram
+  participant Cam as USB 相机
+  participant Plan as lattice_planner
+  participant Topic as ROS 2
+  participant Bridge as chassis_bridge
+  participant Car as STM32
+  Cam->>Plan: 图像 ROI
+  Car->>Bridge: 24B 反馈 vx wz V
+  Bridge->>Topic: /odom /voltage
+  Topic->>Plan: Odometry Float32
+  Plan->>Topic: /cmd_vel Twist
+  Topic->>Bridge: linear.x angular.z
+  Bridge->>Car: 11B 速度帧
+```
+
+| 话题 | 类型 | 方向 |
 |---|---|---|
-| Prediction / behavior | CV/CA, TTC/THW, FSM, IDM, MOBIL | Actor-level truth; no perception claim |
-| Planning | Frenet lattice, quartic/quintic, segment collision, dynamic ST projection, DP, corridor, OSQP QP | Unit tests and online real-simulator orchestration |
-| Control | PID anti-windup, Stanley, LQR, receding longitudinal MPC | Solver limits and physical plant limits evaluated separately |
-| Dynamics | Kinematic RK4, friction-limited dynamic bicycle, delayed first-order actuators | Analytical model experiments separately labeled |
-| C++17 | State/command/path structures, PID, Stanley, RK4, nearest-path search, constant jerk, candidate cost / continuous collision / selection, checked C ABI | 9 GoogleTests Release and ASan/UBSan; 1,000 core parity samples, 2,000 planning candidates and 10,000 controller calls |
-| Safety | Timestamp expiry, geofence, speed/steering/rate limits, manual, latched software E-stop | Software / simulator stop only |
-| Real I/O | CARLA spawn/destroy, sync tick, actors, control, collision/RGB/GNSS/IMU | Real 0.9.15 engine; separate sensor-only feedback path with GT access traps and original freshness gates |
-| Experimental learning / game | Actual PPO-Clip, FSM/IDM/MOBIL comparison, finite-action Stackelberg best responses and robust veto | Analytical dynamic/model experiments; weights, seeds, curves and negative OOD results retained; policy CARLA integration pending |
-| ROS 2 | Humble Ackermann/Odometry, TF, safety services, CARLA bridge, rosbag | Real ROS transport; hardware pending |
-| Engineering | Packaging, CPU/RSS profiling, JSONL replay/fault injection, release staging/rollback, CI | CI definitions are not passing badges |
+| `/cmd_vel` | `geometry_msgs/Twist` | planner → bridge |
+| `/odom` | `nav_msgs/Odometry` | bridge → planner |
+| `/voltage` | `std_msgs/Float32` | bridge → planner |
 
-| Checkpoint | Measured result |
+底盘帧：`0x7B` + vx, vy=0, wz 大端 int16（mm/s、mrad/s）+ XOR + `0x7D`。正 `wz` 向左。退出 6 s 零速。断线底盘不会自己停，人须在开关旁。
+
+仿真侧另有 CARLA 桥：`/falcon/safe_command`（Ackermann）与 Safety 锁存，见 `ros2/falcon_ros/`。
+
+## 仿真结果（CARLA 0.9.15）
+
+完整 RGB 回放（约 5 fps）。指标来自实跑，不是示意动画。
+
+| 静态障碍 seed 7 | 跟车 seed 7 |
 |---|---|
-| Python inherited baseline | 483 passed |
-| Latest software regression | WSL, native planning and Torch: **582 passed in 11.36 s**; earlier Windows checkpoint: 524 passed, 11 native/Linux skips |
-| Python/C++ parity | Seed 42, 1,000 cases, max absolute difference **1.42e-14** |
-| DP → QP → MPC analytical demo | Position RMSE **0.0521 m**, speed RMSE **0.0297 m/s**, dense ST check passed |
-| CARLA initial PID suite | 7 scenarios × seeds 7/19, 12 s/run, zero collisions after axle-coordinate correction |
-| Online CARLA full-chain checkpoint | Following/static displacement **53.97/61.61 m**, CTE RMSE **0.000127/0.0802 m**, zero collisions; physical acceleration acceptance **PARTIAL** |
-| Updated manual-gear sensor runs | 4 × 20 s: motion/acceleration passed; actual max acceleration **2.89–2.92 m/s²**, GNSS/IMU position RMSE **0.073–0.104 m**; jerk **78–87 m/s³ remains PARTIAL** |
-| C++ in-process full-chain recovery | Following/static seed 7, 20 s each: motion and +3/−6 m/s² acceleration envelope pass, zero collisions; jerk **PARTIAL**, planner P95 **327/87 ms** |
-| Final seven-scene raw regression | 14 × 12 s: motion and ideal-sensor diagnostics pass, zero collisions; **14/14 overall PARTIAL**, with measured jerk and some acceleration limits exceeded |
-| Real ROS → Safety → CARLA | 802 samples; latency P50/P95/P99 **0.641/0.950/1.350 ms**, timer jitter σ **0.348 ms** |
-| Sensor-only CARLA control | 6 profiles × 2 seeds: **10/12 feedback PASS**, 2 long-dropout accuracy failures; **0/12 full physical-envelope PASS** |
-| Analytical actuator delay | CTE RMSE **0.5876 → 0.3301 m** after gain reduction; 20 m/s low-friction OOD case **FAIL** |
+| ![static](artifacts/readme_gallery_v1/static_obstacle_seed7/simulation.gif) | ![follow](artifacts/readme_gallery_v1/following_seed7/simulation.gif) |
+| Lattice→ST-DP→QP→MPC，位移 61.84 m，CTE RMSE 0.096 m，零碰撞 | 前车状态进规划，位移 53.04 m，零碰撞 |
 
-The initial PID acceleration log was clipped and is excluded from physical acceleration claims. Updated runs record raw measurements and command intent separately. Normal PID scenes exceed the +3 m/s² target; emergency stops exceed the nominal deceleration/jerk envelope. Online Python planning runs at 2 Hz; observed P95 can approach 0.5 s. This is synchronous simulator evidence, not a 20 Hz real-time full-stack certification. Latest versioned JSON reports retain tuning failures. The original 16 milestone groups contain **12 accepted / 4 partial (75% by milestone count)**; numerical PPO/game experiment acceptance does not authorize learned road control.
+| 弯道跟踪 seed 7 | 150 ms 转角延迟 seed 19 |
+|---|---|
+| ![curve](artifacts/readme_gallery_v1/curve_seed7/simulation.gif) | ![delay](artifacts/readme_gallery_v1/actuator_delay_seed19/simulation.gif) |
+| C++ Stanley / PID | 注入转角队列，位移 44.16 m |
 
-## Learning and interaction: actual results, including failures
+| 命令超时 seed 19 | 状态超时 seed 19 |
+|---|---|
+| ![cmd](artifacts/readme_gallery_v1/command_timeout_seed19/simulation.gif) | ![state](artifacts/readme_gallery_v1/state_timeout_seed19/simulation.gif) |
+| 过期指令软件刹停到 0 | 过期状态软件刹停到 0 |
 
-PPO chooses acceleration and lane; a classical controller, predictive guard and the same nominal actuator/Safety contracts execute both learned and FSM/IDM/MOBIL policies. The final policies use training seeds 7/19, **262,144 actual transitions each**, with five independent evaluation seeds and three scenarios per domain. Earlier versions remain in Git; five substantive training runs total 1,179,648 transitions. This is the repository's analytical dynamic bicycle model, **not CARLA**.
+其它测量：Python/C++ 1 000 例最大差 \(1.42\times10^{-14}\)；DP→QP→MPC 解析 demo 位置 RMSE 0.052 m；ROS→Safety→CARLA 802 样本延迟 P50/P95 **0.64 / 0.95 ms**。PPO 与 Stackelberg 是解析自行车模型实验，不是 CARLA 上路，见 [学习报告](docs/LEARNING_EXPERIMENT_REPORT.md)、[博弈报告](docs/STACKELBERG_EXPERIMENT.md)。
 
-| Final paired evaluation | PPO seed 7 | PPO seed 19 | Interpretation |
-|---|---:|---:|---|
-| ID, 15 episodes per policy | 15/15 model gates | 15/15 model gates | Zero collisions/offroad; speed RMSE 3.77/3.70 m/s is worse than the classical baseline's 2.64 m/s |
-| 250 ms actuator delay | 13/15 | 15/15 | Seed 7 has two offroad failures |
-| Friction 0.4 | 15/15 | 15/15 | Bounded tested model envelope |
-| Gain +40% / increased mass | 0/15 | 0/15 | Measured jerk exceeds 6 m/s³ |
-| Combined perturbations | 0/15 | 0/15 | Jerk and offroad failures; overall policy robustness remains PARTIAL |
+仿真里修过的问题：CARLA 轮坐标曾被当成局部米制导致轨迹飞掉；一挡离合器把加速度打到 12–15 m/s²。这些说明仿真过不等于实车过，所以才上 R550。
 
-The shared plant-aware envelope and internal 11.999 m/s target changed between experiment versions; gains across versions cannot be attributed solely to PPO. Within each paired evaluation, every policy uses the same version. [Weights, reward curves, source hashes and exact results](docs/LEARNING_EXPERIMENT_REPORT.md).
+## 实车结果（WHEELTEC R550）
 
-![Actual PPO held-out evaluation, including failed OOD gates](artifacts/learning/evaluation_v3_seed7/id_ood_comparison.png)
+树莓派 4B 8GB，Ubuntu 22.04，ROS2 Humble，C30D STM32。起点：缝左 15 cm，尾对齐 0 m，巡航 0.15 m/s，目标约 2 m。
 
-The Stackelberg baseline explicitly enumerates leader strategies and follower best responses. **540 numerical cases** compare CV, Stackelberg and a bounded robust veto across three seeds and three domains. In noncooperative OOD, the unguarded game predicts **37/60 collisions**; the veto predicts zero within its finite action set but completes only **2/60** merges. This exposes the cooperation/progress tradeoff; it is a planning-model experiment, with CARLA negotiation still pending. [Payoff matrices, trajectories and implementation](docs/STACKELBERG_EXPERIMENT.md).
+| 模块 | 算法 | 地上（收下） |
+|---|---|---|
+| 横向 | PID / LQR / 双 MPC / Stanley | MPC 约 1 cm；Stanley / LQR 贴缝见实车报告 |
+| 路径 | Frenet Lattice | 已知盒 / 相机盒向左绕并回缝 |
+| 速度 | ST-DP + QP，0.5 s 重规划 | 胶条约 2 m |
+| 学习 | 直线 RL、带盒 RL | 直线收下；带盒略偏收下 |
+| 行为 | IDM + FSM | 有盒等待再绕；空则直行 |
+| 相机 | C70 暗块占栅 | 有盒绕行；拿走后贴缝，偏左 1 cm、航向回正 |
+| ROS2 | `/cmd_vel` ↔ `/odom` | 相机 + Lattice + MPC 绕行实车跑通 |
 
-## Setup and reproduction
+ROS2 绕行例：\(x=1.97\,\mathrm{m}\)，\(y=0.058\,\mathrm{m}\)，航向 \(-1.3^\circ\)。拿走盒子直行：偏左约 1 cm，航向约 \(0^\circ\)。
 
-Python 3.10+; Windows Python 3.11 for algorithms, Ubuntu 22.04 / WSL Python 3.10 for matching CARLA API and ROS Humble.
+几何与标定、Stanley/LQR 贴缝过程见 [docs/VEHICLE_ONBOARD.md](docs/VEHICLE_ONBOARD.md)。
+
+本房未做：Hybrid A\*、第二辆车、厂家官方驱动替换现有桥。
+
+## 运行
 
 ```bash
 python -m pip install -e ".[dev,profiling]"
 python -m pytest -q
-MPLBACKEND=Agg python -m demos.w07_dp_qp_speed_demo
-MPLBACKEND=Agg python -m demos.w07_longitudinal_mpc_demo
-python -m demos.dynamics_benchmark
-python -m demos.stackelberg_merge --output artifacts/game/my_run --seeds 7 17 27
 ```
 
-The Agg prefix is Bash syntax. In PowerShell set `$env:MPLBACKEND='Agg'` first; omit it for interactive plots.
+CARLA（Windows 上已开 0.9.15 服务，WSL 里跑）：
 
 ```bash
-# WSL; CARLA 0.9.15 server already running on Windows
 python -m pip install -e ".[dev,sim,profiling]"
-python -m demos.carla_regression --host WINDOWS_HOST_IP --steps 240 --seeds 7,19
 python -m demos.carla_regression --host WINDOWS_HOST_IP --steps 400 --seeds 7,19 \
-  --scenarios following,static_obstacle --full-stack --mpc --output artifacts/new_full_stack
-python -m demos.carla_actuator_identification --host WINDOWS_HOST_IP --manual-gear
-python -m demos.carla_estimation_regression --host WINDOWS_HOST_IP --steps 400 \
-  --seeds 7,19 --output artifacts/my_sensor_feedback
-
-# Full camera recordings; output must be a new directory.
-# Camera pacing affects wall time, so these runs are excluded from timing benchmarks.
-FALCON_PLANNING_CPP_LIBRARY=build/cpp/libfalcon_c.so python -m demos.carla_record_gallery \
-  --host WINDOWS_HOST_IP --cpp-lib build/cpp/libfalcon_c.so --output artifacts/my_gallery
+  --scenarios following,static_obstacle --full-stack --mpc
 ```
 
-Read WSL's default gateway via `ip route` for the host-specific Windows IP. Only one process may own synchronous ticks. Regression returns nonzero for failed/partial acceptance and keeps its logs.
+实车（树莓派，ROS2 Humble）：
 
 ```bash
-# Ubuntu: CMake, GCC and libgtest-dev required
-cmake -S cpp -B build/cpp -DCMAKE_BUILD_TYPE=Release
-cmake --build build/cpp -j4
-ctest --test-dir build/cpp --output-on-failure
-python -m tools.cpp_parity --probe build/cpp/core_probe
-python -m tools.cpp_binding_benchmark --library build/cpp/libfalcon_c.so
-cmake -S cpp -B build/asan -DFALCON_SANITIZE=ON -DCMAKE_BUILD_TYPE=Debug
-cmake --build build/asan -j4
-ctest --test-dir build/asan --output-on-failure
+source /opt/ros/humble/setup.bash
+python3 onboard/r550_ros2_demo.py
 ```
 
-[ROS execution scripts](ros2/) · [Commissioning, recording, calibration, replay and rollback](tools/hardware/README.md)
+## 目录
 
-Reproduce actual learning separately:
-
-```bash
-python -m pip install -e ".[rl,dev,profiling]"
-python -m demos.learning.train_ppo --seed 7 --steps 262144 --output artifacts/my_ppo
-python -m demos.learning.evaluate_ppo --weights artifacts/my_ppo/policy.pt \
-  --output artifacts/my_ppo_evaluation
+```
+behavior/     FSM IDM MOBIL 预测
+planning/     Lattice ST-DP QP 纵向 MPC
+control/      PID Stanley LQR 执行器
+onboard/      R550 ROS2 实车节点
+ros2/         Humble 包、CARLA/mock 桥
+cpp/          C++17 核
+demos/        CARLA / 解析 demo
+docs/         基准、学习、实车
 ```
 
-The evaluation keeps every failed performance gate and returns nonzero for an overall PARTIAL result. CPU CI separately verifies a 512-step training/inference process; its pass does not convert the full OOD experiment to a policy-safety pass.
+## 限制
 
-The CARLA driver optionally executes the C++ Stanley kernel in process with `--cpp-lib build/cpp/libfalcon_c.so`. Python remains responsible for the lattice/DP/QP/MPC executive. With `FALCON_PLANNING_CPP_LIBRARY`, C++ also executes candidate cost, continuous collision and selection; polynomial generation, feasibility, ST-DP/QP and MPC remain Python. The scalar FFI benchmark is recorded honestly, including cases where call overhead makes C++ slower than Python.
-
-## Simulation failures and the fixes that were verified
-
-| Observed problem | Diagnosis | Implemented correction and evidence |
-|---|---|---|
-| Large trajectory error despite a plausible Stanley controller | CARLA wheel coordinates were world centimeters; the HAL treated them as local metric axle coordinates | Project wheel positions into the actor frame, convert units/handedness, and use the rear-axle state contract. Subsequent real-simulator regressions moved along the intended route with zero collisions in the bounded suite. |
-| Requested acceleration looked bounded while the car accelerated at 12–15 m/s² | The automatic first-gear clutch and throttle mapping introduced a physical transient; the initial clipped log concealed its magnitude | Retain raw finite-difference acceleration/jerk, test real throttle steps, select manual first gear and use acceleration feedback. Nominal full-stack acceleration now meets +3/−6 m/s² in accepted runs; measured jerk still fails and stays PARTIAL. |
-| GNSS/IMU EKF diverged by kilometers at spawn | An impossible first-spawn IMU derivative corrupted prediction | Reject and count implausible packets; the four diagnostic reruns achieve 0.073–0.104 m position RMSE. Sensor diagnostics and sensor-driven control are recorded as separate experiments. |
-| A static-obstacle full-stack run failed near standstill | Tiny contact rollback produced a negative initialization speed unsupported by the forward speed planner | Use zero only for the explicitly bounded standstill planner initialization; reject genuine reverse motion. The retained rerun passes motion and acceleration, while its jerk remains unaccepted. |
-| A collision-free synchronous run missed the intended control period | Python planning/solver work sometimes exceeded the 50 ms budget | Move actual candidate evaluation/collision/selection into C++, measure its matched-kernel benefit, and retain full-loop deadline gaps. Faster kernels do not establish a real-time stack. |
-
-Failed logs remain versioned. A solver returning a bounded command is insufficient evidence that the physical plant obeyed it.
-
-## Why a good simulation may fail on a real vehicle
-
-**Physical deployment has not been performed.** The following are engineering hypotheses and a proposed validation plan, grounded in the measured simulator failures above.
-
-| Likely deployment gap | Why it matters | Proposed measurement and mitigation |
-|---|---|---|
-| Steering geometry, backlash, deadzone, saturation and lag | A steering command may produce a different wheel angle or arrive after the controller's assumed time | Obtain the exact chassis protocol and geometry; log bounded supported-wheel steering steps, fit delay/rate/deadzone, and validate the inverse actuator map. Include the measured queue/lag in prediction and MPC; derate speed until tracking is verified. |
-| Tire friction, load transfer, payload and braking authority | The kinematic model can track perfectly while a real tire slips or braking is weaker than assumed | Identify response at low speed; compare dynamic-model predictions against held-out logs. Test mass/friction/grade envelopes, measure stopping distance, then choose a validated operating envelope and conservative braking margins. Existing low-friction/OOD failures are reasons to restrict operation. |
-| GNSS noise/outage, IMU bias/extrinsics and wheel-odometry errors | Real localization can drift or jump; controller performance depends on measurement quality and age | Calibrate axes, bias and sensor mounting; synchronize clocks, use sensor timestamps and reject inconsistent innovations. Measure estimation error against an independent reference; gate commands on freshness and uncertainty, with a verified stop on prolonged loss. |
-| CAN/serial jitter, dropped commands and small-computer overload | Synchronous CARLA waits for computation; a moving vehicle continues while software is late | Measure Pi control-period jitter and end-to-end command acknowledgement under CPU/network load. Use bounded queues, command expiry and a local driver watchdog; optimize the measured bottleneck and test deadline-failure behavior on the target. |
-| Incorrect frame signs, units, clock domains or vendor semantics | A numerically correct algorithm can steer in the wrong direction or accept an old command | Start with read-only telemetry and explicit SI/frame tests; verify steering sign, timestamp ordering, neutral/brake semantics and disconnect behavior before closed-loop motion. Unknown R550 fields remain null until supported by vendor evidence. |
-| Power loss, process crash and manual takeover | A final software brake message may never reach a failed driver or disconnected actuator | Validate an independent physical E-stop/power-isolation mechanism and driver-local command timeout. Test process kill/cable loss and manual takeover in a controlled setup; software stop evidence alone cannot establish this behavior. |
-
-The deployment sequence is **read-only logs → supported-wheel actuator identification → replay and fault injection → controlled low-speed tracking → target timing and stopping tests → wider validated envelope**. Keep command, measured state, receipt time and intervention reason in the same trace. Change one assumption at a time and compare a before/after run against the same acceptance gates.
-
-An interview answer grounded in this project is: *simulation performance depends on assumptions about state quality, actuator response and timing. We already found that correct solver bounds did not guarantee CARLA acceleration or jerk. On hardware I would first measure the sensor/actuator/time contracts, identify the mismatch from logs, and validate each correction at low speed before expanding the envelope.* This describes the proposed deployment method, not claimed real-vehicle experience.
-
-## Current limitations
-
-CARLA wheel positions are world centimeters: treating them as local axle coordinates caused tens of meters of tracking error. The adapter now projects them into the actor frame and explicitly converts handedness. Real step sweeps identified automatic first-gear clutch acceleration spikes of 12–15 m/s²; manual first gear reduced the same throttle sweep to approximately 2–3 m/s². Raw before/after logs are retained. A native Ackermann-servo experiment also failed with a collision.
-
-The full classical planning stack and obstacle states use truth localization; the separate GNSS/IMU control study passes ten feedback cases, while long-dropout accuracy and every complete physical-envelope case remain unaccepted. Circular geometry, lane-selection assumptions, intersections, traffic compliance, perception and a full ODD safety case remain limited. PPO/Stackelberg have actual numerical experiment evidence; road integration, opponent-model robustness and failed OOD envelopes remain open. R550 steering geometry, protocol and calibration remain unknown. **Hardware-Ready / Pending Physical Validation** describes the software adapter/tooling interface, not a physically validated vehicle.
-
-Native planning reproduction after the C++ build:
-
-```bash
-FALCON_PLANNING_CPP_LIBRARY=build/cpp/libfalcon_c.so python -m pytest -q
-python -m tools.cpp_planning_benchmark --library build/cpp/libfalcon_c.so
-FALCON_PLANNING_CPP_LIBRARY=build/cpp/libfalcon_c.so python -m demos.carla_regression \
-  --host WINDOWS_HOST_IP --steps 400 --seeds 7 --scenarios static_obstacle \
-  --full-stack --mpc --cpp-lib build/cpp/libfalcon_c.so --output artifacts/new_cpp_planning
-```
-
-The C++ cost/collision/selection kernel is actually used by the live planner. Its two-thousand-candidate parity study has maximum cost error 4.55e-13 with no collision/selection mismatch. Full native-enabled WSL regression: **535 passed**; the recorded CARLA integration still returns PARTIAL because physical jerk exceeds its unchanged acceptance limit. Original week-level acceptance is **9/16 (56.25%)**, a count of fully accepted milestone groups, not engineering effort.
+断线底盘不会自己停。软件零速不是物理急停证书。绕行停姿仍有厘米级横向与航向残差。PPO OOD（增质量 / 组合扰动）未过门。仿真 jerk 部分场景仍 PARTIAL。
