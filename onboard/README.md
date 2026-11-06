@@ -7,7 +7,7 @@
 | `lattice_planner` | `/odom`，`/voltage` | `/cmd_vel` |
 | `chassis_bridge` | `/cmd_vel` | `/odom`，`/voltage` |
 
-`chassis_bridge` 是唯一写串口的进程。规划器只发 `geometry_msgs/Twist`。
+`chassis_bridge` 是唯一写串口的进程。规划器只发 `geometry_msgs/Twist`。实车 RL 推理见 `rl_policy.py`。
 
 ```bash
 source /opt/ros/humble/setup.bash
