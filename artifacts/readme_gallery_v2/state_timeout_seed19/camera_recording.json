@@ -1,0 +1,17 @@
+{
+  "source": "REAL_CARLA_RGB_CALLBACK",
+  "frames": 59,
+  "resolution": [
+    640,
+    360
+  ],
+  "target_display_fps": 5,
+  "title": "state timeout | safety stop",
+  "screenshot_index": 48,
+  "first_run_time_s": 0.049999821931123734,
+  "last_run_time_s": 11.899999998509884,
+  "full_simulation_seconds": 12.0,
+  "playback": "Sensor timestamp intervals, no artificial motion/interpolation",
+  "capture_pacing": "Wait for GPU callback within four physics frames; affects wall timing only",
+  "gif_sha256": "e8acf4c098b1d9b171922d0242e78ffce227460710f03f02d04f18d7c42a0699"
+}

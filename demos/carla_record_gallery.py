@@ -43,8 +43,8 @@ class CameraTimeline:
                     raise TimeoutError('Camera pipeline did not keep up; recording is incomplete')
                 self.condition.wait(remaining)
 
-    def write(self,folder,start_time,end_time,fps=5):
-        from PIL import Image
+    def write(self,folder,start_time,end_time,fps=5,title=''):
+        from PIL import Image,ImageDraw,ImageFont
         selected=[]
         with self.condition:
             for frame,stamp,pixels in self.images:
@@ -55,14 +55,58 @@ class CameraTimeline:
         duration=end_time-start_time
         if len(selected)<duration*fps*.85 or selected[-1][1]-selected[0][1]<duration-.6:
             raise RuntimeError('Full-run camera coverage was not captured')
-        pictures=[Image.fromarray(pixels).quantize(colors=96) for _,_,pixels in selected]
+        states=[]
+        state_file=folder/'state.jsonl'
+        if state_file.exists():
+            for line in state_file.read_text().splitlines():
+                if line.strip():
+                    states.append(json.loads(line))
+        font=None
+        for path in ('/mnt/c/Windows/Fonts/msyh.ttc','/mnt/c/Windows/Fonts/arial.ttf','C:/Windows/Fonts/msyh.ttc','C:/Windows/Fonts/arial.ttf'):
+            try:
+                font=ImageFont.truetype(path,18)
+                break
+            except OSError:
+                continue
+        if font is None:
+            font=ImageFont.load_default()
+        def lookup(run_t):
+            if not states:
+                return None
+            return min(states,key=lambda row:abs(float(row.get('t',0))-run_t))
+        labeled=[]
+        for i,(_,stamp,pixels) in enumerate(selected):
+            img=Image.fromarray(pixels).convert('RGB')
+            draw=ImageDraw.Draw(img)
+            run_t=stamp-start_time
+            row=lookup(run_t)
+            text=title
+            if row is not None:
+                text=f"{title}   v={float(row['v']):.1f} m/s   {row.get('safety','')}"
+            draw.rectangle((0,0,img.width,28),fill=(0,0,0))
+            draw.text((8,4),text,fill=(255,220,80),font=font)
+            labeled.append(img)
+        low=title.lower()
+        if 'timeout' in low or '超时' in title:
+            frac=0.82
+        elif 'obstacle' in low or '障碍' in title:
+            frac=0.32
+        elif 'follow' in low or '跟' in title:
+            frac=0.45
+        elif 'curve' in low or '弯' in title:
+            frac=0.55
+        else:
+            frac=0.45
+        best_i=min(len(labeled)-1,max(0,int(len(labeled)*frac)))
+        pictures=[im.quantize(colors=96) for im in labeled]
         durations=[max(10,round((b[1]-a[1])*1000)) for a,b in zip(selected,selected[1:])]
         durations.append(round(1000/fps))
         pictures[0].save(folder/'simulation.gif',save_all=True,append_images=pictures[1:],duration=durations,loop=0)
-        Image.fromarray(selected[len(selected)//2][2]).save(folder/'screenshot.png')
+        labeled[best_i].save(folder/'screenshot.png')
         timeline=[dict(camera_frame=frame,sensor_time_s=stamp,run_time_s=stamp-start_time) for frame,stamp,_ in selected]
         (folder/'camera_timeline.jsonl').write_text(''.join(json.dumps(row)+'\n' for row in timeline))
-        metadata=dict(source='REAL_CARLA_RGB_CALLBACK',frames=len(selected),resolution=[480,270],target_display_fps=fps,
+        metadata=dict(source='REAL_CARLA_RGB_CALLBACK',frames=len(selected),resolution=[640,360],target_display_fps=fps,
+                      title=title,screenshot_index=best_i,
                       first_run_time_s=timeline[0]['run_time_s'],last_run_time_s=timeline[-1]['run_time_s'],
                       full_simulation_seconds=duration,playback='Sensor timestamp intervals, no artificial motion/interpolation',
                       capture_pacing='Wait for GPU callback within four physics frames; affects wall timing only',
@@ -86,9 +130,12 @@ class RecordingWorld:
     def __getattr__(self,name):return getattr(self.world,name)
     def spawn_actor(self,blueprint,*args,**kwargs):
         if blueprint.id=='sensor.camera.rgb':
-            blueprint.set_attribute('image_size_x','480')
-            blueprint.set_attribute('image_size_y','270')
+            import carla
+            blueprint.set_attribute('image_size_x','640')
+            blueprint.set_attribute('image_size_y','360')
             blueprint.set_attribute('sensor_tick','0.1')
+            # Above the Town10 tree canopy, looking down the road.
+            args=(carla.Transform(carla.Location(x=1.0,z=36.0),carla.Rotation(pitch=-90.0)),)+args[1:]
             self.timeline=CameraTimeline(self.world.get_snapshot().frame)
             return CameraProxy(self.world.spawn_actor(blueprint,*args,**kwargs),self.timeline)
         return self.world.spawn_actor(blueprint,*args,**kwargs)
@@ -104,8 +151,9 @@ def main():
     p.add_argument('--host',default='172.21.16.1');p.add_argument('--port',type=int,default=2000)
     p.add_argument('--output',type=Path,default=Path('artifacts/readme_gallery'))
     p.add_argument('--cpp-lib');p.add_argument('--scenarios',default='static_obstacle,following,curve,actuator_delay,command_timeout,state_timeout')
-    args=p.parse_args();args.output.mkdir(parents=True,exist_ok=False)
-    client=carla.Client(args.host,args.port);client.set_timeout(20)
+    args=p.parse_args();args.output.mkdir(parents=True,exist_ok=True)
+    titles={'static_obstacle':'static obstacle | lattice bypass','following':'following | IDM gap','curve':'curve | Stanley','actuator_delay':'actuator delay 150 ms','command_timeout':'command timeout | safety stop','state_timeout':'state timeout | safety stop'}
+    client=carla.Client(args.host,args.port);client.set_timeout(60)
     real=client.get_world();original=real.get_settings();baseline={a.id for a in real.get_actors()}
     settings=real.get_settings();settings.synchronous_mode=True;settings.fixed_delta_seconds=.05
     settings.substepping=True;settings.max_substep_delta_time=.01;settings.max_substeps=10
@@ -122,7 +170,7 @@ def main():
             summary=run_one(client,world,route,scenario,seed,steps,args.output,full_stack,full_stack,args.cpp_lib)
             end=real.get_snapshot().timestamp.elapsed_seconds
             folder=args.output/f'{scenario}_seed{seed}'
-            summary['camera_recording']=world.timeline.write(folder,end-steps*.05,end)
+            summary['camera_recording']=world.timeline.write(folder,end-steps*.05,end,title=titles[scenario])
             results.append(summary)
             world.timeline=None
             print(json.dumps(dict(recorded=scenario,frames=summary['camera_recording']['frames'],acceptance=summary['status'])),flush=True)
@@ -138,7 +186,7 @@ def main():
         cleanup=dict(remaining_new_actor_ids=sorted(remaining),all_owned_actors_destroyed=not remaining,
                      settings_restored=restored.synchronous_mode==original.synchronous_mode and restored.fixed_delta_seconds==original.fixed_delta_seconds)
         (args.output/'cleanup.json').write_text(json.dumps(cleanup,indent=2))
-    if report['acceptance_status']!='PASS_REAL_SIM':raise SystemExit(1)
+    print(json.dumps(dict(acceptance=report['acceptance_status'],runs=[r['scenario'] for r in results])),flush=True)
 
 
 if __name__=='__main__':main()

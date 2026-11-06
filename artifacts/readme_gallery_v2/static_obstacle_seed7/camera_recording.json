@@ -1,0 +1,17 @@
+{
+  "source": "REAL_CARLA_RGB_CALLBACK",
+  "frames": 100,
+  "resolution": [
+    640,
+    360
+  ],
+  "target_display_fps": 5,
+  "title": "static obstacle | lattice bypass",
+  "screenshot_index": 32,
+  "first_run_time_s": 0.04999970272183418,
+  "last_run_time_s": 20.0,
+  "full_simulation_seconds": 20.0,
+  "playback": "Sensor timestamp intervals, no artificial motion/interpolation",
+  "capture_pacing": "Wait for GPU callback within four physics frames; affects wall timing only",
+  "gif_sha256": "b4a4bc3d8a4c0700dd1ab6ac5a146ec8e48a46a497ead1e9c77edddfc8e968fd"
+}

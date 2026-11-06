@@ -20,6 +20,15 @@ ASYNC_PLANNING_BENCHMARK.json
 IPC_QP_BENCHMARK.json
 LOW_SPEED_RUNTIME_BENCHMARK.json
 MPC_REUSE_BENCHMARK.json
+artifacts/readme_gallery_v2/_preview/
+artifacts/readme_gallery_v2/**/state.jsonl
+artifacts/readme_gallery_v2/**/camera_timeline.jsonl
+artifacts/readme_gallery_v2/**/screenshot.png
+_wait_carla.py
+_run_one_gallery.py
+_compress_gifs.py
+_probe_carla.sh
+_run_wait.sh
 planning/longitudinal_mpc_legacy.py
 planning/longitudinal_mpc_qp.py
 planning/longitudinal_mpc_runtime.py

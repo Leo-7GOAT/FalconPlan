@@ -1,0 +1,17 @@
+{
+  "source": "REAL_CARLA_RGB_CALLBACK",
+  "frames": 60,
+  "resolution": [
+    640,
+    360
+  ],
+  "target_display_fps": 5,
+  "title": "actuator delay 150 ms",
+  "screenshot_index": 27,
+  "first_run_time_s": 0.049999821931123734,
+  "last_run_time_s": 12.0,
+  "full_simulation_seconds": 12.0,
+  "playback": "Sensor timestamp intervals, no artificial motion/interpolation",
+  "capture_pacing": "Wait for GPU callback within four physics frames; affects wall timing only",
+  "gif_sha256": "8ff0a8aa5942ef85d48a59410ab6ce21ead0e50f293e2d302ac7692e79aa0da6"
+}

@@ -1,0 +1,17 @@
+{
+  "source": "REAL_CARLA_RGB_CALLBACK",
+  "frames": 100,
+  "resolution": [
+    640,
+    360
+  ],
+  "target_display_fps": 5,
+  "title": "following | IDM gap",
+  "screenshot_index": 45,
+  "first_run_time_s": 0.04999970272183418,
+  "last_run_time_s": 20.0,
+  "full_simulation_seconds": 20.0,
+  "playback": "Sensor timestamp intervals, no artificial motion/interpolation",
+  "capture_pacing": "Wait for GPU callback within four physics frames; affects wall timing only",
+  "gif_sha256": "98108691660f93e7fb501944ae809210168dc9085301feef20e9685d7fe02eaf"
+}
